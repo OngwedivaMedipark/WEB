@@ -1,3 +1,3 @@
 <?php
- if (isset($_POST['title'],$_POST['firstName'], $_POST['middleName'], $_POST['lastName']))
+ if (isset($_POST['title'],$_POST['firstName'], $_POST['middleName'], $_POST['lastName'],  $_POST['genderId'],  $_POST['dateOfBirth'], $_POST['age'], $_POST['idType'], $_POST['maritialStatus'], $_POST['ethnicity'], $_POST['religion'], $_POST['homeTel'], $_POST['workTel'], $_POST['prefferedContact'], $_POST['buildingHome'], $_POST['streetName'], $_POST['postalBox'], $_POST['postalCode'], $_POST['cellNumber']))
 ?>
