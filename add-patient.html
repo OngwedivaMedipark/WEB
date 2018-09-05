@@ -295,33 +295,6 @@
 						</div>
                         <!-- end row -->
 
-                        <div class="row">
-                        	<!--<div class="col-lg-12">
-                        		<div class="card-box">
-                        			<div class="row">
-			                        	<div class="col-sm-8">
-			                        		<form>
-			                                    <div class="form-group form-inline search-box">
-                                                    <input type="text" id="search-input" class="form-control product-search" placeholder="Search here...">
-                                                    <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
-                                                </div>
-			                                </form>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <a href="" class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30" data-animation="fadein" data-overlayColor="#36404a" data-toggle="modal" data-target="#custom-modal"><i class="md md-add"></i> Advanced Search</a>
-                                       </div>
-			                        	<div class="col-sm-2">
-			                        		 <a href="" class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30" data-animation="fadein" data-overlayColor="#36404a" data-toggle="modal" data-target="#custom-modal"><i class="md md-add"></i> Add New Patient</a>
-			                        	</div>
-			                        </div>
-
-                        		
-                        		</div>--> <!-- end card-box -->
-
-                               
-
-                            </div> <!-- end col -->
-
                             <div class="col-lg-12">
                                     <div class="add-patient-container">
                                            <h4 class="custom-modal-title">Add New Patient</h4>
@@ -329,13 +302,13 @@
                                          
                               
                               <!-- Modal -info -->
-                                  <form class="add-patient" action="assets/php/add-patient.php" method="post" id="add-patient">
+                            <form class="add-patient" action="assets/php/add-patient.php" method="post" id="add-patient">
                                     <ul id="progressbar">
                                       <li class="active">Personal  Information</li>
                                       <li>Contact Information</li>
-                                      <li>Next of kin </li>
+                                      <!--<li>Next of kin </li>
                                       <li>Payment Information</li>
-                                      <li>Person Responsible for Account</li>
+                                      <li>Person Responsible for Account</li>-->
                                       <li>Terms & Conditions</li>                                      
                                     </ul>
                                   
@@ -384,12 +357,7 @@
 
                                       <div class="form-group form-inline">
                                             <label for="genderId">Gender <span>*</span></label>                                                          
-                                                <select name="genderId" class="form-control" id="gender" placeholder="">
-                                                    <option>--Select option--</option>
-                                                    <option value="male">Male</option>
-                                                    <option value="female">Female</option>
-                                                    <option value="other">Other</option>                                                                                               
-                                            </select>
+                                            <input type="number" name="middleName" class="form-control" id="middleName" placeholder="">
                                         </div>
                               
                                       <div class="form-group form-inline">
@@ -403,14 +371,20 @@
                                        </div>
 
                                        <div class="form-group form-inline">
-                                            <label for="idType">Identity Type <span>*</span></label>
+                                            <label for="identityType">Identity Type <span>*</span></label>
                                                  
-                                            <select name="idType" class="form-control" id="idType" placeholder="">
+                                            <select name="identityType" class="form-control" id="identityType" placeholder="">
                                                     <option>--Select option--</option>
                                                     <option value="male">ID Document</option>
                                                     <option value="female">Passport</option>                                                                  
                                             </select>
                                        </div>
+
+                                       <div class="form-group form-inline">
+                                        <label for="idNumber">Identity Number <span>*</span></label>                                             
+                                        <input type="number" name="idNumber" class="form-control" id="idNumber" placeholder="">                                                   
+                                        </select>
+                                   </div>
 
                                        <div class="form-group form-inline">
                                             <label for="maritialStatus">Maritial Status <span>*</span></label>
@@ -449,7 +423,7 @@
                                             </select>
                                        </div>
                                        </div>
-                                       <div class="col-lg-4">
+                                       <!--<div class="col-lg-4">
                                             <div class="uploader" onclick="$('#filePhoto').click()">Add Picture</div>
                                             <input type="file" name="userprofile_picture"  id="filePhoto" style="display:block;width:255px;"  />
                                            <div>
@@ -457,15 +431,13 @@
                                                <input type="file" name="userprofile_picture"  id="filePhoto" style="display:block;width:255px;"  />
                                                <input type="file" name="userprofile_picture"  id="filePhoto" style="display:block;width:255px;"  />
                                            </div>
-                                       </div>
+                                       </div>-->
                                        
                                        <div class="col-lg-12"></div>
                                       <!-- End Total Number of Constituents in Your Database Field -->
                                       <input type="button" data-page="1" name="next" class="next action-button" value="Save & Continue" />                                   
                                       
                                     </fieldset>
-                                  
-                                  
                                   
                                     <!-- ACQUISITION FIELD SET -->  
                                     <fieldset>
@@ -481,7 +453,7 @@
                                             <input type="text" class="form-control" id="workTel" placeholder="">
                                       </div>
 
-                                    <div class="form-group form-inline">
+                                   <!-- <div class="form-group form-inline">
                                             <label for="prefferedContact">Preffered Contact Method</label>                                                     
                                             <select name="prefferedContact" class="form-control" id="prefferedContact" placeholder="">
                                             <option>--Select option--</option>
@@ -490,34 +462,34 @@
                                             <option value="female">Post</option>
                                                                                 
                                             </select>
-                                    </div>
+                                    </div>-->
 
                                     <div class="form-group form-inline">
                                             <label for="occupation">Residential Address:</label>
                                     </div>
 
                                     <div class="form-group form-inline">
-                                            <label for="buildingHome">Building/House <span>*</span></label>
-                                            <input type="text" class="form-control" id="building-house" name="buildingHome" placeholder="">
+                                            <label for="busAddress">Building/House <span>*</span></label>
+                                            <input type="text" class="form-control" id="building-house" name="busAddress" placeholder="">
                                     </div>
 
                                     <div class="form-group form-inline">
-                                            <label for="streetName">Street Name <span>*</span></label>
-                                            <input type="text" class="form-control" name="streetName" id="street-name" placeholder="">
+                                            <label for="resAddress1">Street Name <span>*</span></label>
+                                            <input type="text" class="form-control" name="resAddress1" id="street-name" placeholder="">
                                     </div>
 
                                     <div class="form-group form-inline">
-                                            <label for="buildingHome">Country <span>*</span></label>
-                                            <input type="text" class="form-control" id="buildingHome" placeholder="">
+                                            <label for="country">Country <span>*</span></label>
+                                            <input type="text" class="form-control" name="country" id="country" placeholder="">
                                     </div>
 
                                     <div class="form-group form-inline">
-                                            <label for="suburbTown">Suburb/Town <span>*</span></label>
-                                            <input type="text" class="form-control"name="suburbTown" id="suburbTown" placeholder="">
+                                            <label for="resSurbub">Suburb/Town <span>*</span></label>
+                                            <input type="text" class="form-control"name="resSurbub" id="resSurbub" placeholder="">
                                     </div>
                                     <div class="form-group form-inline">
-                                            <label for="postalCode">Postal Code <span>*</span></label>
-                                            <input type="text" class="form-control" id="postal-code" placeholder="">
+                                            <label for="resPostCode">Postal Code <span>*</span></label>
+                                            <input type="text" class="form-control" name="resPostCode" id="resPostCode" placeholder="">
                                            
                                      </div>
 
@@ -542,22 +514,22 @@
                                  </div>
 
                                 <div class="form-group form-inline">
-                                        <label for="postalCode">Postal Code <span>*</span></label>
-                                        <input type="text" class="form-control" id="postal-code" name="postalCode" placeholder="">
+                                        <label for="busPostCode">Postal Code <span>*</span></label>
+                                        <input type="text" class="form-control" id="postal-code" name="busPostCode" placeholder="">
                                        
                                  </div>
                                  </div>
 
                                 <div class="col-lg-6"> 
-                                        <div class="form-group form-inline">
+                                        <!--<div class="form-group form-inline">
                                                 <label for="cellNumber">Cell Number <span>*</span></label>
                                                 <input type="number" class="form-control" id="cell-number" name="cellNumber" placeholder="">                                               
-                                         </div>
+                                         </div>-->
                                          <div class="form-group form-inline">
                                                 <label for="email">Email <span>*</span></label>
                                                 <input type="email" class="form-control" name="email" id="email" placeholder="">                                               
                                          </div>
-                                         <div class="form-group form-inline">
+                                         <!--<div class="form-group form-inline">
                                                 <label for="contactHours">Preferred Contact Hours</label>                                                     
                                                 <select name="contactHours" class="form-control" id="contact-methods" placeholder="">
                                                 <option>--Select option--</option>
@@ -566,7 +538,7 @@
                                                 <option value="afterhours">After Hours</option>
                                                                                     
                                                 </select>
-                                        </div>
+                                        </div>-->
                                 </div> 
                                 <div class="col-lg-12">
 
@@ -577,10 +549,8 @@
                                       
                                     </fieldset>
                                   
-                                  
-                                  
                                     <!-- Next of kin field -->  
-                                    <fieldset>
+                                    <!--<fieldset>
                                       <h2 class="fs-title">Next of kin</h2>
                                       <h3 class="fs-subtitle"></h3>
                                 
@@ -658,16 +628,16 @@
                                             </div>
                                     </div>
                                     <div class="col-lg-12"></div>
-                                     <!-- End Next of kin Field -->
+                                   
                                       <input type="button" data-page="3" name="previous" class="previous action-button" value="Previous" />
                                       <input type="button" data-page="3" name="next" class="next action-button" value="Save & Continue" />
                                     
-                                    </fieldset>
+                                    </fieldset>-->
                                   
                                   
                                   
                                     <!-- Payment Information --> 
-                                    <fieldset>
+                                    <!--<fieldset>
                                       <h2 class="fs-title">Payment Information</h2>
                                       <h3 class="fs-subtitle"></h3>
                                         <div class="col-lg-6">
@@ -694,8 +664,8 @@
                                                 </div>
 
                                                 <div class="form-group form-inline">
-                                                        <label for="medicalaidschemenumber">Medical Aid Scheme Number <span>*</span></label>
-                                                        <input type="number" class="form-control" id="medical-aid-scheme-number" placeholder="">
+                                                        <label for="medicalAidSchemeNumber">Medical Aid Scheme Number <span>*</span></label>
+                                                        <input type="number" class="form-control" name="medicalAidSchemeNumber" id="medical-aid-scheme-number" placeholder="">
                                                 </div>
 
                                                                                              
@@ -706,18 +676,18 @@
 
                                                 
                                                 <div class="form-group form-inline">
-                                                        <label for="membername">Member Name <span>*</span></label>
-                                                        <input type="text" class="form-control" id="member-name" placeholder="">
+                                                        <label for="memberName">Member Name <span>*</span></label>
+                                                        <input type="text" class="form-control" id="member-name" name="memberName" placeholder="">
                                                 </div>
 
                                                 <div class="form-group form-inline">
-                                                        <label for="membername">Member Surname <span>*</span></label>
-                                                        <input type="text" class="form-control" id="member-surname" placeholder="">
+                                                        <label for="memberSurname">Member Surname <span>*</span></label>
+                                                        <input type="text" class="form-control" id="member-surname" name="memberSurname" placeholder="">
                                                 </div>
 
                                                 <div class="form-group form-inline">
-                                                        <label for="memberid">Member ID Number <span>*</span></label>
-                                                        <input type="text" class="form-control" id="member-id-number" placeholder="">
+                                                        <label for="memberId">Member ID Number <span>*</span></label>
+                                                        <input type="text" class="form-control" name="memberId" id="member-id-number" placeholder="">
                                                 </div>
 
                                                 <div class="form-group form-inline">
@@ -726,7 +696,7 @@
 
                                                 <div class="form-group form-inline">
                                                         <label for="Patientcode">Patient Dependant Code <span>*</span></label>                                                     
-                                                        <select name=""Patientcode" class="form-control" id=""Patient-code" placeholder="">
+                                                        <select name="patientCode" class="form-control" id="Patient-code" placeholder="">
                                                             <option>--Select option--</option>
                                                             <option value="00">00</option>
                                                             <option value="01">01</option>                                       
@@ -745,22 +715,22 @@
                                      
                                         <div class="clearfix"></div>
                                         
-                                          <!-- End Average Gift Size Percent Change Field 2 -->
+                                          End Average Gift Size Percent Change Field 2 
                                       <input type="button" data-page="4" name="previous" class="previous action-button" value="Previous" />
                                       <input type="button" data-page="4" name="next" class="next action-button" value="Save & Continue" />
                                       
-                                    </fieldset>
+                                    </fieldset>-->
                                   
                                   
                                   
                                     <!-- person responsible -->  
-                                    <fieldset>
+                                    <!--<fieldset>
                                       <h2 class="fs-title">PERSON RESPONSIBLE FOR ACCOUNT</h2>
                                       <h3 class="fs-subtitle"></h3>
                                       <div class="col-lg-6">
                                       <div class="form-group form-inline">                                          
                                         <label for="title">Title <span>*</span></label> 
-                                        <select name="title" class="form-control" id="title" placeholder="">
+                                        <select name="accTitle" class="form-control" id="title" placeholder="">
                                               <option>--Select option--</option>
                                             <option value="title">Title</option>
                                             <option value="mr">Mr</option>
@@ -782,17 +752,17 @@
                             
                                 <div class="form-group form-inline">
                                     <label for="accName">Name <span>*</span></label>
-                                    <input type="text" class="form-control" id="accName" placeholder="">
+                                    <input type="text" class="form-control" name="accName" id="accName" placeholder="">
                                 </div>
 
                                 <div class="form-group form-inline">
                                     <label for="accSurname">Surname <span>*</span></label>
-                                    <input type="text" class="form-control" id="accSurname" placeholder="">
+                                    <input type="text" class="form-control" id="accSurname" name="accSurname" placeholder="">
                                 </div>
 
                                 <div class="form-group form-inline">
                                     <label for="accIdnumber">ID Number <span>*</span></label>
-                                    <input type="text" class="form-control" id="accIdnumber" placeholder="">
+                                    <input type="text" class="form-control" id="accIdnumber" name="accIdnumber" placeholder="">
                                 </div>
 
                                 <div class="form-group form-inline">
@@ -800,33 +770,33 @@
                                 </div>
 
                                 <div class="form-group form-inline">
-                                    <label for="accbuildingHome">Building/House <span>*</span></label>
-                                    <input type="text" class="form-control" id="acc-building-house" placeholder="">
+                                    <label for="accBuildingHome">Building/House <span>*</span></label>
+                                    <input type="text" class="form-control" id="acc-building-house" name="accBuildingHome" placeholder="">
                             </div>
 
                             <div class="form-group form-inline">
-                                    <label for="accbuildingHome">Street Name <span>*</span></label>
+                                    <label for="accStreetName">Street Name <span>*</span></label>
                                     <input type="text" class="form-control" id="acc-street-name" placeholder="">
                             </div>
 
                             <div class="form-group form-inline">
-                                    <label for="accbuildingHome">Country <span>*</span></label>
-                                    <input type="text" class="form-control" id="acc-street-name" placeholder="">
+                                    <label for="accCountry">Country <span>*</span></label>
+                                    <input type="text" class="form-control" id="acc-street-name" placeholder="" name="accCountry">
                             </div>
 
                             <div class="form-group form-inline">
-                                    <label for="accbuildingHome">Suburb/Town <span>*</span></label>
-                                    <input type="text" class="form-control" id="acc-street-name" placeholder="">
+                                    <label for="accSuburb">Suburb/Town <span>*</span></label>
+                                    <input type="text" class="form-control" id="acc-street-name" name="accSuburb" placeholder="">
                             </div>
                             <div class="form-group form-inline">
-                                    <label for="accpostalCode">Postal Code <span>*</span></label>
-                                    <input type="text" class="form-control" id="acc-postal-code" placeholder="">
+                                    <label for="accPostalCode">Postal Code <span>*</span></label>
+                                    <input type="text" name="accPostalCode" class="form-control" id="acc-postal-code" placeholder="">
                                    
                              </div>
 
                             <div class="form-group form-inline">
                                     <label for="accCountry">Country <span>*</span></label>
-                                    <input type="text" class="form-control" id="acc-country" placeholder="">
+                                    <input type="text" class="form-control" id="acc-country" name="accCountry" placeholder="">
                             </div>
 
                             <div class="form-group form-inline">
@@ -903,7 +873,7 @@
                                   <input type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
                                   <input type="button" data-page="5" name="next" class="next action-button" value="Save & Continue" />
                                 
-                                  </fieldset>
+                                  </fieldset>-->
                                   
                                     <fieldset>
                                       <h2 class="fs-title">Terms & Conditions</h2>
@@ -912,7 +882,7 @@
                                       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 
                                       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                        <div class="col-lg-6">
+                                        <!--<div class="col-lg-6">
                                       <div class="form-group form-inline">
                                             <input type="radio" name="sameaddress" value="" id="same-address"> Yes, I accept the terms and conditions
                                         </div>
@@ -931,16 +901,16 @@
                                                     <label for="date">Signature </label>
                                                     <input type="date" class="form-control" id="date" placeholder="">
                                                 </div>
-                                                </div>
+                                                </div>-->
 
                                                 <div class="col-lg-6"></div>
                                                 <div class="clearfix"></div>
                                     
-                                      <input type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
+                                      <input type="button" data-page="3" name="previous" class="previous action-button" value="Previous" />
                                       <input id="submit" class="hs-button primary large action-button next" type="submit" value="Submit">
                                       
                                     </fieldset>
-                                </form>
+                            </form>
                                           </div>
                                           </div>
                                         
@@ -1021,235 +991,6 @@
         </div>
         <!-- END wrapper -->
 
-        <!-- Modal -->
-        <div class="modal fade" id="custom-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-           <div class="modal-content">
-              <div class="modal-header">               
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-            <h4 class="custom-modal-title">Add New Patient</h4>
-            <div class="custom-modal-text text-left">
-           
-
-<!-- Modal -info -->
-    <form class="steps" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="">
-      <ul id="progressbar">
-        <li class="active">User Information</li>
-        <li>Work Information</li>
-        <li>Next of kin </li>
-        <li>Pre-Bookings</li>
-        <li>Bed & Ward occupancy</li>
-        
-      </ul>
-    
-    
-    
-      <!-- USER INFORMATION FIELD SET --> 
-      <fieldset>
-        <h2 class="fs-title">Basic Information</h2>
-        <h3 class="fs-subtitle"></h3>
-        <!-- Begin What's Your First Name Field -->
-            <div class="form-group form-inline">
-            
-                <label for="title">Title</label> 
-                <select name="title" class="form-control" id="title" placeholder="">
-                    <option value="title">Title</option>
-                    <option value="mr">Mr</option>
-                    <option value="mrs">Mrs</option>
-                    <option value="miss">Miss</option>
-                    
-            </select> 
-    
-                <span class="error1" style="display: none;">
-                  <i class="error-log fa fa-exclamation-triangle"></i>
-              </span>
-            </div>
-        <!-- End What's Your First Name Field -->
-    
-        <div class="form-group form-inline">
-            <label for="firstName">First Name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
-        </div>
-      
-        
-        <div class="form-group form-inline">
-            <label for="lastName">Last Name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
-        </div>
-
-        <div class="form-group form-inline">
-            <label for="dateOfBirth">Date of Birth</label>
-            <input type="date" class="form-control" id="dateOfBirth" placeholder="Enter last name">
-        </div>
-        
-        <div class="form-group form-inline">
-            <label for="genderId">Gender</label>                                                          
-                <select name="genderId" class="form-control" id="gender" placeholder="">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                                                               
-            </select>
-                    
-        </div>
-
-        
-        <div class="form-group form-inline">
-            <label for="middleName">Middle Name</label>
-            <input type="text" class="form-control" id="middleName" placeholder="Middle Name">
-</div>
-
-<div class="form-group form-inline">
-        <label for="initials">Initials</label>
-        <input type="text" class="form-control" id="initials" placeholder="Initials">
-</div>
-    
-        <!-- End Total Number of Constituents in Your Database Field -->
-        <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
-        
-      </fieldset>
-    
-    
-    
-      <!-- ACQUISITION FIELD SET -->  
-      <fieldset>
-        <h2 class="fs-title">Work Information</h2>
-      
-        <div class="form-group form-inline">
-            <label for="occupation">Occupation</label>
-            <input type="text" class="form-control" id="occupation" placeholder="Occupation">
-    </div>
-
-    <div class="form-group form-inline">
-        <label for="creatorId">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="Email">
-    </div>
-
-<div class="form-group form-inline">
-            <label for="busAddress">Business Address</label>
-            <input type="text" class="form-control" id="busAddress" placeholder="Business Address">
-</div>
-
-
-                            <div class="form-group form-inline">
-                                    <label for="busPostCode">Business Postal Code</label>
-                                    <input type="text" class="form-control" id="busPostCode" placeholder="Business Postal Code">
-                            </div>
-        
-                            <div class="form-group form-inline">
-                                    <label for="busName">Business Name</label>
-                                    <input type="text" class="form-control" id="busName" placeholder="Business Name">
-                            </div>
-        
-            <!-- End Calc of Total Number of Donors Fields -->
-        <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
-        <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
-        
-      </fieldset>
-    
-    
-    
-      <!-- Cultivation FIELD SET -->  
-      <fieldset>
-        <h2 class="fs-title">Next of kin</h2>
-        <h3 class="fs-subtitle"></h3>
-        <div class="form-group form-inline">
-            
-            <label for="title">Title</label> 
-            <select name="title" class="form-control" id="title" placeholder="">
-                <option value="title">Title</option>
-                <option value="mr">Mr</option>
-                <option value="mrs">Mrs</option>
-                <option value="miss">Miss</option>
-                
-        </select> 
-
-            <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
-    <!-- End What's Your First Name Field -->
-
-    <div class="form-group form-inline">
-        <label for="firstName">First Name</label>
-        <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
-    </div>
-  
-    
-    <div class="form-group form-inline">
-        <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
-    </div>
-
-    <div class="form-group form-inline">
-        <label for="dateOfBirth">Contact number</label>
-        <input type="number" class="form-control" id="dateOfBirth" placeholder="Enter number">
-    </div>
-    
-    <div class="form-group form-inline">
-        <label for="genderId">Gender</label>                                                          
-            <select name="genderId" class="form-control" id="gender" placeholder="">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-                                                           
-        </select>
-                
-    </div>
-            
-    
-    
-        
-            <!-- End Average Gift Size Perchent Change Field -->
-        <input type="button" data-page="3" name="previous" class="previous action-button" value="Previous" />
-        <input type="button" data-page="3" name="next" class="next action-button" value="Next" />
-       
-      </fieldset>
-    
-    
-    
-      <!-- Cultivation2 FIELD SET --> 
-      <fieldset>
-        <h2 class="fs-title">Pre Pre-Bookings</h2>
-        <h3 class="fs-subtitle"></h3>
-       
-          
-            <!-- End Average Gift Size Percent Change Field 2 -->
-        <input type="button" data-page="4" name="previous" class="previous action-button" value="Previous" />
-        <input type="button" data-page="4" name="next" class="next action-button" value="Next" />
-        
-      </fieldset>
-    
-    
-    
-      <!-- RETENTION FIELD SET -->  
-      <fieldset>
-        <h2 class="fs-title">Bed & Ward Occupancy</h2>
-        <h3 class="fs-subtitle"></h3>
-         
-           
-    
-            <!-- End Retention Rate Percent -->
-    
-            <!-- End Final Calc -->
-        <input type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
-        <input id="submit" class="hs-button primary large action-button next" type="submit" value="Submit">
-        
-    </fieldset>
-    
-      <fieldset>
-        <h2 class="fs-title">It's on the way!</h2>
-        <h3 class="fs-subtitle">Thank you for trying out our marketing grader, please go check your email for your fundraising report card and some helpful tips to improve it!</h3>
-        <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
-      </fieldset>
-            </div>
-            </div>
-        </div>
-
-
         <script>
             var resizefunc = [];
         </script>
@@ -1257,7 +998,7 @@
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/modals.js"></script>
+       
         <script src="assets/js/add-patient.js"></script>
         <script src="assets/js/detect.js"></script>
         <script src="assets/js/fastclick.js"></script>
