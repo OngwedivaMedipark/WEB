@@ -555,11 +555,11 @@
                                          </div>
                                          <div class="form-group form-inline">
                                                 <label for="email">Email <span>*</span></label>
-                                                <input type="email" class="form-control" id="email" placeholder="">                                               
+                                                <input type="email" class="form-control" name="email" id="email" placeholder="">                                               
                                          </div>
                                          <div class="form-group form-inline">
-                                                <label for="maritialStatus">Preferred Contact Hours</label>                                                     
-                                                <select name="maritialStatus" class="form-control" id="contact-methods" placeholder="">
+                                                <label for="contactHours">Preferred Contact Hours</label>                                                     
+                                                <select name="contactHours" class="form-control" id="contact-methods" placeholder="">
                                                 <option>--Select option--</option>
                                                 <option value="anytime">Anytime</option>
                                                 <option value="workinghours">Working Hours</option>                                       
@@ -588,17 +588,17 @@
                               
                                   <div class="form-group form-inline">
                                       <label for="nokName">Name <span>*</span></label>
-                                      <input type="text" class="form-control" id="nokName" placeholder="">
+                                      <input type="text" class="form-control" id="nokName" name="nokName" placeholder="">
                                   </div>
 
                                   <div class="form-group form-inline">
                                         <label for="nokSurname">Surname <span>*</span></label>
-                                        <input type="text" class="form-control" id="nokSurname" placeholder="">
+                                        <input type="text" class="form-control" id="nokSurname" name="nokSurname" placeholder="">
                                     </div>
 
                                     <div class="form-group form-inline">
                                             <label for="nokContact">Contact Number <span>*</span></label>
-                                            <input type="text" class="form-control" id="nokContact" placeholder="">
+                                            <input type="text" class="form-control" id="nokContact" name="nokContact" placeholder="">
                                     </div>
                                 
                                     <div class="form-group form-inline">
@@ -606,39 +606,39 @@
                                     </div>
 
                                     <div class="form-group form-inline">
-                                            <label for="nokbuildingHome">Building/House <span>*</span></label>
-                                            <input type="text" class="form-control" id="nokbuilding-house" placeholder="">
+                                            <label for="nokBuildingHome">Building/House <span>*</span></label>
+                                            <input type="text" class="form-control" id="nokbuilding-house" name="nokBuildingHome" placeholder="">
                                     </div>
 
                                     <div class="form-group form-inline">
-                                            <label for="nokbuildingHome">Street Name <span>*</span></label>
-                                            <input type="text" class="form-control" id="nok-street-name" placeholder="">
+                                            <label for="nokStreetName">Street Name <span>*</span></label>
+                                            <input type="text" class="form-control" id="nok-street-name" name="nokStreetName" placeholder="">
                                     </div>
 
                                     <div class="form-group form-inline">
-                                            <label for="nokbuildingHome">Country <span>*</span></label>
-                                            <input type="text" class="form-control" id="nok-country" placeholder="">
+                                            <label for="nokCountry">Country <span>*</span></label>
+                                            <input type="text" class="form-control" id="nok-country" name="nokCountry" placeholder="">
                                     </div>
 
                                     <div class="form-group form-inline">
                                             <label for="nokSurburbTown">Suburb/Town <span>*</span></label>
-                                            <input type="text" class="form-control" id="nok-surburb-town" placeholder="">
+                                            <input type="text" class="form-control" id="nok-surburb-town" name="nokSurburbTown" placeholder="">
                                     </div>
                                     <div class="form-group form-inline">
-                                            <label for="nokpostalCode">Postal Code <span>*</span></label>
-                                            <input type="text" class="form-control" id="nok-postal-code" placeholder="">
+                                            <label for="nokPostalCode">Postal Code <span>*</span></label>
+                                            <input type="text" class="form-control" id="nok-postal-code" name="nokPostalCode" placeholder="">
                                            
                                      </div>   
                                     </div> 
                                     <div class="col-lg-6">
                                             <div class="form-group form-inline">
-                                                    <label for="nokemail">Email <span>*</span></label>
-                                                    <input type="email" class="form-control" id="nok-email" placeholder="">                                               
+                                                    <label for="nokEmail">Email <span>*</span></label>
+                                                    <input type="email" class="form-control" id="nok-email" name="nokEmail" placeholder="">                                               
                                              </div>
 
                                              <div class="form-group form-inline">
                                                     <label for="nokRelationship">Relationship</label>                                                     
-                                                    <select name="nokrelationship" class="form-control" id="nok-ralationship" placeholder="">
+                                                    <select name="nokRelationship" class="form-control" id="nok-ralationship" placeholder="">
                                                     <option>--Select option--</option>
                                                     <option value="mother">Mother</option>
                                                     <option value="father">Father</option>                                       
@@ -674,7 +674,7 @@
                                             
                                                 <div class="form-group form-inline">
                                                         <label for="paymentOptions">Payment Option <span>*</span></label>                                                     
-                                                        <select name="medicalaid" class="form-control" id="medicalaidoption" placeholder="">
+                                                        <select name="paymentOptions" class="form-control" id="medicalaidoption" placeholder="">
                                                             <option>--Select option--</option>
                                                             <option value="medicalaid">Medial Aid</option>
                                                             <option value="cash">Cash</option>                                       
@@ -684,13 +684,13 @@
                                                         </select>
                                                 </div>
                                                 <div class="form-group form-inline">
-                                                        <label for="medicalaidscheme">Medical Aid Scheme <span>*</span></label>
-                                                        <input type="text" class="form-control" id="medical-aid-scheme" placeholder="">
+                                                        <label for="medicalAidScheme">Medical Aid Scheme <span>*</span></label>
+                                                        <input type="text" class="form-control" name="medicalAidScheme" id="medical-aid-scheme" placeholder="">
                                                 </div>
 
                                                 <div class="form-group form-inline">
-                                                        <label for="medicalaidschemeoption">Medical Aid Scheme Option <span>*</span></label>
-                                                        <input type="text" class="form-control" id="medical-aid-scheme-option" placeholder="">
+                                                        <label for="medicalAidSchemeOption">Medical Aid Scheme Option <span>*</span></label>
+                                                        <input name="medicalAidSchemeOption" type="text" class="form-control" id="medical-aid-scheme-option" placeholder="">
                                                 </div>
 
                                                 <div class="form-group form-inline">

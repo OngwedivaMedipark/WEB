@@ -1,20 +1,11 @@
 
     // process the form
-    $("form.add-patient").on('submit', function(){
-
-        var that = $(this),
-        url = that.attr('action'),
-        type = that.attr('method'),
-        data = {}
-
-        that.find('[name]').each(function(index, value){
-          var that = $(this),
-          name = that.attr('name'),
-          value = that.val();
-
-          data[name] = value;
-
-        });
+    $("form.add-patient").on('submit', function(e){
+        e.preventDefault();
+        var form = $(this);
+        var action = form.attr("action");
+        var data = form.serializeArray();
+      
 
         // send ajax
         $.ajax({
@@ -29,18 +20,28 @@
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
             type    : 'POST',            
-            data: JSON.stringify(data),
+            data: JSON.stringify(getFormData(data)),
             success : function(data) {
                 // you can see the result from the console
                 // tab of the developer tools
                 console.log(data);
             },
-            error: function(xhr, resp, text) {
-                console.log(xhr, resp, text);
+            error: function( jqXhr, textStatus, errorThrown ){
+                console.log( errorThrown );
             }
         });
-      
-        return false;
+        });
+
+    //utility function
+function getFormData(data) {
+    var unindexed_array = data;
+    var indexed_array = {};
+ 
+    $.map(unindexed_array, function(n, i) {
+     indexed_array[n['name']] = n['value'];
     });
+ 
+    return indexed_array;
+ }
 
 
