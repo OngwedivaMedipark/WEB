@@ -8,8 +8,6 @@ $(document).ready(function() {
         var action = form.attr("action");
         var data = form.serializeArray();
       
-
-        // send ajax
         $.ajax({
 
             headers:{
