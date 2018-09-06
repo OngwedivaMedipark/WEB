@@ -5,7 +5,7 @@ $(document).ready(function() {
         var form = $(this);
         var action = form.attr("action");
         var data = form.serializeArray();      
-
+        console.log(data);
         // send ajax
         $.ajax({
 
