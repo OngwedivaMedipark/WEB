@@ -306,9 +306,9 @@
                                     <ul id="progressbar">
                                       <li class="active">Personal  Information</li>
                                       <li>Contact Information</li>
-                                      <!--<li>Next of kin </li>
+                                     <li>Next of kin </li>
                                       <li>Payment Information</li>
-                                      <li>Person Responsible for Account</li>-->
+                                      <li>Person Responsible for Account</li>
                                       <li>Terms & Conditions</li>                                      
                                     </ul>
                                   
@@ -423,7 +423,7 @@
                                             </select>
                                        </div>
                                        </div>
-                                       <!--<div class="col-lg-4">
+                                      <div class="col-lg-4">
                                             <div class="uploader" onclick="$('#filePhoto').click()">Add Picture</div>
                                             <input type="file" name="userprofile_picture"  id="filePhoto" style="display:block;width:255px;"  />
                                            <div>
@@ -431,7 +431,7 @@
                                                <input type="file" name="userprofile_picture"  id="filePhoto" style="display:block;width:255px;"  />
                                                <input type="file" name="userprofile_picture"  id="filePhoto" style="display:block;width:255px;"  />
                                            </div>
-                                       </div>-->
+                                       </div>
                                        
                                        <div class="col-lg-12"></div>
                                       <!-- End Total Number of Constituents in Your Database Field -->
@@ -439,7 +439,7 @@
                                       
                                     </fieldset>
                                   
-                                    <!-- ACQUISITION FIELD SET -->  
+                                    <!-- Contact Information -->  
                                     <fieldset>
                                       <h2 class="fs-title">Contact Information</h2>
                                       <div class="col-lg-6">
@@ -453,7 +453,7 @@
                                             <input type="text" class="form-control" id="workTel" placeholder="">
                                       </div>
 
-                                   <!-- <div class="form-group form-inline">
+                                    <div class="form-group form-inline">
                                             <label for="prefferedContact">Preffered Contact Method</label>                                                     
                                             <select name="prefferedContact" class="form-control" id="prefferedContact" placeholder="">
                                             <option>--Select option--</option>
@@ -462,7 +462,7 @@
                                             <option value="female">Post</option>
                                                                                 
                                             </select>
-                                    </div>-->
+                                    </div>
 
                                     <div class="form-group form-inline">
                                             <label for="occupation">Residential Address:</label>
@@ -521,15 +521,15 @@
                                  </div>
 
                                 <div class="col-lg-6"> 
-                                        <!--<div class="form-group form-inline">
+                                        <div class="form-group form-inline">
                                                 <label for="cellNumber">Cell Number <span>*</span></label>
                                                 <input type="number" class="form-control" id="cell-number" name="cellNumber" placeholder="">                                               
-                                         </div>-->
+                                         </div>
                                          <div class="form-group form-inline">
                                                 <label for="email">Email <span>*</span></label>
                                                 <input type="email" class="form-control" name="email" id="email" placeholder="">                                               
                                          </div>
-                                         <!--<div class="form-group form-inline">
+                                         <div class="form-group form-inline">
                                                 <label for="contactHours">Preferred Contact Hours</label>                                                     
                                                 <select name="contactHours" class="form-control" id="contact-methods" placeholder="">
                                                 <option>--Select option--</option>
@@ -538,7 +538,7 @@
                                                 <option value="afterhours">After Hours</option>
                                                                                     
                                                 </select>
-                                        </div>-->
+                                        </div>
                                 </div> 
                                 <div class="col-lg-12">
 
@@ -550,7 +550,7 @@
                                     </fieldset>
                                   
                                     <!-- Next of kin field -->  
-                                    <!--<fieldset>
+                                   <fieldset>
                                       <h2 class="fs-title">Next of kin</h2>
                                       <h3 class="fs-subtitle"></h3>
                                 
@@ -632,12 +632,12 @@
                                       <input type="button" data-page="3" name="previous" class="previous action-button" value="Previous" />
                                       <input type="button" data-page="3" name="next" class="next action-button" value="Save & Continue" />
                                     
-                                    </fieldset>-->
+                                    </fieldset>
                                   
                                   
                                   
                                     <!-- Payment Information --> 
-                                    <!--<fieldset>
+                                  <fieldset>
                                       <h2 class="fs-title">Payment Information</h2>
                                       <h3 class="fs-subtitle"></h3>
                                         <div class="col-lg-6">
@@ -715,16 +715,16 @@
                                      
                                         <div class="clearfix"></div>
                                         
-                                          End Average Gift Size Percent Change Field 2 
+                                        
                                       <input type="button" data-page="4" name="previous" class="previous action-button" value="Previous" />
                                       <input type="button" data-page="4" name="next" class="next action-button" value="Save & Continue" />
                                       
-                                    </fieldset>-->
+                                    </fieldset>
                                   
                                   
                                   
                                     <!-- person responsible -->  
-                                    <!--<fieldset>
+                                  <fieldset>
                                       <h2 class="fs-title">PERSON RESPONSIBLE FOR ACCOUNT</h2>
                                       <h3 class="fs-subtitle"></h3>
                                       <div class="col-lg-6">
@@ -849,12 +849,12 @@
 
                                                 <div class="form-group form-inline">
                                                         <label for="accEmail">Email Address <span>*</span></label>
-                                                        <input type="text" class="form-control" id="acc-email" placeholder="">
+                                                        <input type="text" name="accEmail" class="form-control" id="acc-email" placeholder="">
                                                     </div>
 
                                                     <div class="form-group form-inline">                                          
-                                                            <label for="title">Statement & letters sent via <span>*</span> </label> 
-                                                            <select name="title" class="form-control" id="title" placeholder="">
+                                                            <label for="accStatement">Statement & letters sent via <span>*</span> </label> 
+                                                            <select name="accStatement" class="form-control" id="title" placeholder="">
                                                                   <option>--Select option--</option>
                                                                 <option value="phone">Phone</option>
                                                                 <option value="email">Email</option>
@@ -873,7 +873,7 @@
                                   <input type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
                                   <input type="button" data-page="5" name="next" class="next action-button" value="Save & Continue" />
                                 
-                                  </fieldset>-->
+                                  </fieldset>
                                   
                                     <fieldset>
                                       <h2 class="fs-title">Terms & Conditions</h2>
@@ -906,7 +906,7 @@
                                                 <div class="col-lg-6"></div>
                                                 <div class="clearfix"></div>
                                     
-                                      <input type="button" data-page="3" name="previous" class="previous action-button" value="Previous" />
+                                      <input type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
                                       <input id="submit" class="hs-button primary large action-button next" type="submit" value="Submit">
                                       
                                     </fieldset>
