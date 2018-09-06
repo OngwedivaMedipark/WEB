@@ -1,13 +1,12 @@
-
-
 $(document).ready(function() {
     // process the form
     $("form.add-patient").on('submit', function(e){
         e.preventDefault();
         var form = $(this);
         var action = form.attr("action");
-        var data = form.serializeArray();
-      
+        var data = form.serializeArray();      
+
+        // send ajax
         $.ajax({
 
             headers:{
@@ -44,9 +43,6 @@ function getFormData(data) {
  
     return indexed_array;
  }
-
-
-
         
 /*add doctor */
 
