@@ -12,7 +12,7 @@ if(isset($_POST["personId"]))
       die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
   }                           
   
-  $sql = 'SELECT personId, firstName, lastName, email, idNumber
+  $sql = 'SELECT * personId, firstName, lastName, email, idNumber
   FROM Person WHERE id= personId';
 
   $query = mysqli_query($conn, $sql);
