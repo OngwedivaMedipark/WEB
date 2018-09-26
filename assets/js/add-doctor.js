@@ -16,7 +16,7 @@ $(document).ready(function() {
                 'Accept' : 'application/json',
                 'content-Type' : 'application/json'
             },
-            url     : 'https://admissions-dot-medipark-hospital.appspot.com/v1/Doctor/create',
+            url     : 'http://localhost:61036/v1/Staff/create',
             crossDomain: true,
             async   : true,
             contentType: "application/json; charset=utf-8",
