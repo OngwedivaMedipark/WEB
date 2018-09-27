@@ -22,9 +22,9 @@ handlers:
 - url: /
   script: patients.php
  
-- url: /dashboard.html
-  static_files: dashboard.html  
-  upload: dashboard.html
+- url: /dashboard.php
+  static_files: dashboard.php 
+  upload: dashboard.php
 
 - url:  /add-doctor.html 
   static_files: add-doctor.html 

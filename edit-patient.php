@@ -1,4 +1,64 @@
-<!DOCTYPE html>
+<?php
+
+error_reporting(0);
+ini_set('display_errors', 0);
+
+ 
+  $output='';  
+  $db_host = "35.229.89.118";
+  $db_user = "admin";
+  $db_pass = "sp!cymacfe@st";
+  $db_name = "omeyah";
+  
+  $personId = $_GET["id"]; 
+  
+  $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+  if (!$conn) {
+      die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
+  }                           
+ 
+  $sql = "SELECT * FROM omeyah.Person WHERE PersonId = '$personId'";
+  
+
+  $query = mysqli_query($conn, $sql);
+  while($row = mysqli_fetch_array($query))
+      {
+         $name = $row['FirstName'];
+         $lastname = $row['LastName'];
+         $dob = $row['DateOfBirth'];
+         $IdNumber = $row['IdNumber'];
+         $PassportNumber = $row['PassportNumber'];
+         $CauseOfDeath = $row['CauseOfDeath'];
+         $DeathDate = $row['DeathDate'];
+         $CreatorId = $row['CreatorId'];
+         $MiddleName = $row['MiddleName'];
+         $Initials = $row['Initials'];
+         $ResAddress1 = $row['ResAddress1'];
+         $ResPostCode = $row['ResPostCode'];
+         $Title = $row['Title'];
+         $Occupation = $row['Occupation'];
+         $Religion = $row['Religion'];
+         $Email = $row['Email'];
+         $BusAddress = $row['BusAddress'];
+         $BusPostCode = $row['BusPostCode'];
+         $Type = $row['Type'];
+         $TypeBusName = $row['TypeBusName'];
+         $HomeTel = $row['HomeTel'];
+         $WorkTel = $row['WorkTel'];
+         $ResSurbub = $row['ResSurbub'];
+         $Country = $row['Country'];
+         $GenderId = $row['GenderId'];
+         $DeadTypeId = $row['DeadTypeId'];
+         $Ethnicity = $row['Ethnicity'];
+         $IdentityType = $row['IdentityType'];
+         $MaritalStatus = $row['MaritalStatus'];
+         
+      }
+        
+ 
+  ?>
+
+  <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -231,7 +291,7 @@
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-stethoscope"></i><span> Nurse</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="add-nurse.html">Add Nurse</a></li>
-                                    <li><a href="manage-nurse.htnl">Manage Nurse</a></li>                                   
+                                    <li><a href="manage-nurse.html">Manage Nurse</a></li>                                   
                                 </ul>
                             </li>
 
@@ -279,7 +339,7 @@
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Patients </h4>
+                                    <h4 class="page-title">Edit Patient Details: <?php echo $name; ?> </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Medipark</a>
@@ -302,7 +362,7 @@
                                  
                       
                       <!-- Modal -info -->
-                    <form class="add-patient" action="assets/php/add-patient.php" method="post" id="add-patient">
+                    <form class="add-patient" action="update-patient.php" method="post" id="update-patient">
                             <ul id="progressbar">
                               <li class="active">Personal  Information</li>
                               <li>Contact Information</li>
@@ -311,10 +371,10 @@
                               <li>Person Responsible for Account</li>
                               <li>Terms & Conditions</li>                                      
                             </ul>
-                          
+                          <input type="hidden" value="<?php echo $personId;?>" name="personId" id="personId" />
                             <!-- USER INFORMATION FIELD SET --> 
                             <fieldset>
-                              <h2 class="fs-title">Personal Information</h2>
+                              <h2 class="fs-title">Personal Information </h2>
                               <h3 class="fs-subtitle"></h3>
                               <!-- Begin What's Your First Name Field -->
                               <div class="col-lg-8">
@@ -342,27 +402,27 @@
                           
                               <div class="form-group form-inline">
                                   <label for="firstName">First Name <span>*</span></label>
-                                  <input type="text" name="firstName" class="form-control" id="firstName" placeholder="">
+                                  <input type="text" name="firstName" class="form-control" value="<?php echo $name;?>" id="firstName" placeholder="">
                               </div>
 
                               <div class="form-group form-inline">
                                     <label for="middleName">Middle Name</label>
-                                    <input type="text" name="middleName" class="form-control" id="middleName" placeholder="">
+                                    <input type="text" name="middleName" class="form-control"  id="middleName" placeholder="">
                               </div>                                    
                               
                               <div class="form-group form-inline">
                                   <label for="lastName">Last Name <span>*</span></label>
-                                  <input type="text" name="lastName" class="form-control" id="lastName" placeholder="">
+                                  <input type="text" name="lastName" class="form-control"  value="<?php echo $lastname;?>" id="lastName" placeholder="">
                               </div>
 
                               <div class="form-group form-inline">
                                     <label for="genderId">Gender <span>*</span></label>                                                          
-                                    <input type="text" name="genderId" class="form-control" id="genderId" placeholder="">
+                                    <input type="text" name="genderId" class="form-control"  value="<?php echo $dob;?>"  id="genderId" placeholder="">
                                 </div>
                       
                               <div class="form-group form-inline">
                                   <label for="dateOfBirth">Date of Birth <span>*</span></label>
-                                  <input type="date" name="dateOfBirth" class="form-control" id="dateOfBirth" placeholder="">
+                                  <input type="date" name="dateOfBirth" class="form-control" id="dateOfBirth" value="<?php echo $dob;?>" placeholder="">
                               </div>
 
                               <div class="form-group form-inline">
@@ -382,7 +442,7 @@
 
                                <div class="form-group form-inline">
                                 <label for="idNumber">Identity Number <span>*</span></label>                                             
-                                <input type="text" name="idNumber" class="form-control" id="idNumber" placeholder="">                                                   
+                                <input type="text" name="idNumber" class="form-control" id="idNumber" value="<?php echo $IdNumber;?>" placeholder="">                                                   
                                 </select>
                            </div>
 
@@ -445,12 +505,12 @@
                               <div class="col-lg-6">
                               <div class="form-group form-inline">
                                   <label for="homeTel">Home Telephone</label>
-                                  <input type="text" class="form-control" id="homeTel" placeholder="">
+                                  <input type="text" class="form-control" id="homeTel"  name="homeTel" value="<?php echo $HomeTel;?>" placeholder="">
                               </div>
 
                               <div class="form-group form-inline">
                                     <label for="workTel">Work Telephone</label>
-                                    <input type="text" class="form-control" id="workTel" placeholder="">
+                                    <input type="text" class="form-control" id="workTel" name="workTel" value="<?php echo $WorkTel;?>"  placeholder="">
                               </div>
 
                             <div class="form-group form-inline">
@@ -470,26 +530,26 @@
 
                             <div class="form-group form-inline">
                                     <label for="busAddress">Building/House <span>*</span></label>
-                                    <input type="text" class="form-control" id="building-house" name="busAddress" placeholder="">
+                                    <input type="text" class="form-control" id="building-house" name="busAddress"  value="<?php echo $BusAddress;?>"  placeholder="">
                             </div>
 
                             <div class="form-group form-inline">
                                     <label for="resAddress1">Street Name <span>*</span></label>
-                                    <input type="text" class="form-control" name="resAddress1" id="street-name" placeholder="">
+                                    <input type="text" class="form-control" name="resAddress1" id="street-name"  value="<?php echo $ResAddress1;?>"  placeholder="">
                             </div>
 
                             <div class="form-group form-inline">
                                     <label for="country">Country <span>*</span></label>
-                                    <input type="text" class="form-control" name="country" id="country" placeholder="">
+                                    <input type="text" class="form-control" name="country" id="country"  value="<?php echo $Country;?>"  placeholder="">
                             </div>
 
                             <div class="form-group form-inline">
                                     <label for="resSurbub">Suburb/Town <span>*</span></label>
-                                    <input type="text" class="form-control"name="resSurbub" id="resSurbub" placeholder="">
+                                    <input type="text" class="form-control"name="resSurbub" id="resSurbub"  value="<?php echo $ResSurbub;?>"  placeholder="">
                             </div>
                             <div class="form-group form-inline">
                                     <label for="resPostCode">Postal Code <span>*</span></label>
-                                    <input type="text" class="form-control" name="resPostCode" id="resPostCode" placeholder="">
+                                    <input type="text" class="form-control" name="resPostCode" id="resPostCode"  value="<?php echo $ResPostCode;?>"  placeholder="">
                                    
                              </div>
 
@@ -504,13 +564,13 @@
 
                         <div class="form-group form-inline">
                                 <label for="postalBox">Postal Box <span>*</span></label>
-                                <input type="text" name="postalBox" class="form-control" id="postal-box" placeholder="">
+                                <input type="text" name="postalBox" class="form-control" id="postal-box"  value="<?php echo $BusAddress;?>"  placeholder="">
                                 
                          </div>
 
                         <div class="form-group form-inline">
                                 <label for="busPostCode">Postal Code <span>*</span></label>
-                                <input type="text" class="form-control" id="postal-code" name="busPostCode" placeholder="">
+                                <input type="text" class="form-control" id="postal-code" name="busPostCode"  value="<?php echo $BusPostCode;?>" placeholder="">
                                
                          </div>
                          </div>
@@ -518,11 +578,11 @@
                         <div class="col-lg-6"> 
                                 <div class="form-group form-inline">
                                         <label for="cellNumber">Cell Number <span>*</span></label>
-                                        <input type="text" class="form-control" id="cell-number" name="cellNumber" placeholder="">                                               
+                                        <input type="text" class="form-control" id="cell-number" name="cellNumber"  value="<?php echo $HomeTel;?>"  placeholder="">                                               
                                  </div>
                                  <div class="form-group form-inline">
                                         <label for="email">Email <span>*</span></label>
-                                        <input type="email" class="form-control" name="email" id="email" placeholder="">                                               
+                                        <input type="email" class="form-control" name="email" id="email"  value="<?php echo $Email;?>"  placeholder="">                                               
                                  </div>
                                  <div class="form-group form-inline">
                                         <label for="contactHours">Preferred Contact Hours</label>                                                     
@@ -811,7 +871,7 @@
 
                     <div class="form-group form-inline">
                         <label for="occupation">Occupation <span>*</span></label>
-                        <input type="text" class="form-control" id="occupation" placeholder="">
+                        <input type="text" class="form-control" id="occupation" name="occupation" placeholder="">
                     </div>
 
                     <div class="form-group form-inline">
@@ -873,45 +933,46 @@
                             <fieldset>
                               <h2 class="fs-title">Terms & Conditions</h2>
                               <h3 class="fs-subtitle"></h3>
-                              <div class="col-sm-6">
-                                    <ol style="padding-bottom: 15px;">
-                                        <li>The signatory of this form hereby states that he/ she is the Legally Authorised agent of.........,.	(company) and is therefore
-   Authorised to bind and hold the company to this agreement.
-   OR</li>
-                                        <li>The Signatory of this form shall be personally liable to settle the account of the Hospital on presentation thereof, notwithstanding possible membership of a Medical Aid Fund.</li>
-                                        <li>The signatory authorises the Hospital to submit its account to the Medical Aid Scheme of the patient or signatory, if the Hospital elects to do so.</li>
-                                        <li>Any account that is not paid when due, shall bear interest calculated at the rate of 2% per month; a part of a month to be regarded as a full month.</li>
-                                        <li>The legal relations between the debtor/s and the hospital, arising directly or indirectly from the admission of the patient to the hospital or In respect of any treatment administered to the patient in the hospital, shall be determined exclusively In accordance
-   with the laws of the Republic of Namibia and furthermore any competent Magistrate’s court in the Republic of Namibia shall have jurisdiction in all matters so arising, notwithstanding the amount of the cause of action.
-   </li>
-                                       <li>Any person who signs this Admission Form,w hether as a patient, or on behalf of the Being settled for any reason and being referred to attorneys for collection, to be jointly and severally liable for the payment of all the costs on an attorney and own client scale, all collection commission and all tracing costs. All outstanding amounts will be recovered in the following order: attorney’s fees, interest and capital.</li>
-   
-                                       <li>The signatory undertakes to pay the Hospital’s legal costs and collection commission as per approved scales of Agreement.</li>
-   
-                                       <li>The Hospital is hereby authorised to submit the patient for screening for diseases that are determined by the Hospital and to submit such patient for immunisation and treatment of such diseases.</li>
-                                    </ol>
-                                </div>
-                                <div class="col-sm-6">
-                                <ol style="padding-bottom: 15px; word-break: break-all;">
-                                        <li>All telephone calls made shall be debited to the patients account and shall be payable on discharge.</li>
-   
-                                        <li>The Hospital shall not be held responsible for the loss of any personal belongings, which are lost or left behind on the Hospital premises.</li>
-                                        
-                                        <li>PRIVATE PATIENTS - Deposits must be paid on admission and the Balance on discharge.</li>
-   
-                                        <li>I acknowledge and agree th6t any medical practitioner or any other medical professional, who Is not an employee or agent of the Hospital, who treats the patient, is an independent practitioner and the
-   hospital shall not in any way be responsible or liable for any acts or omissions or breach of contract of such medical practitioner or medical professional.</li>
-   
-                                        <li>The Hospital, its employees and agents shall not be liable for, and I hereby indemnify the hospital, its employees and agents from all liability, for any loss, injury and/or dama8e of whatsoever nature suffered by whomsoever, including but not limited to, loss or damage (direct,consequential or indirect), any Injury (Including fatal) sustained by and /or harm caused to the patient or any disease (including terminal) contracted by the patient, whatever the cause may be whilst hospitalised, receiving treatment or any other services while present at the Hospital, whether arising either directly or indirectly out of any act or omission, delict or breach of contract by the Hospital, Its employees or agents</li>
-   
-                                       <li>Neither the Hospital, its employees or agents shall be liable for any direct or consequential loss or damage suffered by any person whomsoever and howsoever
-       arising.
-   </li>
-   
-   <li>Disclosure of Medical Information: The Management of the Hospital and any medical practitioner who treats the patient are hereby authorised to disclose to the medical aid/ medical benefit scheme, or the Compensation Commissioner or insurer to whom a claim is submitted in relation to amounts payable to the hospital full details as to the nature and extent of the Illness or condition of and any treatment rendered to the patient</li>
-                                    </ol>
-   
-                                </div>
+
+                             <div class="col-sm-6">
+                                 <ol style="padding-bottom: 15px;">
+                                     <li>The signatory of this form hereby states that he/ she is the Legally Authorised agent of.........,.	(company) and is therefore
+Authorised to bind and hold the company to this agreement.
+OR</li>
+                                     <li>The Signatory of this form shall be personally liable to settle the account of the Hospital on presentation thereof, notwithstanding possible membership of a Medical Aid Fund.</li>
+                                     <li>The signatory authorises the Hospital to submit its account to the Medical Aid Scheme of the patient or signatory, if the Hospital elects to do so.</li>
+                                     <li>Any account that is not paid when due, shall bear interest calculated at the rate of 2% per month; a part of a month to be regarded as a full month.</li>
+                                     <li>The legal relations between the debtor/s and the hospital, arising directly or indirectly from the admission of the patient to the hospital or In respect of any treatment administered to the patient in the hospital, shall be determined exclusively In accordance
+with the laws of the Republic of Namibia and furthermore any competent Magistrate’s court in the Republic of Namibia shall have jurisdiction in all matters so arising, notwithstanding the amount of the cause of action.
+</li>
+                                    <li>Any person who signs this Admission Form,w hether as a patient, or on behalf of the Being settled for any reason and being referred to attorneys for collection, to be jointly and severally liable for the payment of all the costs on an attorney and own client scale, all collection commission and all tracing costs. All outstanding amounts will be recovered in the following order: attorney’s fees, interest and capital.</li>
+
+                                    <li>The signatory undertakes to pay the Hospital’s legal costs and collection commission as per approved scales of Agreement.</li>
+
+                                    <li>The Hospital is hereby authorised to submit the patient for screening for diseases that are determined by the Hospital and to submit such patient for immunisation and treatment of such diseases.</li>
+                                 </ol>
+                             </div>
+                             <div class="col-sm-6">
+                             <ol style="padding-bottom: 15px; word-break: break-all;">
+                                     <li>All telephone calls made shall be debited to the patients account and shall be payable on discharge.</li>
+
+                                     <li>The Hospital shall not be held responsible for the loss of any personal belongings, which are lost or left behind on the Hospital premises.</li>
+                                     
+                                     <li>PRIVATE PATIENTS - Deposits must be paid on admission and the Balance on discharge.</li>
+
+                                     <li>I acknowledge and agree th6t any medical practitioner or any other medical professional, who Is not an employee or agent of the Hospital, who treats the patient, is an independent practitioner and the
+hospital shall not in any way be responsible or liable for any acts or omissions or breach of contract of such medical practitioner or medical professional.</li>
+
+                                     <li>The Hospital, its employees and agents shall not be liable for, and I hereby indemnify the hospital, its employees and agents from all liability, for any loss, injury and/or dama8e of whatsoever nature suffered by whomsoever, including but not limited to, loss or damage (direct,consequential or indirect), any Injury (Including fatal) sustained by and /or harm caused to the patient or any disease (including terminal) contracted by the patient, whatever the cause may be whilst hospitalised, receiving treatment or any other services while present at the Hospital, whether arising either directly or indirectly out of any act or omission, delict or breach of contract by the Hospital, Its employees or agents</li>
+
+                                    <li>Neither the Hospital, its employees or agents shall be liable for any direct or consequential loss or damage suffered by any person whomsoever and howsoever
+	arising.
+</li>
+
+<li>Disclosure of Medical Information: The Management of the Hospital and any medical practitioner who treats the patient are hereby authorised to disclose to the medical aid/ medical benefit scheme, or the Compensation Commissioner or insurer to whom a claim is submitted in relation to amounts payable to the hospital full details as to the nature and extent of the Illness or condition of and any treatment rendered to the patient</li>
+                                 </ol>
+
+                             </div>
                                 <!--<div class="col-lg-6">
                               <div class="form-group form-inline">
                                     <input type="radio" name="sameaddress" value="" id="same-address"> Yes, I accept the terms and conditions

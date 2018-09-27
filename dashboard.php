@@ -1,3 +1,28 @@
+<?php
+
+session_start();
+
+ $db_host = "35.229.89.118";
+ $db_user = "admin";
+ $db_pass = "sp!cymacfe@st";
+ $db_name = "omeyah";
+
+ $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+ if (!$conn) {
+     die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
+ }
+  
+ $sql = 'SELECT personId, firstName, lastName, email, idNumber
+         FROM Person LIMIT 10';
+          
+ $query = mysqli_query($conn, $sql);
+                             
+ if (!$query) {
+     die ('SQL Error: ' . mysqli_error($conn));
+ }
+                                 
+ 
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -215,7 +240,7 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right"></span> <span> Dashboard </span> </a>
                                 <ul class="list-unstyled">                                    
-                                    <li><a href="dashboard.html">Dashboard </a></li>
+                                    <li><a href="dashboard.php">Dashboard </a></li>
                                 </ul>
                             </li>
 
@@ -423,22 +448,7 @@
                                                     <table class="table table-hover mails m-0 table table-actions-bar">
                                                         <thead>
                                                             <tr>
-                                                                <th style="width: 140px;">
-                                                                    <div class="checkbox checkbox-primary checkbox-single m-r-15 m-l-5">
-                                                                        <input id="action-checkbox" type="checkbox">
-                                                                        <label for="action-checkbox"></label>
-                                                                    </div>
-                                                                    <div class="btn-group dropdown m-l-10">
-                                                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false"><i class="caret"></i></button>
-                                                                        <ul class="dropdown-menu" role="menu">
-                                                                            <li><a href="#">Action</a></li>
-                                                                            <li><a href="#">Another action</a></li>
-                                                                            <li><a href="#">Something else here</a></li>
-                                                                            <li class="divider"></li>
-                                                                            <li><a href="#">Separated link</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </th>
+                                                               
                                                                 <th>Patient ID</th>
                                                                 <th>Name</th>
                                                                 <th>Surname</th>
@@ -453,14 +463,7 @@
                                                     {
                                                 ?>
                                                 <tr>
-                                                    <td>
-                                                        <div class="checkbox checkbox-primary m-r-15 m-l-5">
-                                                            <input id="checkbox2" type="checkbox" >
-                                                            <label for="checkbox2"></label>
-                                                        </div>
-            
-                                                        <img src="assets/images/users/avatar-2.jpg" alt="contact-img" title="contact-img" class="img-circle thumb-sm" />
-                                                    </td>
+                                                  
                                                     <td>
                                                         <?php echo $row["personId"]; ?>
                                                     </td>
