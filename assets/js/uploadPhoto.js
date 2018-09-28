@@ -1,5 +1,5 @@
-function displayUpload(){
-var x = document.getElementById("docUpload");
+/*function displayUpload(){
+var x = document.getElementById("uploadPhoto");
     if(x.style.display ==="none"){
          x.style.display = "block";
     } else {
@@ -7,14 +7,13 @@ var x = document.getElementById("docUpload");
     }
 }
 function displayPicture(){
-var x = document.getElementById("takePicture");
-x.style.display = "none";
+var x = document.getElementById("takePhoto");
 if(x.style.display ==="none"){
      x.style.display = "block";
     } else {
         x.style.display ="none";
     }
-}
+}*/
 
 var video = document.querySelector("#videoElement");
  
