@@ -23,6 +23,7 @@
     <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -737,6 +738,9 @@
                                                        id="medical-aid-scheme-number" placeholder="">
                                             </div>
 
+                                            <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#iframeModal">
+                                                Verify Account <i class="fas fa-check-circle"></i>
+                                            </a>
 
                                             <div class="form-group form-inline">
                                                 <label for="">Main Member Details</label>
@@ -795,6 +799,29 @@
                                         <input type="button" data-page="4" name="previous" class="previous action-button"
                                                value="Previous" />
                                         <input type="button" data-page="4" name="next" class="next action-button" value="Save & Continue" />
+
+                                        <!--===============================iFRAME MODAL=================================-->
+                                        <div class="modal fade" id="iframeModal" style="width:85%" tabindex="-1" role="dialog" aria-labelledby="iframeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" style="display:grid;height: 800px;width:100%;" role="document">
+                                                <div class="modal-content" style="width:100%">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="iframeModalLabel">Medical Aid Verification</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body" style="height:600px">
+                                                        <iframe style="width:100%; height:100%;" src="http://www.methealth.com.na/edoc/PSEMAS/member_info_psemas_results.php"></iframe>
+                                                    </div>
+                                                    <div class="modal-footer">
+
+                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Proceed</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
 
                                     </fieldset>
 
@@ -961,6 +988,7 @@
                                         <input type="button" data-page="5" name="previous" class="previous action-button"
                                                value="Previous" />
                                         <input type="button" data-page="5" name="next" class="next action-button" value="Save & Continue" />
+
 
                                     </fieldset>
 
