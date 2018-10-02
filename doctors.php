@@ -13,7 +13,7 @@ session_start();
  }
   
  $sql = 'SELECT Person.PersonId, firstName, lastName, email, idNumber
- FROM omeyah.Person inner join omeyah.Patient on Person.PersonId = Patient.PersonId;';
+ FROM omeyah.Person inner join omeyah.Doctor on Person.PersonId = Doctor.PersonId;';
           
  $query = mysqli_query($conn, $sql);
                              
@@ -213,7 +213,7 @@ session_start();
 
                                 <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
                                     <li>
-                                        <h5>Hi, Shawn</h5>
+                                        <h5>Hi, Medipark</h5>
                                     </li>
                                     <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Profile</a></li>
                                     <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a></li>
@@ -259,7 +259,7 @@ session_start();
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-stethoscope"></i><span> Nurse</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="add-nurse.html">Add Nurse</a></li>
-                                    <li><a href="nurses.php">Manage Nurse</a></li>                                   
+                                    <li><a href="manage-nurse.html">Manage Nurse</a></li>                                   
                                 </ul>
                             </li>
 
@@ -306,14 +306,14 @@ session_start();
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Patients </h4>
+                                    <h4 class="page-title">Doctors </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Medipark</a>
                                         </li>
                                        
                                         <li class="active">
-                                            Patients
+                                            Doctors
                                         </li>                                        
                                     </ol>
                                     <div class="clearfix"></div>
@@ -339,7 +339,7 @@ session_start();
                                                 <a class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30"  onclick="advancedSearch()"><i class="md md-add"></i> Advanced Search</a>
                                            </div>
                                             <div class="col-sm-2">
-                                                 <a href="add-patient.html" class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30" > Add New Patient</a>
+                                                 <a href="add-patient.html" class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30" > Add New Doctor</a>
                                             </div>
 
                                         <div class="col-sm-8" id="advanced-search">
@@ -378,13 +378,13 @@ session_start();
 				                                            </ul>
 				                                        </div>
                                                     </th>
-                                                    <th>Patient ID</th>
+                                                    <th>Doctor ID</th>
                                                     <th>Name</th>
                                                     <th>Surname</th>
 													<th>Email</th>
                                                     <th>Contact No.</th> 
                                                     <!--<th>Patient Profile</th> -->                                                
-                                                    <th>Modify Patient</th>
+                                                    <th>Modify Doctor</th>
                                                    
 												</tr>
 											</thead>
@@ -423,11 +423,11 @@ session_start();
                                             <?php echo $row["idNumber"]; ?>
                                         </td>
                                        <!-- <td>
-                                            <input type="button" name="view" value="view" id="<?php echo $row["personId"]; ?>"  class="btn btn-info btn-xs view_data"/> 
+                                            <input type="button" name="view" value="view" id="<?php echo $row["I I am"]; ?>"  class="btn btn-info btn-xs view_data"/> 
                                         </td>-->
                                        
                                         <td>
-                                        <a href="edit-patient.php?id=<?php echo $row["personId"]; ?>"   data-id="<?php echo $row["personId"]; ?>"  data-target="#edit-patient" class="table-action-btn h3" >
+                                        <a href="edit-doctor.php?id=<?php echo $row["PersonId"]; ?>"   data-id="<?php echo $row["PersonId"]; ?>"  data-target="#edit-doctor" class="table-action-btn h3" >
                                         <i class="mdi mdi-pencil-box-outline text-success"></i> </a>
                                                                          
                                         </td>
@@ -566,7 +566,7 @@ session_start();
 
               
                               <!-- Modal -info -->
-                            <form class="add-patient" action="assets/php/manage-patient.php" method="post" id="insert-form">
+                            <form class="add-patient" action="assets/php/manage-doctor.php" method="post" id="insert-form">
                                    
                             </form>
                                           </div>
@@ -595,7 +595,7 @@ session_start();
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Patient Details</h5>
+                    <h5 class="modal-title">Ddctor Details</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
