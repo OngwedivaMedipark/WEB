@@ -443,7 +443,7 @@ Person ps on ps.PersonId = p.PersonId LIMIT 10';
                             </div>
                             <!-- end col -->
 
-                            <div class="col-md-8 col-lg-4 col-sm-12">
+                            <div class="col-md-8 col-lg-8 col-sm-12">
                                 <div class="card-box">
                                     <h4 class="header-title m-t-0 m-b-30">Recent Patients Added<h4>
                                         	<div class="table-responsive">
