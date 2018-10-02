@@ -12,8 +12,11 @@ session_start();
      die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
  }
   
- $sql = 'SELECT personId, firstName, lastName, email, idNumber
-         FROM Person LIMIT 10';
+//  $sql = 'SELECT personId, firstName, lastName, email, idNumber
+//          FROM Person p LIMIT 10';
+
+$sql ='SELECT p.PatientId,ps.FirstName,ps.LastName,ps.Email,ps.HomeTel FROM omeyah.Patient p join
+Person ps on ps.PersonId = p.PersonId LIMIT 10';
           
  $query = mysqli_query($conn, $sql);
                              
@@ -310,55 +313,54 @@ session_start();
 							</div>
 						</div>
                         <!-- end row -->
-
-
+    
                         <div class="row">
 
-                            <div class="col-lg-3 col-md-6">
-                                <div class="card-box widget-box-two widget-two-primary">
-                                    <i class="mdi mdi-chart-areaspline widget-two-icon"></i>
-                                    <div class="wigdet-two-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Latest Patients admitted</p>
-                                        <h2><span data-plugin="counterup">34578</span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
-                                        <p class="text-muted m-0"><b>Last:</b> 30.4k</p>
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
+<div class="col-lg-6 col-md-6">
+    <div class="card-box widget-box-two widget-two-primary">
+        <i class="mdi mdi-chart-areaspline widget-two-icon"></i>
+        <div class="wigdet-two-content">
+            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Latest Patients admitted Today</p>
+            <h2><span data-plugin="counterup">10</span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
+            <p class="text-muted m-0"><b>Last Admitted:</b>About an hour ago</p>
+        </div>
+    </div>
+</div><!-- end col -->
 
-                            <div class="col-lg-3 col-md-6">
-                                <div class="card-box widget-box-two widget-two-warning">
-                                    <i class="mdi mdi-layers widget-two-icon"></i>
-                                    <div class="wigdet-two-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Patients Discharged</p>
-                                        <h2><span data-plugin="counterup">52410 </span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
-                                        <p class="text-muted m-0"><b>Last:</b> 40.33k</p>
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
+<div class="col-lg-6 col-md-6">
+    <div class="card-box widget-box-two widget-two-warning">
+        <i class="mdi mdi-layers widget-two-icon"></i>
+        <div class="wigdet-two-content">
+            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Patients Discharged Today</p>
+            <h2><span data-plugin="counterup">5 </span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
+            <p class="text-muted m-0"><b>Last Discharge:</b>About 30min ago</p>
+        </div>
+    </div>
+</div><!-- end col -->
 
-                            <div class="col-lg-3 col-md-6">
-                                <div class="card-box widget-box-two widget-two-danger">
-                                    <i class="mdi mdi-access-point-network widget-two-icon"></i>
-                                    <div class="wigdet-two-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Matrons on Duty</p>
-                                        <h2><span data-plugin="counterup">6352</span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
-                                        <p class="text-muted m-0"><b>Last:</b> 30.4k</p>
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
+<div class="col-lg-6 col-md-6">
+    <div class="card-box widget-box-two widget-two-danger">
+        <i class="mdi mdi-access-point-network widget-two-icon"></i>
+        <div class="wigdet-two-content">
+            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Number Of beds Available</p>
+            <h2><span data-plugin="counterup">52</span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
+            <p class="text-muted m-0"><b>Last Updated:</b> About 5 min ago</p>
+        </div>
+    </div>
+</div><!-- end col -->
 
-                            <div class="col-lg-3 col-md-6">
-                                <div class="card-box widget-box-two widget-two-success">
-                                    <i class="mdi mdi-account-convert widget-two-icon"></i>
-                                    <div class="wigdet-two-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User Today">Doctors on Call </p>
-                                        <h2><span data-plugin="counterup">895 </span> <small><i class="mdi mdi-arrow-down text-danger"></i></small></h2>
-                                        <p class="text-muted m-0"><b>Last:</b> 1250</p>
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
+<div class="col-lg-6 col-md-6">
+    <div class="card-box widget-box-two widget-two-success">
+        <i class="mdi mdi-account-convert widget-two-icon"></i>
+        <div class="wigdet-two-content">
+            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User Today">Doctors on Call </p>
+            <h2><span data-plugin="counterup">15 </span> <small><i class="mdi mdi-arrow-down text-danger"></i></small></h2>
+            <p class="text-muted m-0"><b>Last Updated:</b> About 15min ago </p>
+        </div>
+    </div>
+</div><!-- end col -->
 
-                        </div>
+</div>
                         <!-- end row -->
 
 
@@ -366,7 +368,7 @@ session_start();
 
                         <div class="row">
 
-                            <div class="col-md-4">
+                             <div class="col-md-4 col-lg-4 col-sm-12">
                                 <div class="card-box">
                                     <h4 class="header-title m-t-0 m-b-30">Messages</h4>
 
@@ -374,7 +376,7 @@ session_start();
                                         <a href="#">
                                             <div class="inbox-item">
                                                 <div class="inbox-item-img"><img src="assets/images/users/avatar-1.jpg" class="img-circle" alt=""></div>
-                                                <p class="inbox-item-author">Chadengle</p>
+                                                <p class="inbox-item-author">Miriam Chobe</p>
                                                 <p class="inbox-item-text">Hey! there I'm available...</p>
                                                 <p class="inbox-item-date">13:40 PM</p>
                                             </div>
@@ -382,36 +384,36 @@ session_start();
                                         <a href="#">
                                             <div class="inbox-item">
                                                 <div class="inbox-item-img"><img src="assets/images/users/avatar-2.jpg" class="img-circle" alt=""></div>
-                                                <p class="inbox-item-author">Tomaslau</p>
-                                                <p class="inbox-item-text">I've finished it! See you so...</p>
+                                                <p class="inbox-item-author">Shetu Sheetekela</p>
+                                                <p class="inbox-item-text">IT Upgrading Hospital network!..</p>
                                                 <p class="inbox-item-date">13:34 PM</p>
                                             </div>
                                         </a>
                                         <a href="#">
                                             <div class="inbox-item">
                                                 <div class="inbox-item-img"><img src="assets/images/users/avatar-3.jpg" class="img-circle" alt=""></div>
-                                                <p class="inbox-item-author">Stillnotdavid</p>
-                                                <p class="inbox-item-text">This theme is awesome!</p>
+                                                <p class="inbox-item-author">Frank Mokgoloboto</p>
+                                                <p class="inbox-item-text">New Ongwediva Medipark Website is live!...</p>
                                                 <p class="inbox-item-date">13:17 PM</p>
                                             </div>
                                         </a>
                                         <a href="#">
                                             <div class="inbox-item">
                                                 <div class="inbox-item-img"><img src="assets/images/users/avatar-4.jpg" class="img-circle" alt=""></div>
-                                                <p class="inbox-item-author">Kurafire</p>
-                                                <p class="inbox-item-text">Nice to meet you</p>
+                                                <p class="inbox-item-author">Princess Shikomba</p>
+                                                <p class="inbox-item-text">Nice to meet you...</p>
                                                 <p class="inbox-item-date">12:20 PM</p>
                                             </div>
                                         </a>
                                         <a href="#">
                                             <div class="inbox-item">
                                                 <div class="inbox-item-img"><img src="assets/images/users/avatar-5.jpg" class="img-circle" alt=""></div>
-                                                <p class="inbox-item-author">Shahedk</p>
-                                                <p class="inbox-item-text">Hey! there I'm available...</p>
+                                                <p class="inbox-item-author">Rongeni</p>
+                                                <p class="inbox-item-text">Economy is good, we made a profi...</p>
                                                 <p class="inbox-item-date">10:15 AM</p>
                                             </div>
                                         </a>
-                                        <a href="#">
+                                        <!-- <a href="#">
                                             <div class="inbox-item">
                                                 <div class="inbox-item-img"><img src="assets/images/users/avatar-6.jpg" class="img-circle" alt=""></div>
                                                 <p class="inbox-item-author">Adhamdannaway</p>
@@ -434,14 +436,14 @@ session_start();
                                                 <p class="inbox-item-text">I've finished it! See you so...</p>
                                                 <p class="inbox-item-date">9:56 AM</p>
                                             </div>
-                                        </a>
+                                        </a> -->
                                     </div>
 
                                 </div> <!-- end card -->
                             </div>
                             <!-- end col -->
 
-                            <div class="col-md-8">
+                            <div class="col-md-8 col-lg-4 col-sm-12">
                                 <div class="card-box">
                                     <h4 class="header-title m-t-0 m-b-30">Recent Patients Added<h4>
                                         	<div class="table-responsive">
@@ -465,23 +467,23 @@ session_start();
                                                 <tr>
                                                   
                                                     <td>
-                                                        <?php echo $row["personId"]; ?>
+                                                        <?php echo $row["PatientId"]; ?>
                                                     </td>
             
                                                     <td>
-                                                        <?php echo $row["firstName"]; ?>
+                                                        <?php echo $row["FirstName"]; ?>
                                                     </td>
             
                                                     <td>
-                                                        <?php echo $row["lastName"]; ?>
+                                                        <?php echo $row["LastName"]; ?>
                                                     </td>
             
                                                     <td>                                       
-                                                        <?php echo $row["email"]; ?>
+                                                        <?php echo $row["Email"]; ?>
                                                     </td>
             
                                                     <td>
-                                                        <?php echo $row["idNumber"]; ?>
+                                                        <?php echo $row["HomeTel"]; ?>
                                                     </td>
                                                     <td>                                                  
                                                 </tr>
