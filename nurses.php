@@ -339,7 +339,7 @@ session_start();
                                                 <a class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30"  onclick="advancedSearch()"><i class="md md-add"></i> Advanced Search</a>
                                            </div>
                                             <div class="col-sm-2">
-                                                 <a href="add-patient.html" class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30" > Add New Doctor</a>
+                                                 <a href="add-nurse.html" class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30" > Add New Nurse</a>
                                             </div>
 
                                         <div class="col-sm-8" id="advanced-search">

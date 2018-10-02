@@ -339,7 +339,7 @@ session_start();
                                                 <a class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30"  onclick="advancedSearch()"><i class="md md-add"></i> Advanced Search</a>
                                            </div>
                                             <div class="col-sm-2">
-                                                 <a href="add-patient.html" class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30" > Add New Doctor</a>
+                                                 <a href="add-doctor.html" class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30" > Add New Doctor</a>
                                             </div>
 
                                         <div class="col-sm-8" id="advanced-search">
@@ -559,7 +559,7 @@ session_start();
             <div class="modal-body" id="patient-data">
             <div class="col-lg-12">
                                     <div class="add-patient-container">
-                                           <h4 class="custom-modal-title">Add New Patient</h4>
+                                           <h4 class="custom-modal-title">Add New Doctor</h4>
                                           <div class="custom-modal-text text-left">
                                          
                              
