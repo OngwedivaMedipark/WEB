@@ -3709,7 +3709,7 @@ input[data-switch="teal"]:checked + label {
 ============= */
 th {
   font-family: 'Hind Madurai', sans-serif;
-  font-weight: 600;
+  font-weight: 100;
 }
 .table-centered td {
   vertical-align: middle !important;
