@@ -33,6 +33,12 @@ margin: 25px auto;
 position: relative;
 }
 
+div#onload {
+  height: 240px;
+  top: 20%;
+  overflow-y: hidden;
+}
+
 
 .edit-patient {
   width: 100%;
@@ -3709,7 +3715,7 @@ input[data-switch="teal"]:checked + label {
 ============= */
 th {
   font-family: 'Hind Madurai', sans-serif;
-  font-weight: 100;
+  font-weight: 600;
 }
 .table-centered td {
   vertical-align: middle !important;
