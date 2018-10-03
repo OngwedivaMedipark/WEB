@@ -47,12 +47,11 @@ $lastname = $_POST['lastName'];
    ResSurbub = '$ResSurbub', Country ='$Country',   IdentityType =' $IdentityType', MaritalStatus = '$MaritalStatus'   WHERE PersonId = '$personId'";
   
 
-  if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
+ if ($conn->query($sql) === TRUE) {
+  $message = "Record for " .$name. " "  .$suname. " updated successfully";
 } else {
-    echo "Error updating record: " . $conn->error;
+    $message = "Error updating record: " . $conn->error;
 }
-
 $conn->close();
 
 ?>

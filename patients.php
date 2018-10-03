@@ -427,7 +427,7 @@ session_start();
                                         </td>-->
                                        
                                         <td>
-                                        <a href="edit-patient.php?id=<?php echo $row["personId"]; ?>"   data-id="<?php echo $row["personId"]; ?>"  data-target="#edit-patient" class="table-action-btn h3" >
+                                        <a href="edit-patient.php?id=<?php echo $row["PersonId"]; ?>"   data-id="<?php echo $row["PersonId"]; ?>"  data-target="#edit-patient" class="table-action-btn h3" >
                                         <i class="mdi mdi-pencil-box-outline text-success"></i> </a>
                                                                          
                                         </td>
