@@ -12,7 +12,7 @@ session_start();
      die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
  }
   
- $sql = 'SELECT Person.PersonId, firstName, lastName, email, idNumber
+ $sql = 'SELECT Person.PersonId, firstName, lastName, email, idNumber, 
  FROM omeyah.Person inner join omeyah.Patient on Person.PersonId = Patient.PersonId;';
           
  $query = mysqli_query($conn, $sql);
@@ -382,7 +382,7 @@ session_start();
                                                     <th>Name</th>
                                                     <th>Surname</th>
 													<th>Email</th>
-                                                    <th>Contact No.</th> 
+                                                    <th>ID Number</th> 
                                                     <!--<th>Patient Profile</th> -->                                                
                                                     <th>Modify Patient</th>
                                                    
