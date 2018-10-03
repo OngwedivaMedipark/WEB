@@ -1,3 +1,5 @@
+
+//post data
 $(document).ready(function() {
     // process the form
     $("form.add-patient").on('submit', function(e){
@@ -34,6 +36,7 @@ $(document).ready(function() {
 
     //utility function
 function getFormData(data) {
+    
     var unindexed_array = data;
     var indexed_array = {};
  
@@ -50,7 +53,8 @@ function getFormData(data) {
 $(document).ready(function() {
     var current_fs, next_fs, previous_fs;
     var left, opacity, scale;
-    var animating;
+    var animating;  
+
     $(".add-patient").validate({
         errorClass: 'invalid',
         errorElement: 'span',

@@ -1,3 +1,31 @@
+<?php
+
+session_start();
+
+ $db_host = "35.229.89.118";
+ $db_user = "admin";
+ $db_pass = "sp!cymacfe@st";
+ $db_name = "omeyah";
+
+ $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+ if (!$conn) {
+     die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
+ }
+  
+//  $sql = 'SELECT personId, firstName, lastName, email, idNumber
+//          FROM Person p LIMIT 10';
+
+$sql ='SELECT p.PatientId,ps.FirstName,ps.LastName,ps.Email,ps.HomeTel FROM omeyah.Patient p join
+Person ps on ps.PersonId = p.PersonId LIMIT 10';
+          
+ $query = mysqli_query($conn, $sql);
+                             
+ if (!$query) {
+     die ('SQL Error: ' . mysqli_error($conn));
+ }
+                                 
+ 
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -215,7 +243,7 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right"></span> <span> Dashboard </span> </a>
                                 <ul class="list-unstyled">                                    
-                                    <li><a href="dashboard.html">Dashboard </a></li>
+                                    <li><a href="dashboard.php">Dashboard </a></li>
                                 </ul>
                             </li>
 
@@ -285,55 +313,54 @@
 							</div>
 						</div>
                         <!-- end row -->
-
-
+    
                         <div class="row">
 
-                            <div class="col-lg-6 col-md-6">
-                                <div class="card-box widget-box-two widget-two-primary">
-                                    <i class="mdi mdi-chart-areaspline widget-two-icon"></i>
-                                    <div class="wigdet-two-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Latest Patients admitted Today</p>
-                                        <h2><span data-plugin="counterup">10</span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
-                                        <p class="text-muted m-0"><b>Last Admitted:</b>About an hour ago</p>
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
+<div class="col-lg-6 col-md-6">
+    <div class="card-box widget-box-two widget-two-primary">
+        <i class="mdi mdi-chart-areaspline widget-two-icon"></i>
+        <div class="wigdet-two-content">
+            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Latest Patients admitted Today</p>
+            <h2><span data-plugin="counterup">10</span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
+            <p class="text-muted m-0"><b>Last Admitted:</b>About an hour ago</p>
+        </div>
+    </div>
+</div><!-- end col -->
 
-                            <div class="col-lg-6 col-md-6">
-                                <div class="card-box widget-box-two widget-two-warning">
-                                    <i class="mdi mdi-layers widget-two-icon"></i>
-                                    <div class="wigdet-two-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Patients Discharged Today</p>
-                                        <h2><span data-plugin="counterup">5 </span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
-                                        <p class="text-muted m-0"><b>Last Discharge:</b>About 30min ago</p>
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
+<div class="col-lg-6 col-md-6">
+    <div class="card-box widget-box-two widget-two-warning">
+        <i class="mdi mdi-layers widget-two-icon"></i>
+        <div class="wigdet-two-content">
+            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Patients Discharged Today</p>
+            <h2><span data-plugin="counterup">5 </span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
+            <p class="text-muted m-0"><b>Last Discharge:</b>About 30min ago</p>
+        </div>
+    </div>
+</div><!-- end col -->
 
-                            <div class="col-lg-6 col-md-6">
-                                <div class="card-box widget-box-two widget-two-danger">
-                                    <i class="mdi mdi-access-point-network widget-two-icon"></i>
-                                    <div class="wigdet-two-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Number Of beds Available</p>
-                                        <h2><span data-plugin="counterup">52</span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
-                                        <p class="text-muted m-0"><b>Last Updated:</b> About 5 min ago</p>
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
+<div class="col-lg-6 col-md-6">
+    <div class="card-box widget-box-two widget-two-danger">
+        <i class="mdi mdi-access-point-network widget-two-icon"></i>
+        <div class="wigdet-two-content">
+            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Number Of beds Available</p>
+            <h2><span data-plugin="counterup">52</span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
+            <p class="text-muted m-0"><b>Last Updated:</b> About 5 min ago</p>
+        </div>
+    </div>
+</div><!-- end col -->
 
-                            <div class="col-lg-6 col-md-6">
-                                <div class="card-box widget-box-two widget-two-success">
-                                    <i class="mdi mdi-account-convert widget-two-icon"></i>
-                                    <div class="wigdet-two-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User Today">Doctors on Call </p>
-                                        <h2><span data-plugin="counterup">15 </span> <small><i class="mdi mdi-arrow-down text-danger"></i></small></h2>
-                                        <p class="text-muted m-0"><b>Last Updated:</b> About 15min ago </p>
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
+<div class="col-lg-6 col-md-6">
+    <div class="card-box widget-box-two widget-two-success">
+        <i class="mdi mdi-account-convert widget-two-icon"></i>
+        <div class="wigdet-two-content">
+            <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User Today">Doctors on Call </p>
+            <h2><span data-plugin="counterup">15 </span> <small><i class="mdi mdi-arrow-down text-danger"></i></small></h2>
+            <p class="text-muted m-0"><b>Last Updated:</b> About 15min ago </p>
+        </div>
+    </div>
+</div><!-- end col -->
 
-                        </div>
+</div>
                         <!-- end row -->
 
 
@@ -341,7 +368,7 @@
 
                         <div class="row">
 
-                            <div class="col-md-4">
+                             <div class="col-md-4 col-lg-4 col-sm-12">
                                 <div class="card-box">
                                     <h4 class="header-title m-t-0 m-b-30">Messages</h4>
 
@@ -358,7 +385,7 @@
                                             <div class="inbox-item">
                                                 <div class="inbox-item-img"><img src="assets/images/users/avatar-2.jpg" class="img-circle" alt=""></div>
                                                 <p class="inbox-item-author">Shetu Sheetekela</p>
-                                                <p class="inbox-item-text">IT Upgrading Hospital network!</p>
+                                                <p class="inbox-item-text">IT Upgrading Hospital network!..</p>
                                                 <p class="inbox-item-date">13:34 PM</p>
                                             </div>
                                         </a>
@@ -366,7 +393,7 @@
                                             <div class="inbox-item">
                                                 <div class="inbox-item-img"><img src="assets/images/users/avatar-3.jpg" class="img-circle" alt=""></div>
                                                 <p class="inbox-item-author">Frank Mokgoloboto</p>
-                                                <p class="inbox-item-text">New Medipark Website is live!</p>
+                                                <p class="inbox-item-text">New Ongwediva Medipark Website is live!...</p>
                                                 <p class="inbox-item-date">13:17 PM</p>
                                             </div>
                                         </a>
@@ -374,14 +401,14 @@
                                             <div class="inbox-item">
                                                 <div class="inbox-item-img"><img src="assets/images/users/avatar-4.jpg" class="img-circle" alt=""></div>
                                                 <p class="inbox-item-author">Princess Shikomba</p>
-                                                <p class="inbox-item-text">Nice to meet you</p>
+                                                <p class="inbox-item-text">Nice to meet you...</p>
                                                 <p class="inbox-item-date">12:20 PM</p>
                                             </div>
                                         </a>
                                         <a href="#">
                                             <div class="inbox-item">
                                                 <div class="inbox-item-img"><img src="assets/images/users/avatar-5.jpg" class="img-circle" alt=""></div>
-                                                <p class="inbox-item-author">Rongeni Petrus</p>
+                                                <p class="inbox-item-author">Rongeni</p>
                                                 <p class="inbox-item-text">Economy is good, we made a profi...</p>
                                                 <p class="inbox-item-date">10:15 AM</p>
                                             </div>
@@ -416,29 +443,14 @@
                             </div>
                             <!-- end col -->
 
-                            <div class="col-md-8">
+                            <div class="col-md-8 col-lg-8 col-sm-12">
                                 <div class="card-box">
                                     <h4 class="header-title m-t-0 m-b-30">Recent Patients Added<h4>
                                         	<div class="table-responsive">
                                                     <table class="table table-hover mails m-0 table table-actions-bar">
                                                         <thead>
                                                             <tr>
-                                                                <th style="width: 140px;">
-                                                                    <div class="checkbox checkbox-primary checkbox-single m-r-15 m-l-5">
-                                                                        <input id="action-checkbox" type="checkbox">
-                                                                        <label for="action-checkbox"></label>
-                                                                    </div>
-                                                                    <div class="btn-group dropdown m-l-10">
-                                                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false"><i class="caret"></i></button>
-                                                                        <ul class="dropdown-menu" role="menu">
-                                                                            <li><a href="#">Action</a></li>
-                                                                            <li><a href="#">Another action</a></li>
-                                                                            <li><a href="#">Something else here</a></li>
-                                                                            <li class="divider"></li>
-                                                                            <li><a href="#">Separated link</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </th>
+                                                               
                                                                 <th>Patient ID</th>
                                                                 <th>Name</th>
                                                                 <th>Surname</th>
@@ -453,32 +465,25 @@
                                                     {
                                                 ?>
                                                 <tr>
+                                                  
                                                     <td>
-                                                        <div class="checkbox checkbox-primary m-r-15 m-l-5">
-                                                            <input id="checkbox2" type="checkbox" >
-                                                            <label for="checkbox2"></label>
-                                                        </div>
-            
-                                                        <img src="assets/images/users/avatar-2.jpg" alt="contact-img" title="contact-img" class="img-circle thumb-sm" />
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row["personId"]; ?>
+                                                        <?php echo $row["PatientId"]; ?>
                                                     </td>
             
                                                     <td>
-                                                        <?php echo $row["firstName"]; ?>
+                                                        <?php echo $row["FirstName"]; ?>
                                                     </td>
             
                                                     <td>
-                                                        <?php echo $row["lastName"]; ?>
+                                                        <?php echo $row["LastName"]; ?>
                                                     </td>
             
                                                     <td>                                       
-                                                        <?php echo $row["email"]; ?>
+                                                        <?php echo $row["Email"]; ?>
                                                     </td>
             
                                                     <td>
-                                                        <?php echo $row["idNumber"]; ?>
+                                                        <?php echo $row["HomeTel"]; ?>
                                                     </td>
                                                     <td>                                                  
                                                 </tr>

@@ -1,0 +1,49 @@
+service: website
+runtime: php
+env: flex
+api_version: 25
+
+# This sample incurs costs to run on the App Engine flexible environment. 
+# The settings below are to reduce costs during testing and are not appropriate
+# for production use. For more information, see:
+# https://cloud.google.com/appengine/docs/flexible/python/configuring-your-app-with-app-yaml
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
+
+runtime_config:
+  document_root: .
+
+handlers:
+
+- url: /
+  script: patients.php
+ 
+- url: /dashboard.php
+  static_files: dashboard.php 
+  upload: dashboard.php
+
+- url:  /add-doctor.html 
+  static_files: add-doctor.html 
+  upload: add-doctor.html
+
+- url: /add-patient.html
+  static_files: add-patient.html 
+  upload: add-patient.html
+
+- url: /assets
+  static_dir: assets
+
+- url: /(.*\.(gif|png|jpg))$
+  static_files: static/\1
+  upload: static/.*\.(gif|png|jpg)$
+  application_readable: true
+
+- url: /.*
+  script: not_found.php
+  
+  
+  
