@@ -357,7 +357,7 @@ ini_set('display_errors', 0);
 
                         <div class="col-lg-12">
                             <div class="add-patient-container">
-                                   <h4 class="custom-modal-title">Add New Patient</h4>
+                                   <h4 class="custom-modal-title">Update Patient Information</h4>
                                   <div class="custom-modal-text text-left">
                                  
                       
@@ -417,7 +417,7 @@ ini_set('display_errors', 0);
 
                               <div class="form-group form-inline">
                                     <label for="genderId">Gender <span>*</span></label>                                                          
-                                    <input type="text" name="genderId" class="form-control"  value="<?php echo $dob;?>"  id="genderId" placeholder="">
+                                    <input type="text" name="genderId" class="form-control"  value="<?php echo $GenderId;?>"  id="genderId" placeholder="">
                                 </div>
                       
                               <div class="form-group form-inline">
