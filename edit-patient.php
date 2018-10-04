@@ -539,13 +539,12 @@ ini_set('display_errors', 0);
                             </div>
 
                             <div class="form-group form-inline">
-                                    <label for="country">Country <span>*</span></label>
-                                    <input type="text" class="form-control" name="country" id="country"  value="<?php echo $Country;?>"  placeholder="">
-                            </div>
-
-                            <div class="form-group form-inline">
                                     <label for="resSurbub">Suburb/Town <span>*</span></label>
                                     <input type="text" class="form-control"name="resSurbub" id="resSurbub"  value="<?php echo $ResSurbub;?>"  placeholder="">
+                            </div>
+                            <div class="form-group form-inline">
+                                    <label for="country">Country <span>*</span></label>
+                                    <input type="text" class="form-control" name="country" id="country"  value="<?php echo $Country;?>"  placeholder="">
                             </div>
                             <div class="form-group form-inline">
                                     <label for="resPostCode">Postal Code <span>*</span></label>
@@ -640,14 +639,15 @@ ini_set('display_errors', 0);
                                     <input type="text" class="form-control" id="nok-street-name" name="nokStreetName" placeholder="">
                             </div>
 
-                            <div class="form-group form-inline">
-                                    <label for="nokCountry">Country <span>*</span></label>
-                                    <input type="text" class="form-control" id="nok-country" name="nokCountry" placeholder="">
-                            </div>
+                          
 
                             <div class="form-group form-inline">
                                     <label for="nokSurburbTown">Suburb/Town <span>*</span></label>
                                     <input type="text" class="form-control" id="nok-surburb-town" name="nokSurburbTown" placeholder="">
+                            </div>
+                            <div class="form-group form-inline">
+                                    <label for="nokCountry">Country <span>*</span></label>
+                                    <input type="text" class="form-control" id="nok-country" name="nokCountry" placeholder="">
                             </div>
                             <div class="form-group form-inline">
                                     <label for="nokPostalCode">Postal Code <span>*</span></label>
@@ -832,11 +832,6 @@ ini_set('display_errors', 0);
                     <div class="form-group form-inline">
                             <label for="accStreetName">Street Name <span>*</span></label>
                             <input type="text" class="form-control" id="acc-street-name" placeholder="">
-                    </div>
-
-                    <div class="form-group form-inline">
-                            <label for="accCountry">Country <span>*</span></label>
-                            <input type="text" class="form-control" id="acc-street-name" placeholder="" name="accCountry">
                     </div>
 
                     <div class="form-group form-inline">
