@@ -362,7 +362,7 @@ ini_set('display_errors', 0);
                                  
                       
                       <!-- Modal -info -->
-                    <form class="add-patient" action="update-patient.php" method="post" id="update-patient">
+        <form class="add-patient" action="update-patient.php" method="post" id="update-patient">
                             <ul id="progressbar">
                               <li class="active">Personal  Information</li>
                               <li>Contact Information</li>
@@ -453,7 +453,7 @@ ini_set('display_errors', 0);
                                             <option>--Select option--</option>
                                             <option value="single">Single</option>
                                             <option value="married">Married</option>                                       
-                                            <option value="devorced">Devorced</option>
+                                            <option value="divorced">Divorced</option>
                                             <option value="widowed">Widowed</option>                             
                                     </select>
                                </div>
@@ -997,7 +997,7 @@ hospital shall not in any way be responsible or liable for any acts or omissions
                               <input id="submit" class="hs-button primary large action-button next" type="submit" value="Submit">
                               
                             </fieldset>
-                    </form>
+    </form>
                                   </div>
                                   </div>
                                 
