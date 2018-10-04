@@ -51,7 +51,7 @@ Person ps on ps.PersonId = p.PersonId LIMIT 10';
         <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
-
+        <link rel="stylesheet" href="assets/css/dashboard-table.css" type="text/css" />  
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -379,7 +379,7 @@ Person ps on ps.PersonId = p.PersonId LIMIT 10';
                                                                 <th>Name</th>
                                                                 <th>Surname</th>
                                                                 <th>Email</th>
-                                                                <th>ID Number</th>                                                                
+                                                                <th>Phone Numbers   </th>                                                                
                                                             </tr>
                                                         </thead>
                                                                                        
