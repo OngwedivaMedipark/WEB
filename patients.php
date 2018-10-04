@@ -6,22 +6,29 @@ session_start();
  $db_user = "admin";
  $db_pass = "sp!cymacfe@st";
  $db_name = "omeyah";
-
+ 
  $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
  if (!$conn) {
      die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
  }
-  
+
+ if(isset($_GET['search'])){
+$searchQuery = $_GET['searchQuery'];
+$sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person WHERE firstname LIKE '$searchQuery%'";
+		
+ }else{
+
  $sql = 'SELECT Person.PersonId, firstName, lastName, email, idNumber
  FROM omeyah.Person inner join omeyah.Patient on Person.PersonId = Patient.PersonId;';
-          
+ }
+
+
+
+ 	
  $query = mysqli_query($conn, $sql);
-                             
- if (!$query) {
+  if (!$query) {
      die ('SQL Error: ' . mysqli_error($conn));
  }
-                                 
- 
 ?>
 
 <!DOCTYPE html>
@@ -417,8 +424,8 @@ session_start();
 			                        	<div class="col-sm-8">
 			                        		<form>
 			                                    <div class="form-group search-box">
-                                                    <input type="text" id="search-input" class="form-control product-search" placeholder="Search here...">
-                                                    <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+                                                    <input type="text" id="search-input" name="searchQuery" class="form-control product-search" placeholder="Search here...">
+                                                    <button type="submit" name="search" class="btn btn-search"><i class="fa fa-search"></i></button>
                                                 </div>
 			                                </form>
                                         </div>
@@ -470,7 +477,7 @@ session_start();
                                                     <th>Name</th>
                                                     <th>Surname</th>
 													<th>Email</th>
-                                                    <th>Contact No.</th> 
+                                                    <th>ID Number</th> 
                                                     <!--<th>Patient Profile</th> -->                                                
                                                     <th>Modify Patient</th>
                                                     <th>Admit Patient</th>
@@ -478,7 +485,13 @@ session_start();
 											</thead>
                                                                            
                                     <tbody>
+
+
+
                                     <?php 
+									
+									 $query = mysqli_query($conn, $sql);
+
                                     while($row = mysqli_fetch_array($query))
                                         {
                                     ?>
@@ -516,10 +529,8 @@ session_start();
                                        
                                         <td>
                                         <a href="edit-patient.php?id=<?php echo $row["PersonId"]; ?>"   data-id="<?php echo $row["PersonId"]; ?>"  data-target="#edit-patient" class="table-action-btn h3" >
-                                            <i class="mdi mdi-pencil-box-outline text-success"></i>
-                                         </a>
-
-                                                                                                                  
+                                        <i class="mdi mdi-pencil-box-outline text-success"></i> </a>
+                                                                         
                                         </td>
                                         <td>
                                             <!-- <a href="#" data-target="#admit-patient" data-toggle="modal" class="table-action-btn h3" onclick="">
@@ -641,119 +652,6 @@ session_start();
 
         </div>
         <!-- END wrapper -->
-
-<!-- Admit Patient -->
-<div class="modal fade" id="admit-patient" role="dialog">
-            <div class="modal-dialog">            
-                <!-- Modal content-->
-                <div class="modal-content">
-                        <div class="modal-header">                        
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                        </div>
-
-                        <div class="modal-body" id="patient-data">
-                            <div class="col-lg-12">
-                                <div class="add-patient-container">
-                                    <h4 class="custom-modal-title">Admit Patient</h4>
-                                    <div class="custom-modal-text text-left">
-                                                            <!-- Modal -info -->
-                                                            <form class="add-patient" action="assets/php/add-patient.php" method="post" id="add-patient">
-                                    <!-- <ul id="progressbar">
-                                        <li class="active">Personal Information</li>
-                                        <li>Contact Information</li>
-                                        <li>Next of kin </li>
-                                        <li>Payment Information</li>
-                                        <li>Person Responsible for Account</li>
-                                        <li>Terms & Conditions</li> 
-                                    </ul>-->
-
-                                     <div class="row">
-                                            <h2 class="fs-title">Patient Information</h2>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group form-inline">
-                                                        <label for="firstName">First Name</label>
-                                                        <input type="text" class="form-control" id="firstName" placeholder="" readonly="readonly">
-                                                    </div>
-                                                    <div class="form-group form-inline">
-                                                        <label for="idNumber">ID Number</label>
-                                                        <input type="text" class="form-control" id="idNumber" placeholder="" readonly="readonly">
-                                                    </div>
-                                                    
-                                                </div> 
-                                                <div class="col-sm-6">
-                                                    <div class="form-group form-inline">
-                                                        <label for="lastName">Last Name</label>
-                                                        <input type="text" class="form-control" id="lastName" placeholder="" readonly="readonly">
-                                                    </div>
-                                                    <div class="form-group form-inline">
-                                                        <label for="reference">Ref. Number</label>
-                                                        <input type="text" class="form-control" id="reference" placeholder="" readonly="readonly">
-                                                    </div>
-                                                </div>  
-                                     </div>
-                                     <div class="row">
-                                            <h2 class="fs-title">Admission Assignment</h2>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group form-inline">
-                                                        <label for="hospital">Hospital</label>
-                                                        <select type="text" class="form-control" id="hospitalSelect" placeholder="Please select hospital"></select>
-                                                    </div>
-                                                    <div class="form-group form-inline">
-                                                        <label for="bed">Bed</label>
-                                                        <select type="text" class="form-control" id="bedSelect" placeholder="Please select bed"></select>
-                                                    </div>
-                                                    
-                                                </div> 
-                                                <div class="col-sm-6">
-                                                    <div class="form-group form-inline">
-                                                    <label for="ward">Ward</label>
-                                                        <select type="text" class="form-control" id="wardSelect" placeholder="Please select ward"></select>
-                                                    </div>
-                                                    <div class="form-group form-inline">
-                                                        <label for="doctor">Assign Doctor</label>
-                                                        <select type="text" class="form-control" id="doctorSelect" placeholder="Please select attending doctor"></select>
-                                                    </div>
-                                                </div>  
-                                                <div class="col-sm-12">
-                                                    <!-- <input type="button" class="btn btn-block btn-primary" text="Admit" /> -->
-                                                    <input type="submit" class="btn btn-block btn-primary" />
-                                                </div>
-                                     </div>
-
-
-                                </form>
-                                    </div>
-                                </div>                                      
-                            </div>
-                        </div>         
-                </div>          
-            </div>
-        </div>
-
-
-<div id="confirmModal" class="modal" tabindex="-1" role="dialog">
-	  <div class="modal-dialog" role="document">
-			<div class="modal-content">
-				  <div class="modal-header">
-					<h5 class="modal-title">Confirmation</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					  <span aria-hidden="true">&times;</span>
-					</button>
-				  </div>
-				  <div class="modal-body">
-					<p>Now admitting Patient...</p>
-				  </div>
-				  <div class="modal-footer">
-					<!--<button type="button" class="btn btn-primary">Save changes</button> -->
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
-				  </div>
-			</div>
-	  </div>
-</div>
-
-
    <!--edit patient-->
         <!-- Modal -->
         <div class="modal fade" id="edit-patient" role="dialog">

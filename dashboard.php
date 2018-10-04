@@ -51,7 +51,7 @@ Person ps on ps.PersonId = p.PersonId LIMIT 10';
         <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
-
+        <link rel="stylesheet" href="assets/css/dashboard-table.css" type="text/css" />  
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -367,86 +367,10 @@ Person ps on ps.PersonId = p.PersonId LIMIT 10';
 
 
                         <div class="row">
-
-                             <div class="col-md-4 col-lg-4 col-sm-12">
-                                <div class="card-box">
-                                    <h4 class="header-title m-t-0 m-b-30">Messages</h4>
-
-                                    <div class="inbox-widget slimscroll-alt" style="min-height: 302px;">
-                                        <a href="#">
-                                            <div class="inbox-item">
-                                                <div class="inbox-item-img"><img src="assets/images/users/avatar-1.jpg" class="img-circle" alt=""></div>
-                                                <p class="inbox-item-author">Miriam Chobe</p>
-                                                <p class="inbox-item-text">Hey! there I'm available...</p>
-                                                <p class="inbox-item-date">13:40 PM</p>
-                                            </div>
-                                        </a>
-                                        <a href="#">
-                                            <div class="inbox-item">
-                                                <div class="inbox-item-img"><img src="assets/images/users/avatar-2.jpg" class="img-circle" alt=""></div>
-                                                <p class="inbox-item-author">Shetu Sheetekela</p>
-                                                <p class="inbox-item-text">IT Upgrading Hospital network!..</p>
-                                                <p class="inbox-item-date">13:34 PM</p>
-                                            </div>
-                                        </a>
-                                        <a href="#">
-                                            <div class="inbox-item">
-                                                <div class="inbox-item-img"><img src="assets/images/users/avatar-3.jpg" class="img-circle" alt=""></div>
-                                                <p class="inbox-item-author">Frank Mokgoloboto</p>
-                                                <p class="inbox-item-text">New Ongwediva Medipark Website is live!...</p>
-                                                <p class="inbox-item-date">13:17 PM</p>
-                                            </div>
-                                        </a>
-                                        <a href="#">
-                                            <div class="inbox-item">
-                                                <div class="inbox-item-img"><img src="assets/images/users/avatar-4.jpg" class="img-circle" alt=""></div>
-                                                <p class="inbox-item-author">Princess Shikomba</p>
-                                                <p class="inbox-item-text">Nice to meet you...</p>
-                                                <p class="inbox-item-date">12:20 PM</p>
-                                            </div>
-                                        </a>
-                                        <a href="#">
-                                            <div class="inbox-item">
-                                                <div class="inbox-item-img"><img src="assets/images/users/avatar-5.jpg" class="img-circle" alt=""></div>
-                                                <p class="inbox-item-author">Rongeni</p>
-                                                <p class="inbox-item-text">Economy is good, we made a profi...</p>
-                                                <p class="inbox-item-date">10:15 AM</p>
-                                            </div>
-                                        </a>
-                                        <!-- <a href="#">
-                                            <div class="inbox-item">
-                                                <div class="inbox-item-img"><img src="assets/images/users/avatar-6.jpg" class="img-circle" alt=""></div>
-                                                <p class="inbox-item-author">Adhamdannaway</p>
-                                                <p class="inbox-item-text">This theme is awesome!</p>
-                                                <p class="inbox-item-date">9:56 AM</p>
-                                            </div>
-                                        </a>
-                                        <a href="#">
-                                            <div class="inbox-item">
-                                                <div class="inbox-item-img"><img src="assets/images/users/avatar-8.jpg" class="img-circle" alt=""></div>
-                                                <p class="inbox-item-author">Arashasghari</p>
-                                                <p class="inbox-item-text">Hey! there I'm available...</p>
-                                                <p class="inbox-item-date">10:15 AM</p>
-                                            </div>
-                                        </a>
-                                        <a href="#">
-                                            <div class="inbox-item">
-                                                <div class="inbox-item-img"><img src="assets/images/users/avatar-9.jpg" class="img-circle" alt=""></div>
-                                                <p class="inbox-item-author">Joshaustin</p>
-                                                <p class="inbox-item-text">I've finished it! See you so...</p>
-                                                <p class="inbox-item-date">9:56 AM</p>
-                                            </div>
-                                        </a> -->
-                                    </div>
-
-                                </div> <!-- end card -->
-                            </div>
-                            <!-- end col -->
-
-                            <div class="col-md-8 col-lg-8 col-sm-12">
+                        <div class="col-md-12 col-lg-12 col-sm-12">
                                 <div class="card-box">
                                     <h4 class="header-title m-t-0 m-b-30">Recent Patients Added<h4>
-                                        	<div class="table-responsive">
+                                        	<div class="table-responsive text-muted m-0">
                                                     <table class="table table-hover mails m-0 table table-actions-bar">
                                                         <thead>
                                                             <tr>
@@ -455,7 +379,7 @@ Person ps on ps.PersonId = p.PersonId LIMIT 10';
                                                                 <th>Name</th>
                                                                 <th>Surname</th>
                                                                 <th>Email</th>
-                                                                <th>Contact No.</th>                                                                
+                                                                <th>Phone Numbers   </th>                                                                
                                                             </tr>
                                                         </thead>
                                                                                        
@@ -581,8 +505,82 @@ Person ps on ps.PersonId = p.PersonId LIMIT 10';
                                 </div> <!-- end card -->
                             </div>
                             <!-- end col -->
+                        
 
                         </div>
+                        <div class="col-md-4 col-lg-4 col-sm-12">
+                                <div class="card-box">
+                                    <h4 class="header-title m-t-0 m-b-30">Messages</h4>
+
+                                    <div class="inbox-widget slimscroll-alt" style="min-height: 302px;">
+                                        <a href="#">
+                                            <div class="inbox-item">
+                                                <div class="inbox-item-img"><img src="assets/images/users/avatar-1.jpg" class="img-circle" alt=""></div>
+                                                <p class="inbox-item-author">Miriam Chobe</p>
+                                                <p class="inbox-item-text">Hey! there I'm available...</p>
+                                                <p class="inbox-item-date">13:40 PM</p>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="inbox-item">
+                                                <div class="inbox-item-img"><img src="assets/images/users/avatar-2.jpg" class="img-circle" alt=""></div>
+                                                <p class="inbox-item-author">Shetu Sheetekela</p>
+                                                <p class="inbox-item-text">IT Upgrading Hospital network!..</p>
+                                                <p class="inbox-item-date">13:34 PM</p>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="inbox-item">
+                                                <div class="inbox-item-img"><img src="assets/images/users/avatar-3.jpg" class="img-circle" alt=""></div>
+                                                <p class="inbox-item-author">Frank Mokgoloboto</p>
+                                                <p class="inbox-item-text">New Ongwediva Medipark Website is live!...</p>
+                                                <p class="inbox-item-date">13:17 PM</p>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="inbox-item">
+                                                <div class="inbox-item-img"><img src="assets/images/users/avatar-4.jpg" class="img-circle" alt=""></div>
+                                                <p class="inbox-item-author">Princess Shikomba</p>
+                                                <p class="inbox-item-text">Nice to meet you...</p>
+                                                <p class="inbox-item-date">12:20 PM</p>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="inbox-item">
+                                                <div class="inbox-item-img"><img src="assets/images/users/avatar-5.jpg" class="img-circle" alt=""></div>
+                                                <p class="inbox-item-author">Rongeni Petrus</p>
+                                                <p class="inbox-item-text">Economy is good, we made a profi...</p>
+                                                <p class="inbox-item-date">10:15 AM</p>
+                                            </div>
+                                        </a>
+                                        <!-- <a href="#">
+                                            <div class="inbox-item">
+                                                <div class="inbox-item-img"><img src="assets/images/users/avatar-6.jpg" class="img-circle" alt=""></div>
+                                                <p class="inbox-item-author">Adhamdannaway</p>
+                                                <p class="inbox-item-text">This theme is awesome!</p>
+                                                <p class="inbox-item-date">9:56 AM</p>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="inbox-item">
+                                                <div class="inbox-item-img"><img src="assets/images/users/avatar-8.jpg" class="img-circle" alt=""></div>
+                                                <p class="inbox-item-author">Arashasghari</p>
+                                                <p class="inbox-item-text">Hey! there I'm available...</p>
+                                                <p class="inbox-item-date">10:15 AM</p>
+                                            </div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="inbox-item">
+                                                <div class="inbox-item-img"><img src="assets/images/users/avatar-9.jpg" class="img-circle" alt=""></div>
+                                                <p class="inbox-item-author">Joshaustin</p>
+                                                <p class="inbox-item-text">I've finished it! See you so...</p>
+                                                <p class="inbox-item-date">9:56 AM</p>
+                                            </div>
+                                        </a> -->
+                                    </div>
+
+                                </div> <!-- end card -->
+                            </div>
                         <!-- end row -->
 
 

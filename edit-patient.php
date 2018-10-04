@@ -275,7 +275,7 @@ ini_set('display_errors', 0);
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right"></span> <span> Dashboard </span> </a>
                                 <ul class="list-unstyled">                                    
-                                    <li><a href="dashboard.php">Dashboard </a></li>
+                                    <li><a href="dashboard.html">Dashboard </a></li>
                                 </ul>
                             </li>
 
@@ -291,7 +291,7 @@ ini_set('display_errors', 0);
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-stethoscope"></i><span> Nurse</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="add-nurse.html">Add Nurse</a></li>
-                                    <li><a href="manage-nurse.html">Manage Nurse</a></li>                                   
+                                    <li><a href="manage-nurse.htnl">Manage Nurse</a></li>                                   
                                 </ul>
                             </li>
 
@@ -357,7 +357,7 @@ ini_set('display_errors', 0);
 
                         <div class="col-lg-12">
                             <div class="add-patient-container">
-                                   <h4 class="custom-modal-title">Add New Patient</h4>
+                                   <h4 class="custom-modal-title">Update Patient Information</h4>
                                   <div class="custom-modal-text text-left">
                                  
                       
@@ -476,8 +476,7 @@ ini_set('display_errors', 0);
                                     <select name="religion" class="form-control" id="religion" placeholder="">
                                             <option>--Select option--</option>
                                             <option value="male">Christianity</option>
-                                            <option value="Islam">Islam</option>                                       
-											<option value="female">Buddhism</option>
+                                            <option value="Islam">Islam</option>                                       <option value="female">Buddhism</option>
                                             <option value="Judaism">Judaism</option>  
                                             <option value="Atheism">Atheism</option>  
                                             <option value="Other">Other</option>                             
@@ -503,7 +502,7 @@ ini_set('display_errors', 0);
                             <!-- Contact Information -->  
                             <fieldset>
                               <h2 class="fs-title">Contact Information</h2>
-                              <div class="col-lg-6">
+                              <div class="col-lg-6 col-md-6 col-sm-12">
                               <div class="form-group form-inline">
                                   <label for="homeTel">Home Telephone</label>
                                   <input type="text" class="form-control" id="homeTel"  name="homeTel" value="<?php echo $HomeTel;?>" placeholder="">
@@ -576,7 +575,7 @@ ini_set('display_errors', 0);
                          </div>
                          </div>
 
-                        <div class="col-lg-6"> 
+                        <div class="col-lg-6 col-md-6 col-sm-12"> 
                                 <div class="form-group form-inline">
                                         <label for="cellNumber">Cell Number <span>*</span></label>
                                         <input type="text" class="form-control" id="cell-number" name="cellNumber"  value="<?php echo $HomeTel;?>"  placeholder="">                                               
@@ -596,7 +595,7 @@ ini_set('display_errors', 0);
                                         </select>
                                 </div>
                         </div> 
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
 
                         </div>  
                                   <!-- End Calc of Total Number of Donors Fields -->
@@ -610,7 +609,7 @@ ini_set('display_errors', 0);
                               <h2 class="fs-title">Next of kin</h2>
                               <h3 class="fs-subtitle"></h3>
                         
-                          <div class="col-lg-6">
+                          <div class="col-lg-6 col-md-6 col-sm-12">
                       
                           <div class="form-group form-inline">
                               <label for="nokName">Name <span>*</span></label>
@@ -656,7 +655,7 @@ ini_set('display_errors', 0);
                                    
                              </div>   
                             </div> 
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group form-inline">
                                             <label for="nokEmail">Email <span>*</span></label>
                                             <input type="email" class="form-control" id="nok-email" name="nokEmail" placeholder="">                                               
@@ -696,7 +695,7 @@ ini_set('display_errors', 0);
                           <fieldset>
                               <h2 class="fs-title">Payment Information</h2>
                               <h3 class="fs-subtitle"></h3>
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
                                     
                                         <div class="form-group form-inline">
                                                 <label for="paymentOptions">Payment Option <span>*</span></label>                                                     
@@ -764,7 +763,7 @@ ini_set('display_errors', 0);
 
                                 </div>
 
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="uploader" onclick="$('#filePhoto').click()">Scan & Upload Medical Aid</div>
                                         <input type="file" name="userprofile_picture"  id="filePhoto" style="display:block;width:255px;"  />
                                 </div>
@@ -783,7 +782,7 @@ ini_set('display_errors', 0);
                           <fieldset>
                               <h2 class="fs-title">PERSON RESPONSIBLE FOR ACCOUNT</h2>
                               <h3 class="fs-subtitle"></h3>
-                              <div class="col-lg-6">
+                              <div class="col-lg-6 col-md-6 col-sm-12">
                               <div class="form-group form-inline">                                          
                                 <label for="title">Title <span>*</span></label> 
                                 <select name="accTitle" class="form-control" id="title" placeholder="">
@@ -934,8 +933,7 @@ ini_set('display_errors', 0);
                             <fieldset>
                               <h2 class="fs-title">Terms & Conditions</h2>
                               <h3 class="fs-subtitle"></h3>
-
-                             <div class="col-sm-6">
+                              <div class="col-sm-6">
                                  <ol style="padding-bottom: 15px;">
                                      <li>The signatory of this form hereby states that he/ she is the Legally Authorised agent of.........,.	(company) and is therefore
 Authorised to bind and hold the company to this agreement.

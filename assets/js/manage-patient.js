@@ -19,7 +19,7 @@ $('body').on('click touch', '.view_data', function(){
 });
 
 
-$('.edit_dasta').click ( function(){ 
+/*$('.edit_dasta').click ( function(){ 
     
     var personId = $(this).data('id');
    
@@ -38,7 +38,7 @@ $('.edit_dasta').click ( function(){
         }
     });
     
-});
+});*/
 
 
 
