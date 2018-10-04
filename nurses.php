@@ -15,6 +15,16 @@ session_start();
  $sql = 'SELECT Person.PersonId, firstName, lastName, email, idNumber
  FROM omeyah.Person inner join omeyah.Nurse on Person.PersonId = Nurse.PersonId;';
           
+		  if(isset($_GET['search'])){
+$searchQuery = $_GET['searchQuery'];
+$sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM 
+omeyah.Person inner join omeyah.Nurse on Person.PersonId = Nurse.PersonId WHERE firstname LIKE '$searchQuery%'";
+		
+ }else{
+
+$sql = 'SELECT Person.PersonId, firstName, lastName, email, idNumber
+ FROM omeyah.Person inner join omeyah.Nurse on Person.PersonId = Nurse.PersonId;';
+ } 
  $query = mysqli_query($conn, $sql);
                              
  if (!$query) {
@@ -329,8 +339,8 @@ session_start();
 			                        	<div class="col-sm-8">
 			                        		<form>
 			                                    <div class="form-group search-box">
-                                                    <input type="text" id="search-input" class="form-control product-search" placeholder="Search here...">
-                                                    <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+                                                    <input type="text" id="search-input" name="searchQuery" class="form-control product-search" placeholder="Search here...">
+                                                    <button type="submit" name="search" class="btn btn-search"><i class="fa fa-search"></i></button>
                                                 </div>
 			                                </form>
                                         </div>

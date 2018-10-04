@@ -379,7 +379,7 @@ Person ps on ps.PersonId = p.PersonId LIMIT 10';
                                                                 <th>Name</th>
                                                                 <th>Surname</th>
                                                                 <th>Email</th>
-                                                                <th>Contact No.</th>                                                                
+                                                                <th>ID Number</th>                                                                
                                                             </tr>
                                                         </thead>
                                                                                        
