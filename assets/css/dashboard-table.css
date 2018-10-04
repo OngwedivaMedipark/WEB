@@ -10,10 +10,10 @@ table {
               
   th {
     /* Gradient Background */
-      background: linear-gradient(#000099,gray 100%);
+      background: linear-gradient(#000099 0%,gray 0%);
       color: #FFF; font-weight: bold;
       height: 40px;
-      opacity:0.3;
+      opacity:0.5;
   }
           
   td { background: #FAFAFA; text-align:justify; }
