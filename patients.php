@@ -11,9 +11,7 @@ session_start();
  if (!$conn) {
      die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
  }
- /* 
- 
- */
+
  if(isset($_GET['search'])){
 $searchQuery = $_GET['searchQuery'];
 $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person WHERE firstname LIKE '$searchQuery%'";
@@ -391,7 +389,7 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
                                                     <th>Name</th>
                                                     <th>Surname</th>
 													<th>Email</th>
-                                                    <th>Contact No.</th> 
+                                                    <th>ID Number</th> 
                                                     <!--<th>Patient Profile</th> -->                                                
                                                     <th>Modify Patient</th>
                                                    
