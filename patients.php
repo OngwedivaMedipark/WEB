@@ -6,22 +6,31 @@ session_start();
  $db_user = "admin";
  $db_pass = "sp!cymacfe@st";
  $db_name = "omeyah";
-
+ 
  $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
  if (!$conn) {
      die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
  }
-  
+ /* 
+ 
+ */
+ if(isset($_GET['search'])){
+$searchQuery = $_GET['searchQuery'];
+$sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person WHERE firstname LIKE '$searchQuery%'";
+		
+ }else{
+
  $sql = 'SELECT Person.PersonId, firstName, lastName, email, idNumber
  FROM omeyah.Person inner join omeyah.Patient on Person.PersonId = Patient.PersonId;';
-          
+ }
+
+
+
+ 	
  $query = mysqli_query($conn, $sql);
-                             
- if (!$query) {
+  if (!$query) {
      die ('SQL Error: ' . mysqli_error($conn));
  }
-                                 
- 
 ?>
 
 <!DOCTYPE html>
@@ -329,8 +338,8 @@ session_start();
 			                        	<div class="col-sm-8">
 			                        		<form>
 			                                    <div class="form-group search-box">
-                                                    <input type="text" id="search-input" class="form-control product-search" placeholder="Search here...">
-                                                    <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+                                                    <input type="text" id="search-input" name="searchQuery" class="form-control product-search" placeholder="Search here...">
+                                                    <button type="submit" name="search" class="btn btn-search"><i class="fa fa-search"></i></button>
                                                 </div>
 			                                </form>
                                         </div>
@@ -390,7 +399,13 @@ session_start();
 											</thead>
                                                                            
                                     <tbody>
+
+
+
                                     <?php 
+									
+									 $query = mysqli_query($conn, $sql);
+
                                     while($row = mysqli_fetch_array($query))
                                         {
                                     ?>

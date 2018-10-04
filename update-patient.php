@@ -49,6 +49,7 @@ $lastname = $_POST['lastName'];
 
  if ($conn->query($sql) === TRUE) {
   $message = "Record for " .$name. " "  .$suname. " updated successfully";
+  else if(isset(&_POST['']))
 } else {
     $message = "Error updating record: " . $conn->error;
 }
