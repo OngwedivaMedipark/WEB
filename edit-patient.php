@@ -417,7 +417,7 @@ ini_set('display_errors', 0);
 
                               <div class="form-group form-inline">
                                     <label for="genderId">Gender <span>*</span></label>                                                          
-                                    <input type="text" name="genderId" class="form-control"  value="<?php echo $dob;?>"  id="genderId" placeholder="">
+                                    <input type="text" name="genderId" class="form-control"  value="<?php echo $GenderId;?>"  id="genderId" placeholder="">
                                 </div>
                       
                               <div class="form-group form-inline">
@@ -427,7 +427,7 @@ ini_set('display_errors', 0);
 
                               <div class="form-group form-inline">
                                     <label for="age">Age</label>
-                                    <input type="text" name="age" class="form-control" id="age" placeholder="">
+                                    <input type="text" name="age" class="form-control" id="age" placeholder="" readonly="readonly">
                                </div>
 
                                <div class="form-group form-inline">
