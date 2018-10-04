@@ -357,7 +357,7 @@ ini_set('display_errors', 0);
 
                         <div class="col-lg-12">
                             <div class="add-patient-container">
-                                   <h4 class="custom-modal-title">Add New Patient</h4>
+                                   <h4 class="custom-modal-title">Update Patient Information</h4>
                                   <div class="custom-modal-text text-left">
                                  
                       
@@ -417,7 +417,7 @@ ini_set('display_errors', 0);
 
                               <div class="form-group form-inline">
                                     <label for="genderId">Gender <span>*</span></label>                                                          
-                                    <input type="text" name="genderId" class="form-control"  value="<?php echo $dob;?>"  id="genderId" placeholder="">
+                                    <input type="text" name="genderId" class="form-control"  value="<?php echo $GenderId;?>"  id="genderId" placeholder="">
                                 </div>
                       
                               <div class="form-group form-inline">
@@ -502,7 +502,7 @@ ini_set('display_errors', 0);
                             <!-- Contact Information -->  
                             <fieldset>
                               <h2 class="fs-title">Contact Information</h2>
-                              <div class="col-lg-6">
+                              <div class="col-lg-6 col-md-6 col-sm-12">
                               <div class="form-group form-inline">
                                   <label for="homeTel">Home Telephone</label>
                                   <input type="text" class="form-control" id="homeTel"  name="homeTel" value="<?php echo $HomeTel;?>" placeholder="">
@@ -575,7 +575,7 @@ ini_set('display_errors', 0);
                          </div>
                          </div>
 
-                        <div class="col-lg-6"> 
+                        <div class="col-lg-6 col-md-6 col-sm-12"> 
                                 <div class="form-group form-inline">
                                         <label for="cellNumber">Cell Number <span>*</span></label>
                                         <input type="text" class="form-control" id="cell-number" name="cellNumber"  value="<?php echo $HomeTel;?>"  placeholder="">                                               
@@ -595,7 +595,7 @@ ini_set('display_errors', 0);
                                         </select>
                                 </div>
                         </div> 
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
 
                         </div>  
                                   <!-- End Calc of Total Number of Donors Fields -->
@@ -609,7 +609,7 @@ ini_set('display_errors', 0);
                               <h2 class="fs-title">Next of kin</h2>
                               <h3 class="fs-subtitle"></h3>
                         
-                          <div class="col-lg-6">
+                          <div class="col-lg-6 col-md-6 col-sm-12">
                       
                           <div class="form-group form-inline">
                               <label for="nokName">Name <span>*</span></label>
@@ -655,7 +655,7 @@ ini_set('display_errors', 0);
                                    
                              </div>   
                             </div> 
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group form-inline">
                                             <label for="nokEmail">Email <span>*</span></label>
                                             <input type="email" class="form-control" id="nok-email" name="nokEmail" placeholder="">                                               
@@ -695,7 +695,7 @@ ini_set('display_errors', 0);
                           <fieldset>
                               <h2 class="fs-title">Payment Information</h2>
                               <h3 class="fs-subtitle"></h3>
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
                                     
                                         <div class="form-group form-inline">
                                                 <label for="paymentOptions">Payment Option <span>*</span></label>                                                     
@@ -763,7 +763,7 @@ ini_set('display_errors', 0);
 
                                 </div>
 
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="uploader" onclick="$('#filePhoto').click()">Scan & Upload Medical Aid</div>
                                         <input type="file" name="userprofile_picture"  id="filePhoto" style="display:block;width:255px;"  />
                                 </div>
@@ -782,7 +782,7 @@ ini_set('display_errors', 0);
                           <fieldset>
                               <h2 class="fs-title">PERSON RESPONSIBLE FOR ACCOUNT</h2>
                               <h3 class="fs-subtitle"></h3>
-                              <div class="col-lg-6">
+                              <div class="col-lg-6 col-md-6 col-sm-12">
                               <div class="form-group form-inline">                                          
                                 <label for="title">Title <span>*</span></label> 
                                 <select name="accTitle" class="form-control" id="title" placeholder="">
