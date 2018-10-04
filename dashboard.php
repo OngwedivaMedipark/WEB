@@ -51,7 +51,7 @@ Person ps on ps.PersonId = p.PersonId LIMIT 10';
         <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
-
+        <link rel="stylesheet" href="assets/css/dashboard-table.css" type="text/css" />  
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -370,7 +370,7 @@ Person ps on ps.PersonId = p.PersonId LIMIT 10';
                         <div class="col-md-12 col-lg-12 col-sm-12">
                                 <div class="card-box">
                                     <h4 class="header-title m-t-0 m-b-30">Recent Patients Added<h4>
-                                        	<div class="table-responsive">
+                                        	<div class="table-responsive text-muted m-0">
                                                     <table class="table table-hover mails m-0 table table-actions-bar">
                                                         <thead>
                                                             <tr>
@@ -379,7 +379,7 @@ Person ps on ps.PersonId = p.PersonId LIMIT 10';
                                                                 <th>Name</th>
                                                                 <th>Surname</th>
                                                                 <th>Email</th>
-                                                                <th>ID Number</th>                                                                
+                                                                <th>Phone Numbers   </th>                                                                
                                                             </tr>
                                                         </thead>
                                                                                        
