@@ -1,4 +1,73 @@
-ï»¿<!DOCTYPE html>
+<?php
+
+error_reporting(0);
+ini_set('display_errors', 0);
+
+ 
+  $output='';  
+  $db_host = "35.229.89.118";
+  $db_user = "admin";
+  $db_pass = "sp!cymacfe@st";
+  $db_name = "omeyah";
+  
+  $personId = $_GET["id"]; 
+  
+  $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+  if (!$conn) {
+      die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
+  }                           
+ 
+  $sql = "SELECT * FROM omeyah.Person AS p WHERE PersonId = '$personId'";
+		/*
+		= `
+		SELECT * FROM omeyah.Person AS p 
+		INNER JOIN omeyah.Patient as pat
+		ON p.PersonId = pat.PersonId
+		WHERE p.PersonId = '$personId';
+		`;
+		*/
+
+  $query = mysqli_query($conn, $sql);
+  while($row = mysqli_fetch_array($query))
+      {
+         $name = $row['FirstName'];
+         $lastname = $row['LastName'];
+         $dob = $row['DateOfBirth'];
+         $IdNumber = $row['IdNumber'];
+         $PassportNumber = $row['PassportNumber'];
+         $CauseOfDeath = $row['CauseOfDeath'];
+         $DeathDate = $row['DeathDate'];
+         $CreatorId = $row['CreatorId'];
+         $MiddleName = $row['MiddleName'];
+         $Initials = $row['Initials'];
+         $ResAddress1 = $row['ResAddress1'];
+         $ResPostCode = $row['ResPostCode'];
+         $Title = $row['Title'];
+         $Occupation = $row['Occupation'];
+         $Religion = $row['Religion'];
+         $Email = $row['Email'];
+         $BusAddress = $row['BusAddress'];
+         $BusPostCode = $row['BusPostCode'];
+         $Type = $row['Type'];
+         $TypeBusName = $row['TypeBusName'];
+         $HomeTel = $row['HomeTel'];
+         $WorkTel = $row['WorkTel'];
+         $ResSurbub = $row['ResSurbub'];
+         $Country = $row['Country'];
+         $GenderId = $row['GenderId'];
+         $DeadTypeId = $row['DeadTypeId'];
+         $Ethnicity = $row['Ethnicity'];
+         $IdentityType = $row['IdentityType'];
+         $MaritalStatus = $row['MaritalStatus'];
+         
+		 //	Patient Information
+		 $PatientId = $row['PatientId'];
+      }
+        
+ 
+  ?>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -308,27 +377,34 @@
 
                     <div class="col-sm-12">
                         <div class="add-patient-container">
-                            <h4 class="custom-modal-title">Add New Patient</h4>
+                            <h4 class="custom-modal-title">Admitting  <?php echo $name; ?> </h4>
                             <div class="custom-modal-text text-left">
 
 
                                 <!-- Modal -info -->
                                 <form class="add-patient" action="assets/php/add-patient.php" method="post" id="add-patient">
                                     <ul id="progressbar">
-                                        <li class="active">Personal Information</li>
-                                        <li>Contact Information</li>
-                                        <li>Next of kin </li>
-                                        <li>Payment Information</li>
-                                        <li>Person Responsible for Account</li>
+                                        <li class="active">Patient Personal Information</li>
+                                        <li>Account</li>
+                                        <li>Admission Details </li>
+                                        <li>Vital Signs</li>
+                                        <li>Diagnosis</li>
+										<li>Attachments</li>
                                         <li>Terms & Conditions</li>
                                     </ul>
 
+									<div class="row"><h2 class="fs-title">Admit a Patient</h2></div>
                                     <!-- USER INFORMATION FIELD SET -->
                                     <fieldset>
-                                        <h2 class="fs-title">Personal Information</h2>
+                                        <h2 class="fs-title ">Patient Personal Information</h2>
                                         <h3 class="fs-subtitle"></h3>
                                         <!-- Begin What's Your First Name Field -->
                                         <div class="col-sm-8">
+										    <div class="form-group form-inline">
+                                                <label for="patientId">Patient ID <span>*</span></label>
+                                                <input type="text" name="patientId" class="form-control" id="patientId" value= "<?php echo $PatientId;?>"
+                                                       placeholder="">
+                                            </div>
                                             <div class="form-group form-inline">
                                                 <label for="title">Title <span>*</span></label>
                                                 <select name="title" class="form-control" id="title" placeholder="">
@@ -349,30 +425,40 @@
                                                     <i class="error-log fa fa-exclamation-triangle"></i>
                                                 </span>
                                             </div>
+
+											<div class="form-group form-inline">
+                                                <label for="initials">Initials <span>*</span></label>
+                                                <input type="text" name="initials" class="form-control" id="initials" value="<?php echo $Initials;?>"
+                                                       placeholder="">
+                                            </div>
+
                                             <!-- End What's Your First Name Field -->
 
                                             <div class="form-group form-inline">
                                                 <label for="firstName">First Name <span>*</span></label>
-                                                <input type="text" name="firstName" class="form-control" id="firstName"
-                                                       placeholder="">
-                                            </div>
-
-                                            <div class="form-group form-inline">
-                                                <label for="middleName">Middle Name</label>
-                                                <input type="text" name="middleName" class="form-control" id="middleName"
+                                                <input type="text" name="firstName" class="form-control" id="firstName" value= "<?php echo $name;?>"
                                                        placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="lastName">Last Name <span>*</span></label>
-                                                <input type="text" name="lastName" class="form-control" id="lastName"
+                                                <input type="text" name="lastName" class="form-control" id="lastName"  value= "<?php echo $lastname;?>"
                                                        placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="genderId">Gender <span>*</span></label>
-                                                <input type="text" name="genderId" class="form-control" id="genderId"
-                                                       placeholder="">
+                                                <select type="text" name="genderId" class="form-control" id="genderId" placeholder="">												
+													<option value= "<?php echo $GenderId;?>">
+														<?php if($GenderId == "") : ?>
+															Please select gender 
+															<?php else : ?>
+																<?php echo $GenderId;?>
+														<?php endif; ?>
+													</option>
+													<option value="male">Male</option>
+													<option value="female">Female</option>
+												</select>
                                             </div>
 
                                             <div class="form-group form-inline">
@@ -386,97 +472,25 @@
                                                 <input type="text" name="age" class="form-control" id="age" placeholder="" readonly="readonly">
                                             </div>
 
-                                            <div class="form-group form-inline">
-                                                <label for="identityType">Identity Type <span>*</span></label>
-
-                                                <select name="identityType" class="form-control" id="identityType"
-                                                        placeholder="">
-                                                    <option>--Select option--</option>
-                                                    <option value="male">ID Document</option>
-                                                    <option value="female">Passport</option>
-                                                </select>
+											<div class="form-group form-inline">
+                                                <label for="homeTel">Cell Number</label>
+                                                <input type="text" name="homeTel" class="form-control" id="homeTel" placeholder="">
                                             </div>
 
-                                            <div class="form-group form-inline">
-                                                <label for="idNumber">Identity Number <span>*</span></label>
-                                                <input type="text" name="idNumber" class="form-control" id="idNumber"
-                                                       placeholder="">
-                                                </select>
+											<div class="form-group form-inline">
+                                                <label for="address">Address</label>
+                                                <textarea type="text" name="address" class="form-control" id="address" placeholder="" col=8 row=5></textarea>
                                             </div>
 
-                                            <div class="form-group form-inline">
-                                                <label for="maritialStatus">Maritial Status <span>*</span></label>
-
-                                                <select name="maritalStatus" class="form-control" id="maritalstatus"
-                                                        placeholder="">
-                                                    <option>--Select option--</option>
-                                                    <option value="single">Single</option>
-                                                    <option value="married">Married</option>
-                                                    <option value="divorced">Divorced</option>
-                                                    <option value="widowed">Widowed</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group form-inline">
-                                                <label for="ethnicity">Ethnicity <span>*</span></label>
-
-                                                <select name="ethnicity" class="form-control" id="ethnicity"
-                                                        placeholder="">
-                                                    <option>--Select option--</option>
-                                                    <option value="black">Black</option>
-                                                    <option value="white">White</option>
-                                                    <option value="coloured">Coloured</option>
-                                                    <option value="indian">Indian</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group form-inline">
-                                                <label for="religion">Religion <span>*</span></label>
-
-                                                <select name="religion" class="form-control" id="religion" placeholder="">
-                                                    <option>--Select option--</option>
-                                                    <option value="male">Christianity</option>
-                                                    <option value="Islam">Islam</option>
-                                                    <option value="female">Buddhism</option>
-                                                    <option value="Judaism">Judaism</option>
-                                                    <option value="Atheism">Atheism</option>
-                                                    <option value="Other">Other</option>
-                                                </select>
-                                            </div>
                                         </div>
                                         <!--=======================================================================================================-->
                                         <!--==========Take/Upload Picture====================-->
                                         <!--=======================================================================================================-->
                                         <div class="col-sm-4">
-                                            <button type="button" style="display:block;width:255px;" data-toggle="collapse"
-                                                    data-target="#takePhoto" onclick="hideSnap()" class="btn btn-default">
-                                                Take
-                                                Photo
-                                            </button>
-                                            <button type="button" style="display:block;width:255px;" data-toggle="collapse"
-                                                    data-target="#uploadPhoto" onclick="showSnap()" class="btn btn-light">
-                                                Upload Documents
-                                            </button>
-                                        </div>
-
-                                        <div id="uploadPhoto" class="collapse">
-                                            <div class="col-sm-4">
-                                                <div class="uploader" onclick="$('#filePhoto').click()">Add Picture</div>
-                                                <input type="file" name="userprofile_picture" id="filePhoto" style="display:block;width:255px;" />
-                                                <div>
-                                                    <p>Scan and upload</p>
-                                                    <input type="file" name="userprofile_picture" id="filePhoto" style="display:block;width:255px;" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="takePhoto" class="collapse col-sm-4">
-                                            <video width="255" autoplay="true" id="videoElement"></video>
-                                            <br />
-                                            <button id="snap" data-target="#takePhoto" data-toggle="collapse">Capture </button>
-                                        </div>
-                                        <div id="snapCanvas" class=" col-sm-4">
-                                            <canvas id="canvas" width="255" height="275"> </canvas>
-                                        </div>
+											<div class="card-box">
+												<img src="assets/images/users/dev.jpg" alt="user-img" class="img-circle user-img" width="300px" height="250px">
+											</div> 
+										</div>
 
                                         <div class="col-sm-12"></div>
                                         <!-- End Total Number of Constituents in Your Database Field -->
@@ -486,112 +500,116 @@
 
                                     <!-- Contact Information -->
                                     <fieldset>
-                                        <h2 class="fs-title">Contact Information</h2>
+                                         <h2 class="fs-title ">Payment Information</h2>
                                         <div class="col-sm-6">
                                             <div class="form-group form-inline">
-                                                <label for="homeTel">Home Telephone</label>
-                                                <input type="text" class="form-control" id="homeTel" placeholder="">
+                                                <label for="paymentOptions">Payment Options <span>*</span></label>
+                                                <select type="text" class="form-control" id="paymentOptions" name="paymentOptions" placeholder="">
+													<option value="medicalAid">Medical Aid</option>
+													<option value="cash">Cash</option>
+													<option value="card">Card</option>													
+												</select>
                                             </div>
 
                                             <div class="form-group form-inline">
-                                                <label for="workTel">Work Telephone</label>
-                                                <input type="text" class="form-control" id="workTel" placeholder="">
+                                                <label for="medicalAidScheme">Medical Aid Scheme</label>
+                                                <select type="text" class="form-control" id="medicalAidScheme" name="medicalAidScheme" placeholder="">
+													<option value="discovery">Discovery</option>
+													<option value="momentum">Momentum</option>
+													<option value="medimed">Medimed</option>	
+												</select>
+                                            </div>
+
+											<div class="form-group form-inline">
+                                                <label for="medicalAidSchemeOption">Medical Aid Scheme Option</label>
+                                                <select type="text" class="form-control" id="medicalAidSchemeOption" name="medicalAidSchemeOption" placeholder="">
+													<option value="discovery">Discovery</option>
+													<option value="momentum">Momentum</option>
+													<option value="medimed">Medimed</option>	
+												</select>
                                             </div>
 
                                             <div class="form-group form-inline">
-                                                <label for="prefferedContact">Preffered Contact Method</label>
-                                                <select name="prefferedContact" class="form-control" id="prefferedContact"
-                                                        placeholder="">
-                                                    <option>--Select option--</option>
-                                                    <option value="male">Phone</option>
-                                                    <option value="female">Email</option>
-                                                    <option value="female">Post</option>
-
-                                                </select>
+                                                <label for="medicalAidNumber">Medical Aid Number<span>*</span></label>
+                                                <input type="text" class="form-control" name="medicalAidNumber" id="medicalAidNumber"
+                                                       placeholder="">
                                             </div>
 
-                                            <div class="form-group form-inline">
-                                                <label for="occupation">Residential Address:</label>
-                                            </div>
+                                            <h2 class="fs-title ">Main Member Details</h2>
 
                                             <div class="form-group form-inline">
-                                                <label for="busAddress">Building/House <span>*</span></label>
-                                                <input type="text" class="form-control" id="building-house" name="busAddress"
+                                                <label for="memberName">Member Name<span>*</span></label>
+                                                <input type="text" class="form-control" name="memberName" id="memberName"
                                                        placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
-                                                <label for="resAddress1">Street Name <span>*</span></label>
-                                                <input type="text" class="form-control" name="resAddress1" id="street-name"
+                                                <label for="memberSurname">Member Surname<span>*</span></label>
+                                                <input type="text" class="form-control" name="memberSurname" id="memberSurname"
                                                        placeholder="">
                                             </div>
 
-
                                             <div class="form-group form-inline">
-                                                <label for="resSurbub">Suburb/Town <span>*</span></label>
-                                                <input type="text" class="form-control" name="resSurbub" id="resSurbub"
-                                                       placeholder="">
-                                            </div>
-                                            <div class="form-group form-inline">
-                                                <label for="resPostCode">Postal Code <span>*</span></label>
-                                                <input type="text" class="form-control" name="resPostCode" id="resPostCode"
+                                                <label for="memberIDNumber">Member ID Number <span>*</span></label>
+                                                <input type="text" class="form-control" name="memberIDNumber" id="memberIDNumber"
                                                        placeholder="">
 
                                             </div>
-
+											<h2 class="fs-title ">Dependant Information</h2>
                                             <div class="form-group form-inline">
-                                                <label for="country">Country <span>*</span></label>
-                                                <select class="form-control" name="country" id="country"></select>
-                                                <!--<input type="text" class="form-control" name="country" id="country" placeholder="">-->
-
-                                            </div>
-
-                                            <div class="form-group form-inline">
-                                                <label for="occupation">Postal Address:</label>
-                                            </div>
-
-                                            <!---->
-                                            <div class="form-group form-inline">
-                                                <input type="radio" name="sameaddress" value="" id="same-address"> Same
-                                                as Residential Address
-                                            </div>
-
-                                            <div class="form-group form-inline">
-                                                <label for="postalBox">Postal Box <span>*</span></label>
-                                                <input type="text" name="postalBox" class="form-control" id="postal-box"
+                                                <label for="dependantCode">Patient Dependant Code <span>*</span></label>
+                                                <input type="number" class="form-control" name="dependantCode" id="dependantCode"
                                                        placeholder="">
-
-                                            </div>
-
-                                            <div class="form-group form-inline">
-                                                <label for="busPostCode">Postal Code <span>*</span></label>
-                                                <input type="text" class="form-control" id="postal-code" name="busPostCode"
-                                                       placeholder="">
-
-                                            </div>
+											</div>
                                         </div>
 
                                         <div class="col-sm-6">
+											<h2 class="fs-title ">Authorisation Details</h2>
                                             <div class="form-group form-inline">
-                                                <label for="cellNumber">Cell Number <span>*</span></label>
-                                                <input type="text" class="form-control" id="cell-number" name="cellNumber"
+                                                <label for="authorisationDate">Authorisation Date <span>*</span></label>
+                                                <input type="date" name="authorisationDate" class="form-control" id="authorisationDate"
                                                        placeholder="">
                                             </div>
                                             <div class="form-group form-inline">
-                                                <label for="email">Email <span>*</span></label>
-                                                <input type="email" class="form-control" name="email" id="email"
+                                                <label for="authorisationNumber">Authorisation Number <span>*</span></label>
+                                                <input type="text" class="form-control" name="authorisationNumber" id="authorisationNumber"
                                                        placeholder="">
                                             </div>
                                             <div class="form-group form-inline">
-                                                <label for="contactHours">Preferred Contact Hours</label>
-                                                <select name="contactHours" class="form-control" id="contact-methods"
-                                                        placeholder="">
-                                                    <option>--Select option--</option>
-                                                    <option value="anytime">Anytime</option>
-                                                    <option value="workinghours">Working Hours</option>
-                                                    <option value="afterhours">After Hours</option>
-
-                                                </select>
+                                                <label for="authorisationDays">Authorisation Days <span>*</span></label>
+                                                <input type="text" class="form-control" name="authorisationDays" id="authorisationDays"
+                                                       placeholder="">
+                                            </div>
+											<div class="form-group form-inline">
+                                                <label for="authorisationAmount">Authorisation Amount <span>*</span></label>
+                                                <input type="text" class="form-control" name="authorisationAmount" id="authorisationAmount"
+                                                       placeholder="">
+                                            </div>
+											<div class="form-group form-inline">
+                                                <label for="authorisationStatus">Authorisation Status <span>*</span></label>
+                                                <input type="text" class="form-control" name="authorisationStatus" id="authorisationStatus"
+                                                       placeholder="">
+                                            </div>
+											<h2 class="fs-title ">Person Responsible For Payment</h2>
+											<div class="form-group form-inline">
+                                                <label for="responsibleName">Name <span>*</span></label>
+                                                <input type="text" class="form-control" name="responsibleName" id="responsibleName"
+                                                       placeholder="">
+                                            </div>
+											<div class="form-group form-inline">
+                                                <label for="responsibleSurname">Surname <span>*</span></label>
+                                                <input type="text" class="form-control" name="responsibleSurname" id="responsibleSurname"
+                                                       placeholder="">
+                                            </div>
+											<div class="form-group form-inline">
+                                                <label for="responsibleIDNumber">ID Number <span>*</span></label>
+                                                <input type="text" class="form-control" name="responsibleIDNumber" id="responsibleIDNumber"
+                                                       placeholder="">
+                                            </div>
+											<div class="form-group form-inline">
+                                                <label for="responsibleEmailAddress">Email Address <span>*</span></label>
+                                                <input type="text" class="form-control" name="responsibleEmailAddress" id="responsibleEmailAddress"
+                                                       placeholder="">
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
@@ -604,94 +622,105 @@
 
                                     </fieldset>
 
-                                    <!-- Next of kin field -->
+                                    <!-- Admission Details field -->
                                     <fieldset>
-                                        <h2 class="fs-title">Next of kin</h2>
+                                         <h2 class="fs-title ">Admission Details</h2>
                                         <h3 class="fs-subtitle"></h3>
 
-                                        <div class="col-sm-6">
-
+                                        <div class="col-sm-10 col-sm-offset-1">
                                             <div class="form-group form-inline">
-                                                <label for="nokName">Name <span>*</span></label>
-                                                <input type="text" class="form-control" id="nokName" name="nokName"
+                                                <label for="admissionDate">Admission Date <span>*</span></label>
+                                                <input type="date" name="admissionDate" class="form-control" id="admissionDate"
                                                        placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
-                                                <label for="nokSurname">Surname <span>*</span></label>
-                                                <input type="text" class="form-control" id="nokSurname" name="nokSurname"
+                                                <label for="admissionTime">Admission Time <span>*</span></label>
+                                                <input type="text" class="form-control" id="admissionTime" name="admissionTime"
                                                        placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
-                                                <label for="nokContact">Contact Number <span>*</span></label>
-                                                <input type="text" class="form-control" id="nokContact" name="nokContact"
-                                                       placeholder="">
+                                                <label for="nokContact">Admission Type <span>*</span></label>
+                                                <select type="text" class="form-control" id="nokContact" name="nokContact" placeholder="">
+													<option value="inhousePatient">Partient From In-House</option>
+													<option value="externalPatient">Partient From External</option>
+												</select>
                                             </div>
 
                                             <div class="form-group form-inline">
-                                                <label for="">Residential Address:</label>
+                                                <label for="admissionSource">Source of Admission</label>
+                                                <select type="text" class="form-control" id="admissionSource" name="admissionSource" placeholder="">
+													<option value="inhousePatient">Partient From In-House</option>
+													<option value="externalPatient">Partient From External</option>
+												</select>
                                             </div>
 
                                             <div class="form-group form-inline">
-                                                <label for="nokBuildingHome">Building/House <span>*</span></label>
-                                                <input type="text" class="form-control" id="nokbuilding-house" name="nokBuildingHome"
-                                                       placeholder="">
+                                                <label for="admissionSourceDetails">Source of Admission Details</label>
+                                                <textarea col=8 row=3 class="form-control" id="admissionSourceDetails" name="admissionSourceDetails"
+                                                       placeholder=""></textarea>
                                             </div>
 
-                                            <div class="form-group form-inline">
-                                                <label for="nokStreetName">Street Name <span>*</span></label>
-                                                <input type="text" class="form-control" id="nok-street-name" name="nokStreetName"
-                                                       placeholder="">
-                                            </div>
-
+											<h2 class="fs-title ">Attending Doctor(s)</h2>
 
                                             <div class="form-group form-inline">
-                                                <label for="nokSurburbTown">Suburb/Town <span>*</span></label>
-                                                <input type="text" class="form-control" id="nok-surburb-town" name="nokSurburbTown"
-                                                       placeholder="">
+                                                <label for="referringDoctor">Referring Doctor <span>*</span></label>
+                                                <select type="text" class="form-control doctorSearch" id="referringDoctor" name="referringDoctor" placeholder=""></select>
                                             </div>
-                                            <div class="form-group form-inline">
-                                                <label for="nokPostalCode">Postal Code <span>*</span></label>
-                                                <input type="text" class="form-control" id="nok-postal-code" name="nokPostalCode"
-                                                       placeholder="">
 
+											<div class="form-group form-inline">
+                                                <label for="attendingDoctor1">Attending Doctor (1) <span>*</span></label>
+                                                <select type="text" class="form-control doctorSearch" id="attendingDoctor1" name="attendingDoctor1" placeholder=""></select>
                                             </div>
-                                            <div class="form-group form-inline">
-                                                <label for="nokCountry">Country <span>*</span></label>
-                                                <input type="text" class="form-control" id="nok-country" name="nokCountry"
+											<div class="form-group form-inline">
+                                                <label for="attendingDoctor2">Attending Doctor (2)</label>
+                                                <select type="text" class="form-control doctorSearch" id="attendingDoctor2" name="attendingDoctor2" placeholder=""></select>
+                                            </div>
+											<div class="form-group form-inline">
+                                                <label for="attendingDoctor3">Attending Doctor (3)</label>
+                                                <select type="text" class="form-control doctorSearch" id="attendingDoctor3" name="attendingDoctor3" placeholder=""></select>
+                                            </div>
+
+											<div class="form-group form-inline">
+                                                <label for="anaesthetist">Anaesthetist</label>
+                                                <select type="text" class="form-control" id="anaesthetist" name="anaesthetist" placeholder=""></select>
+                                            </div>
+
+											<h2 class="fs-title ">Ward, Room, Bed</h2>
+											
+											<div class="form-group form-inline">
+                                                <label for="billingCode">Billing Code</label>
+                                                <select type="text" class="form-control" id="billingCode" name="billingCode" placeholder=""></select>
+                                            </div>
+											
+											<div class="form-group form-inline">
+                                                <label for="ward">Ward</label>
+                                                <select type="text" class="form-control" id="ward" name="ward" placeholder=""></select>
+                                            </div>
+											
+											<div class="form-group form-inline">
+                                                <label for="room">Room</label>
+                                                <select type="text" class="form-control" id="room" name="room" placeholder=""></select>
+                                            </div>
+
+											<div class="form-group form-inline">
+                                                <label for="bed">Bed</label>
+                                                <select type="text" class="form-control" id="bed" name="bed" placeholder=""></select>
+                                            </div>
+
+											<div class="form-group form-inline">
+                                                <label for="wardRate">Ward Rate</label>
+                                                <select type="text" class="form-control" id="wardRate" name="wardRate" placeholder=""></select>
+                                            </div>
+
+											<div class="form-group form-inline">
+                                                <label for="wardAmount">Ward Amount <span>*</span></label>
+                                                <input type="date" name="wardAmount" class="form-control" id="wardAmount"
                                                        placeholder="">
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group form-inline">
-                                                <label for="nokEmail">Email <span>*</span></label>
-                                                <input type="email" class="form-control" id="nok-email" name="nokEmail"
-                                                       placeholder="">
-                                            </div>
-
-                                            <div class="form-group form-inline">
-                                                <label for="nokRelationship">Relationship</label>
-                                                <select name="nokRelationship" class="form-control" id="nok-ralationship"
-                                                        placeholder="">
-                                                    <option>--Select option--</option>
-                                                    <option value="mother">Mother</option>
-                                                    <option value="father">Father</option>
-                                                    <option value="son">Son</option>
-                                                    <option value="daughter">Daughter</option>
-                                                    <option value="grandparent">Grandparent</option>
-                                                    <option value="cousin">Cousin</option>
-                                                    <option value="aunt">Aunt</option>
-                                                    <option value="uncle">Uncle</option>
-                                                    <option value="inlaws">In-laws</option>
-                                                    <option value="brother">Brother</option>
-                                                    <option value="sister">Sister</option>
-                                                    <option value="relative">Relative</option>
-                                                    <option value="other">Other</option>
-
-                                                </select>
-                                            </div>
-                                        </div>
+                                        
                                         <div class=" col-sm-12 col-sm-12 col-sm-12"></div>
 
                                         <input type="button" data-page="3" name="previous" class="previous action-button"
@@ -702,96 +731,255 @@
 
 
 
-                                    <!-- Payment Information -->
+                                    <!-- Vital Signs -->
                                     <fieldset>
-                                        <h2 class="fs-title">Payment Information</h2>
+                                         <h2 class="fs-title ">Vital Signs</h2>
                                         <h3 class="fs-subtitle"></h3>
                                         <div class="col-lg-6 col-sm-6 col-sm-12">
 
                                             <div class="form-group form-inline">
-                                                <label for="paymentOptions">Payment Option <span>*</span></label>
-                                                <select name="paymentOptions" class="form-control" id="medicalaidoption"
-                                                        placeholder="">
-                                                    <option>--Select option--</option>
-                                                    <option value="medicalaid">Medial Aid</option>
-                                                    <option value="cash">Cash</option>
-                                                    <option value="creditcard">Credit Card</option>
-                                                    <option value="mva">MVA</option>
-                                                    <option value="compnayorders">Company Orders</option>
-                                                </select>
+                                                <label for="patientHeight">Height (cm)</label>
+                                                <input type="text" name="patientHeight" class="form-control" id="patientHeight">
                                             </div>
                                             <div class="form-group form-inline">
-                                                <label for="medicalAidScheme">Medical Aid Scheme <span>*</span></label>
-                                                <input type="text" class="form-control" name="medicalAidScheme" id="medical-aid-scheme"
+                                                <label for="patientWeight">Weight (kg)</label>
+                                                <input type="text" class="form-control" name="patientWeight" id="patientWeight"
                                                        placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
-                                                <label for="medicalAidSchemeOption">Medical Aid Scheme Option <span>*</span></label>
-                                                <input name="medicalAidSchemeOption" type="text" class="form-control"
-                                                       id="medical-aid-scheme-option" placeholder="">
-                                            </div>
-
-                                            <div class="form-group form-inline">
-                                                <label for="medicalAidSchemeNumber">Medical Aid Scheme Number <span>*</span></label>
-                                                <input type="number" class="form-control" name="medicalAidSchemeNumber"
-                                                       id="medical-aid-scheme-number" placeholder="">
-                                            </div>
-
-                                            <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#iframeModal">
-                                                Verify Account <i class="fas fa-check-circle"></i>
-                                            </a>
-
-                                            <div class="form-group form-inline">
-                                                <label for="">Main Member Details</label>
-
-                                            </div>
-
-
-                                            <div class="form-group form-inline">
-                                                <label for="memberName">Member Name <span>*</span></label>
-                                                <input type="text" class="form-control" id="member-name" name="memberName"
+                                                <label for="bodyTemperature">Body Temperature</label>
+                                                <input type="text" class="form-control" name="bodyTemperature" id="bodyTemperature"
                                                        placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
-                                                <label for="memberSurname">Member Surname <span>*</span></label>
-                                                <input type="text" class="form-control" id="member-surname" name="memberSurname"
-                                                       placeholder="">
-                                            </div>
-
-                                            <div class="form-group form-inline">
-                                                <label for="memberId">Member ID Number <span>*</span></label>
-                                                <input type="text" class="form-control" name="memberId" id="member-id-number"
-                                                       placeholder="">
-                                            </div>
-
-                                            <div class="form-group form-inline">
-                                                <label for="">Dependant Information</label>
-                                            </div>
-
-                                            <div class="form-group form-inline">
-                                                <label for="Patientcode">Patient Dependant Code <span>*</span></label>
-                                                <select name="patientCode" class="form-control" id="Patient-code"
-                                                        placeholder="">
-                                                    <option>--Select option--</option>
-                                                    <option value="00">00</option>
-                                                    <option value="01">01</option>
-                                                    <option value="02">02</option>
-                                                    <option value="03">03</option>
-                                                    <option value="04">04</option>
-                                                </select>
+                                                <label for="bloodPressure">Blood Pressure</label>
+                                                <input type="number" class="form-control" name="bloodPressure"
+                                                       id="bloodPressure" placeholder="">
                                             </div>
 
                                         </div>
 
-                                        <div class="col-sm-6 col-sm-6 col-sm-12">
-                                            <div class="uploader" onclick="$('#filePhoto').click()">
-                                                Scan & Upload
-                                                Medical Aid
-                                            </div>
-                                            <input type="file" name="userprofile_picture" id="filePhoto" style="display:block;width:255px;" />
-                                        </div>
+										 <div class="col-sm-6 col-sm-6 col-sm-12">
+												<div class="form-group form-inline">
+													<label for="pulseRate">Pulse Rate</label>
+													<input type="text" name="pulseRate" class="form-control" id="pulseRate">
+												</div>
+												<div class="form-group form-inline">
+													<label for="respiratoryRate">Respiratory Rate</label>
+													<input type="text" class="form-control" name="respiratoryRate" id="respiratoryRate"
+														   placeholder="">
+												</div>
+
+												<div class="form-group form-inline">
+													<label for="glucoseLevel">Glucose Level</label>
+													<input type="text" class="form-control" name="glucoseLevel" id="glucoseLevel"
+														   placeholder="">
+												</div>
+
+												<div class="form-group form-inline">
+													<label for="choresterol">Choresterol</label>
+													<input type="number" class="form-control" name="choresterol"
+														   id="choresterol" placeholder="">
+												</div>
+											</div>
+                                        
+										<!-- Medical Conditions -->
+										<div class="col-lg-12 col-sm-12 col-sm-12">
+										
+											<h2 class="fs-title ">Medical Conditions</h2>
+
+											<div class="col-sm-4 col-sm-4 col-sm-12">
+												
+
+												<div class="form-group form-inline">
+													<input type="checkbox" name="allergies" class="form-control" id="allergies">
+													<label for="arthritis">Arthritis</label>													
+												</div>
+												
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="arthritis"
+                                                       id="arthritis" placeholder="">
+													<label for="arthritis">Arthritis</label>
+												</div>
+
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="asthma"
+                                                       id="asthma" placeholder="">
+													   <label for="asthma">Asthma</label>
+												</div>
+
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="backPain"
+                                                       id="backPain" placeholder="">
+													   <label for="backPain">Back Pain</label>
+												</div>
+
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="cancer"
+                                                       id="cancer" placeholder="">
+													   <label for="cancer">Cancer</label>
+												</div>
+
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="copd"
+                                                       id="copd" placeholder="">
+													   <label for="copd">COPD</label>
+												</div>
+
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="other"
+                                                       id="other" placeholder="">
+													   <label for="other">Other</label>
+												</div>
+											</div>
+
+											<div class="col-sm-4 col-sm-4 col-sm-12">
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control checkbox" name="chronicPain"
+                                                       id="chronicPain" placeholder="">
+													   <label for="chronicPain">Chronic Pain</label>
+												</div>
+												
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="depression"
+                                                       id="depression" placeholder="">
+													   <label for="depression">Depression</label>
+												</div>
+
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="diabetes"
+                                                       id="diabetes" placeholder="">
+													   <label for="diabetes">Diabetes</label>
+												</div>
+
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="heartburn"
+                                                       id="heartburn" placeholder="">
+													   <label for="heartburn">Heartburn or Acid Reflux</label>
+												</div>
+
+												<div class="form-group form-inline">
+													<input type="checkbox" class="form-control" name="heartDisease"
+                                                       id="heartDisease" placeholder="">
+													   <label for="heartDisease">Heart Disease</label>
+												</div>
+
+												<div class="form-group form-inline">
+													<input type="checkbox" class="form-control" name="highBlodPressure"
+                                                       id="highBlodPressure" placeholder="">
+													<label for="highBlodPressure">High Blood Pressure</label>
+												</div>
+											</div>
+                                           
+										   <div class="col-sm-4 col-sm-4 col-sm-12">
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control checkbox" name="highChoresterol"
+                                                       id="highChoresterol" placeholder="">
+													   <label for="highChoresterol">High Choresterol</label>
+												</div>
+												
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="migraineHeadaches"
+                                                       id="migraineHeadaches" placeholder="">
+													   <label for="migraineHeadaches">Migraine Headaches</label>
+												</div>
+
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="osteoporosis"
+                                                       id="osteoporosis" placeholder="">
+													   <label for="osteoporosis">Osteoporosis</label>
+												</div>
+
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="sleepDisorder"
+                                                       id="sleepDisorder" placeholder="">
+													   <label for="sleepDisorder">Sleep Disorder</label>
+												</div>
+
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="stroke"
+                                                       id="stroke" placeholder="">
+													   <label for="stroke">Stroke</label>
+												</div>
+
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="thyroidDisease"
+                                                       id="thyroidDisease" placeholder="">
+													   <label for="thyroidDisease">Thyroid Disease</label>
+												</div>
+											</div>
+										</div>
+
+
+										<!--	Family History	-->
+										<div class="col-lg-12 col-sm-12 col-sm-12">
+										
+											<h2 class="fs-title ">Family History</h2>
+
+											<div class="col-sm-4 col-sm-4 col-sm-12">
+												
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="familyAsthma"
+                                                       id="familyAsthma" placeholder="">
+													   <label for="familyAsthma">Asthma</label>
+												</div>
+
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="familyCancer"
+                                                       id="familyCancer" placeholder="">
+													   <label for="familyCancer">Cancer</label>
+												</div>
+
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="familyCopd"
+                                                       id="familyCopd" placeholder="">
+													   <label for="familyCopd">COPD</label>
+												</div>
+											</div>
+
+											<div class="col-sm-4 col-sm-4 col-sm-12">
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="familyDiabetes"
+                                                       id="familyDiabetes" placeholder="">
+													   <label for="familyDiabetes">Diabetes</label>
+												</div>
+
+												<div class="form-group form-inline">
+													<input type="checkbox" class="form-control" name="familyHeartDisease"
+                                                       id="familyHeartDisease" placeholder="">
+													   <label for="familyHeartDisease">Heart Disease</label>
+												</div>
+										
+												<div class="form-group form-inline">
+													<input type="checkbox" class="form-control" name="familyHighBlodPressure"
+                                                       id="familyHighBlodPressure" placeholder="">
+													<label for="familyHighBlodPressure">High Blood Pressure</label>
+												</div>
+												
+											</div>
+                                           
+										   <div class="col-sm-4 col-sm-4 col-sm-12">
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control checkbox" name="familyHighChoresterol"
+                                                       id="familyHighChoresterol" placeholder="">
+													   <label for="familyHighChoresterol">High Choresterol</label>
+												</div>
+												
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="familyOsteoporosis"
+                                                       id="familyOsteoporosis" placeholder="">
+													   <label for="familyOsteoporosis">Osteoporosis</label>
+												</div>
+
+												<div class="form-group form-inline">													
+													<input type="checkbox" class="form-control" name="familyStroke"
+                                                       id="familyStroke" placeholder="">
+													   <label for="familyStroke">Stroke</label>
+												</div>
+											</div>
+										</div>
 
                                         <div class="clearfix"></div>
 
@@ -811,7 +999,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body" style="height:600px">
-                                                        <iframe style="width:100%; height:100%;" src="http://www.methealth.com.na/edoc/PSEMAS/member_info_psemas_results.php?username=hong001&password=atwb245"></iframe>
+                                                        <iframe style="width:100%; height:100%;" src="http://www.methealth.com.na/edoc/PSEMAS/member_info_psemas_results.php"></iframe>
                                                     </div>
                                                     <div class="modal-footer">
 
@@ -829,7 +1017,7 @@
 
                                     <!-- person responsible -->
                                     <fieldset>
-                                        <h2 class="fs-title">PERSON RESPONSIBLE FOR ACCOUNT</h2>
+                                         <h2 class="fs-title ">Diagnosis</h2>
                                         <h3 class="fs-subtitle"></h3>
                                         <div class="col-sm-6 col-md-6 col-sm-12">
                                             <div class="form-group form-inline">
@@ -992,8 +1180,20 @@
 
                                     </fieldset>
 
+									<fieldset>
+										 <h2 class="fs-title pull-left">Attachments</h2>
+
+										 
+                                        <div class="clearfix"></div>
+
+
+                                        <input type="button" data-page="4" name="previous" class="previous action-button"
+                                               value="Previous" />
+                                        <input type="button" data-page="4" name="next" class="next action-button" value="Save & Continue" />
+									</fieldset>
+
                                     <fieldset>
-                                        <h2 class="fs-title">Terms & Conditions</h2>
+                                         <h2 class="fs-title pull-left">Terms & Conditions</h2>
                                         <h3 class="fs-subtitle"></h3>
                                         <div class="col-sm-6 col-md-6 col-sm-6">
                                             <ol style="padding-bottom: 15px;">
@@ -1024,7 +1224,7 @@
                                                     hospital or In respect of any treatment administered to the patient
                                                     in the hospital, shall be determined exclusively In accordance
                                                     with the laws of the Republic of Namibia and furthermore any
-                                                    competent Magistrateâ€™s court in the Republic of Namibia shall have
+                                                    competent Magistrate’s court in the Republic of Namibia shall have
                                                     jurisdiction in all matters so arising, notwithstanding the amount
                                                     of the cause of action.
                                                 </li>
@@ -1034,12 +1234,12 @@
                                                     attorneys for collection, to be jointly and severally liable for
                                                     the payment of all the costs on an attorney and own client scale,
                                                     all collection commission and all tracing costs. All outstanding
-                                                    amounts will be recovered in the following order: attorneyâ€™s fees,
+                                                    amounts will be recovered in the following order: attorney’s fees,
                                                     interest and capital.
                                                 </li>
 
                                                 <li>
-                                                    The signatory undertakes to pay the Hospitalâ€™s legal costs and
+                                                    The signatory undertakes to pay the Hospital’s legal costs and
                                                     collection commission as per approved scales of Agreement.
                                                 </li>
 
@@ -1156,7 +1356,7 @@
         </div> <!-- content -->
 
         <footer class="footer text-right">
-            2018 Â© Medipark
+            2018 © Medipark
         </footer>
 
     </div>
@@ -1218,13 +1418,13 @@
     <!-- END wrapper -->
 
     <script>
-        var resizefunc = [];
+    var resizefunc = [];
     </script>
 
     <!-- jQuery  -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/add-patient.js"></script>
+    <script src="assets/js/add-patient-admission.js"></script>
     <script src="assets/js/detect.js"></script>
     <script src="assets/js/fastclick.js"></script>
     <script src="assets/js/jquery.blockUI.js"></script>
@@ -1239,11 +1439,6 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-
-    <script type="text/javascript">
-
-    </script>
-
 
 
     <!-- App js -->

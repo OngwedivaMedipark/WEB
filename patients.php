@@ -66,6 +66,94 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
 
         <script src="js/modernizr.min.js"></script>
 
+
+<!--
+<script type="text/javascript">
+    $(function() {
+        // Do this before you initialize any of your modals
+        $.fn.modal.Constructor.prototype.enforceFocus = function() {};
+
+        var hospitals = [{"id": 1,"text": "Hospital #1"}, {"id": 2,"text": "Hospital #2"}, {"id": 3,"text": "Hospital #3"}];
+        var wards = [{"id": 1,"text": "Medical"}, {"id": 2,"text": "ICU"}, {"id": 3,"text": "Maternity"}];
+        var beds = [
+            {"id": 1,"text": "Bed #1"}, {"id": 2,"text": "Bed #2"}, {"id": 3,"text": "Bed #3"}, {"id": 4,"text": "Bed #4"}, {"id": 5,"text": "Bed #5"}, {"text": "Bed #6"},
+            {"id": 7,"text": "Bed #7"}, {"id": 8,"text": "Bed #8"}, {"id": 9,"text": "Bed #9"}, {"id": 10,"text": "Bed #10"}, {"id": 11,"text": "Bed #11"}, {"id": 12,"text": "Bed #12"}
+        ];
+        var doctors = [{"id": 1,"text": "Mustafa Masoud (ANAESTHESIOLOGY)"}, {"id": 2,"text": "Tikku O Arrey (ANAESTHESIOLOGY)"},
+                       {"id": 3,"text": "Shaaban M Kaikai (GENERAL SURGERY)"}, {"id": 4,"text": "Akutu Apollos Munyika (GENERAL SURGERY)"},
+                       {"id": 5,"text": "Tshali Iithete (GENERAL PRACTITIONER)"}, {"id": 6,"text": "Eduardo Juan Lopes-Morales (GENERAL PRACTITIONER)"}];
+
+
+       var hospitalsSelect = $("#hospitalSelect");
+
+        $.each(hospitals, function (i, hospital) {
+                var line = `<option value="${hospital.id}"> ${hospital.text} </option>`;
+                hospitalsSelect.append(line);
+        });
+       
+        var wardsSelect = $("#wardSelect");
+
+        $.each(wards, function (i, ward) {
+                var line = `<option value="${ward.id}"> ${ward.text} </option>`;
+                wardsSelect.append(line);
+        });
+
+        var bedsSelect = $("#bedSelect");
+
+        $.each(beds, function (i, bed) {
+                var line = `<option value="${bed.id}"> ${bed.text} </option>`;
+                bedsSelect.append(line);
+        });
+
+        var doctorsSelect = $("#doctorSelect");
+
+        $.each(doctors, function (i, doctor) {
+                var line = `<option value="${doctor.id}"> ${doctor.text} </option>`;
+                doctorsSelect.append(line);
+        });
+
+         $("#hospitalSelect").select2({
+             //data: hospitals,
+             dropdownParent: $('#admit-patient'),
+           placeholder: 'Select hospital',
+           allowClear: true,
+           maximumSelectionLength: 5,
+        });
+
+         $("#wardSelect").select2({
+            dropdownParent: $('#admit-patient'),
+           placeholder: 'Select ward',
+           allowClear: true,
+           maximumSelectionLength: 5
+        });
+
+         $("#bedSelect").select2({
+            dropdownParent: $('#admit-patient'),
+           placeholder: 'Select ward',
+           allowClear: true,
+           maximumSelectionLength: 5
+        });
+
+         $("#doctorSelect").select2({
+            dropdownParent: $('#admit-patient'),
+           placeholder: 'Select ward',
+           allowClear: true,
+           maximumSelectionLength: 5
+        });        
+
+		var table = $('.table');
+		$('.table tbody').on( 'click', 'tr', function () {
+            
+			var tableData = $(this).children("td").map(function() {
+				return $(this).text();
+			}).get();
+
+			console.log(tableData);
+    } );
+
+    });
+</script>
+-->
     </head>
 
 
@@ -392,7 +480,7 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
                                                     <th>ID Number</th> 
                                                     <!--<th>Patient Profile</th> -->                                                
                                                     <th>Modify Patient</th>
-                                                   
+                                                    <th>Admit Patient</th>
 												</tr>
 											</thead>
                                                                            
@@ -443,6 +531,14 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
                                         <a href="edit-patient.php?id=<?php echo $row["PersonId"]; ?>"   data-id="<?php echo $row["PersonId"]; ?>"  data-target="#edit-patient" class="table-action-btn h3" >
                                         <i class="mdi mdi-pencil-box-outline text-success"></i> </a>
                                                                          
+                                        </td>
+                                        <td>
+                                            <!-- <a href="#" data-target="#admit-patient" data-toggle="modal" class="table-action-btn h3" onclick="">
+                                                <i class="mdi mdi mdi-account text-primary"></i>
+                                            </a> --> 
+											<a href="patient-admission.php?id=<?php echo $row["PersonId"]; ?>"   data-id="<?php echo $row["PersonId"]; ?>"  data-target="#edit-patient" class="table-action-btn h3" >
+                                            <i class="mdi mdi mdi-account text-primary"></i>
+                                         </a>
                                         </td>
                                     </tr>
                                     <?php
@@ -646,6 +742,9 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
     <!-- Modal-Effect -->
         <script src="../plugins/custombox/js/custombox.min.js"></script>

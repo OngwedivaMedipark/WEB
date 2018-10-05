@@ -362,7 +362,7 @@ ini_set('display_errors', 0);
                                  
                       
                       <!-- Modal -info -->
-                    <form class="add-patient" action="update-patient.php" method="post" id="update-patient">
+        <form class="add-patient" action="update-patient.php" method="post" id="update-patient">
                             <ul id="progressbar">
                               <li class="active">Personal  Information</li>
                               <li>Contact Information</li>
@@ -427,7 +427,7 @@ ini_set('display_errors', 0);
 
                               <div class="form-group form-inline">
                                     <label for="age">Age</label>
-                                    <input type="text" name="age" class="form-control" id="age" placeholder="">
+                                    <input type="text" name="age" class="form-control" id="age" placeholder="" readonly="readonly">
                                </div>
 
                                <div class="form-group form-inline">
@@ -453,7 +453,7 @@ ini_set('display_errors', 0);
                                             <option>--Select option--</option>
                                             <option value="single">Single</option>
                                             <option value="married">Married</option>                                       
-                                            <option value="devorced">Devorced</option>
+                                            <option value="divorced">Divorced</option>
                                             <option value="widowed">Widowed</option>                             
                                     </select>
                                </div>
@@ -539,13 +539,12 @@ ini_set('display_errors', 0);
                             </div>
 
                             <div class="form-group form-inline">
-                                    <label for="country">Country <span>*</span></label>
-                                    <input type="text" class="form-control" name="country" id="country"  value="<?php echo $Country;?>"  placeholder="">
-                            </div>
-
-                            <div class="form-group form-inline">
                                     <label for="resSurbub">Suburb/Town <span>*</span></label>
                                     <input type="text" class="form-control"name="resSurbub" id="resSurbub"  value="<?php echo $ResSurbub;?>"  placeholder="">
+                            </div>
+                            <div class="form-group form-inline">
+                                    <label for="country">Country <span>*</span></label>
+                                    <input type="text" class="form-control" name="country" id="country"  value="<?php echo $Country;?>"  placeholder="">
                             </div>
                             <div class="form-group form-inline">
                                     <label for="resPostCode">Postal Code <span>*</span></label>
@@ -640,14 +639,15 @@ ini_set('display_errors', 0);
                                     <input type="text" class="form-control" id="nok-street-name" name="nokStreetName" placeholder="">
                             </div>
 
-                            <div class="form-group form-inline">
-                                    <label for="nokCountry">Country <span>*</span></label>
-                                    <input type="text" class="form-control" id="nok-country" name="nokCountry" placeholder="">
-                            </div>
+                          
 
                             <div class="form-group form-inline">
                                     <label for="nokSurburbTown">Suburb/Town <span>*</span></label>
                                     <input type="text" class="form-control" id="nok-surburb-town" name="nokSurburbTown" placeholder="">
+                            </div>
+                            <div class="form-group form-inline">
+                                    <label for="nokCountry">Country <span>*</span></label>
+                                    <input type="text" class="form-control" id="nok-country" name="nokCountry" placeholder="">
                             </div>
                             <div class="form-group form-inline">
                                     <label for="nokPostalCode">Postal Code <span>*</span></label>
@@ -835,11 +835,6 @@ ini_set('display_errors', 0);
                     </div>
 
                     <div class="form-group form-inline">
-                            <label for="accCountry">Country <span>*</span></label>
-                            <input type="text" class="form-control" id="acc-street-name" placeholder="" name="accCountry">
-                    </div>
-
-                    <div class="form-group form-inline">
                             <label for="accSuburb">Suburb/Town <span>*</span></label>
                             <input type="text" class="form-control" id="acc-street-name" name="accSuburb" placeholder="">
                     </div>
@@ -997,7 +992,7 @@ hospital shall not in any way be responsible or liable for any acts or omissions
                               <input id="submit" class="hs-button primary large action-button next" type="submit" value="Submit">
                               
                             </fieldset>
-                    </form>
+    </form>
                                   </div>
                                   </div>
                                 

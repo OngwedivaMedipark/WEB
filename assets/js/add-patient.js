@@ -441,7 +441,7 @@ $(function () {
     $("input[name='dateOfBirth']").on('blur', function () {
         var dob = new Date(this.value);
 
-        $("input[name='age']").val(getAge(dob));
+        $("input[name='age']").val( isNaN(getAge(dob)) ? "" : getAge(dob));
     });
 
     //  Caters for postal address if it's the same as residential
