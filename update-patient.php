@@ -26,7 +26,6 @@ $lastname = $_POST['lastName'];
    $Ethnicity = $_POST['ethnicity'];
    $IdentityType = $_POST['identityType'];
    $MaritalStatus = $_POST['maritalStatus'];
-
    
   $output='';  
   $db_host = "35.229.89.118";
@@ -41,17 +40,14 @@ $lastname = $_POST['lastName'];
       die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
   }                           
  
-  $sql = "UPDATE omeyah.Person SET FirstName ='$name', LastName='$lastname', IdNumber='$IdNumber',ResAddress1 = '$ResAddress1',  ResPostCode = '$ResPostCode', Title = '$Title', Occupation = '$Occupation', Religion = '$Religion', Email = '$Email', BusAddress = '$BusAddress',  HomeTel = '$HomeTel', WorkTel = '$WorkTel', ResSurbub = '$ResSurbub', Country ='$Country',   IdentityType =' $IdentityType', MaritalStatus = '$MaritalStatus'   WHERE PersonId = '$personId'";
+  $sql = "UPDATE omeyah.Person SET FirstName ='$name', LastName='$lastname', IdNumber='$IdNumber',ResAddress1 = '$ResAddress1',  ResPostCode = '$ResPostCode', Title = '$Title', Occupation = '$Occupation', Religion = '$Religion', Email = '$Email', BusAddress = '$BusAddress',  HomeTel = '$HomeTel', WorkTel = '$WorkTel', ResSurbub = '$ResSurbub', Country ='$Country',   IdentityType =' $IdentityType', MaritalStatus = '$MaritalStatus', GenderId = '$GenderId'   WHERE PersonId = '$personId'";
   
-
   if ($conn->query($sql) === TRUE) {
   $message = "Record for " .$name. " "  .$suname. " updated successfully";
 } else {
     $message = "Error updating record: " . $conn->error;
 }
-
 $conn->close();
-
 ?>
 
 
@@ -88,9 +84,7 @@ $conn->close();
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
 <style>
-
 .modal-dialog{height:auto !important}
-
 </style>
         <script src="js/modernizr.min.js"></script>
 
@@ -401,15 +395,15 @@ $conn->close();
 
   <!-- Modal content-->
   <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal">×</button>
+    <div class="modal-header text-primary">
+      <a href="patients.php" class="close" data-dismiss="modal">×</a>
       <h4 class="modal-title"><i class="fa fa-exclamation-circle"></i> Patient Edit Details</h4>
     </div>
     <div class="modal-body">
     <?php echo $message; ?>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Finish</button>
+	  <a href="patients.php" class="btn btn-default">Finish</a>
     </div>
   </div>
 

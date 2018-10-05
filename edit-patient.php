@@ -417,7 +417,17 @@ ini_set('display_errors', 0);
 
                               <div class="form-group form-inline">
                                     <label for="genderId">Gender <span>*</span></label>                                                          
-                                    <input type="text" name="genderId" class="form-control"  value="<?php echo $GenderId;?>"  id="genderId" placeholder="">
+                                    <select type="text" name="genderId" class="form-control" id="genderId" placeholder="">												
+													<option value= "<?php echo $GenderId;?>">
+														<?php if($GenderId == "") : ?>
+															Please select gender 
+															<?php else : ?>
+																<?php echo $GenderId;?>
+														<?php endif; ?>
+													</option>
+													<option value="male">Male</option>
+													<option value="female">Female</option>
+												</select>
                                 </div>
                       
                               <div class="form-group form-inline">
