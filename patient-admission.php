@@ -17,15 +17,45 @@ ini_set('display_errors', 0);
       die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
   }                           
  
-  $sql = "SELECT * FROM omeyah.Person AS p WHERE PersonId = '$personId'";
-		/*
-		= `
-		SELECT * FROM omeyah.Person AS p 
-		INNER JOIN omeyah.Patient as pat
-		ON p.PersonId = pat.PersonId
-		WHERE p.PersonId = '$personId';
-		`;
-		*/
+  $sql  = //"SELECT * FROM omeyah.Person AS p WHERE PersonId = '$personId'";
+		
+		//= `
+		//SELECT * FROM omeyah.Person AS p 
+		//INNER JOIN omeyah.Patient as pat
+		//ON p.PersonId = pat.PersonId
+		//WHERE p.PersonId = '$personId' LIMIT 1;
+		//`;
+
+		//"
+		//SELECT p.FirstName, p.LastName, p.DateOfBirth, p.IdNumber, p.PassportNumber, 
+		//	   p.CauseOfDeath, p.DeathDate, p.CreatorId, p.MiddleName, p.Initials, 
+		//	   p.ResAddress1, p.ResPostCode, p.Title, p.Occupation, p.Religion, p.Email,
+		//	   p.BusAddress, p.BusPostCode, p.BusName, p.HomeTel, p.WorkTel,
+		//	   p.ResSurbub, p.Country, p.GenderId, p.DeadTypeId, p.Ethnicity, p.IdentityType,
+		//	   p.MaritalStatus, pat.PatientId, pat.ReferenceNumber, pat.Allergies,
+	   
+		//FROM omeyah.Person AS p 
+		//INNER JOIN omeyah.Patient as pat
+		//ON p.PersonId = pat.PersonId
+		//WHERE pat.PersonId = '$personId'
+		//LIMIT 1;
+		//";
+
+		"
+		SELECT  FirstName,  LastName,  DateOfBirth,  IdNumber,  PassportNumber, 
+	    CauseOfDeath,  DeathDate,  CreatorId,  MiddleName,  Initials, 
+        ResAddress1,  ResPostCode,  Title,  Occupation,  Religion,  Email,
+        BusAddress,  BusPostCode,  BusName,  HomeTel,  WorkTel,
+        ResSurbub,  Country,  GenderId,  DeadTypeId,  Ethnicity,  IdentityType,
+        MaritalStatus, PatientId, ReferenceNumber, Allergies
+	   
+		FROM omeyah.Person
+		INNER JOIN omeyah.Patient
+		ON Person.PersonId = Patient.PersonId
+		WHERE Patient.PersonId = 1
+		LIMIT 1;
+		";
+		
 
   $query = mysqli_query($conn, $sql);
   while($row = mysqli_fetch_array($query))
@@ -395,11 +425,11 @@ ini_set('display_errors', 0);
 
 									<div class="row"><h2 class="fs-title">Admit a Patient</h2></div>
                                     <!-- USER INFORMATION FIELD SET -->
-                                    <fieldset>
-                                        <h2 class="fs-title ">Patient Personal Information</h2>
+                                    <fieldset>                                        
                                         <h3 class="fs-subtitle"></h3>
                                         <!-- Begin What's Your First Name Field -->
                                         <div class="col-sm-8">
+										<h2 class="fs-title ">Patient Personal Information</h2>
 										    <div class="form-group form-inline">
                                                 <label for="patientId">Patient ID <span>*</span></label>
                                                 <input type="text" name="patientId" class="form-control" id="patientId" value= "<?php echo $PatientId;?>"
@@ -479,7 +509,7 @@ ini_set('display_errors', 0);
 
 											<div class="form-group form-inline">
                                                 <label for="address">Address</label>
-                                                <textarea type="text" name="address" class="form-control" id="address" placeholder="" col=8 row=5></textarea>
+                                                <textarea type="text" name="address" class="form-control" id="address" placeholder="" col=8 row=5 value="<?php echo $ResAddress1 . ' ' . $ResSurbub . ' ' . $ResPostCode;?>"></textarea>
                                             </div>
 
                                         </div>
@@ -488,7 +518,7 @@ ini_set('display_errors', 0);
                                         <!--=======================================================================================================-->
                                         <div class="col-sm-4">
 											<div class="card-box">
-												<img src="assets/images/users/dev.jpg" alt="user-img" class="img-circle user-img" width="300px" height="250px">
+												<img src="assets/images/users/dev.jpg" alt="user-img" class="img-circle user-img" width="100%" height="100%">
 											</div> 
 										</div>
 
@@ -500,8 +530,8 @@ ini_set('display_errors', 0);
 
                                     <!-- Contact Information -->
                                     <fieldset>
-                                         <h2 class="fs-title ">Payment Information</h2>
                                         <div class="col-sm-6">
+                                        <h2 class="fs-title ">Payment Information</h2>
                                             <div class="form-group form-inline">
                                                 <label for="paymentOptions">Payment Options <span>*</span></label>
                                                 <select type="text" class="form-control" id="paymentOptions" name="paymentOptions" placeholder="">

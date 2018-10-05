@@ -419,13 +419,44 @@ $(function () {
         ];
 
         var countriesSelect = $("#country");
-
         $.each(countries,
             function (i, country) {
                 var line = `<option value="${country.id}"> ${country.text} </option>`;
 
                 countriesSelect.append(line);
             });
+
+        countriesSelect = $("#nok-country");
+        $.each(countries,
+            function (i, country) {
+                var line = `<option value="${country.id}"> ${country.text} </option>`;
+
+                countriesSelect.append(line);
+            });
+
+        countriesSelect = $("#acc-country");
+        $.each(countries,
+            function (i, country) {
+                var line = `<option value="${country.id}"> ${country.text} </option>`;
+
+                countriesSelect.append(line);
+            });
+
+
+        //var controls = $('.countries');
+
+        //$.each(controls,
+        //    function (i, control) {
+        //        $.each(countries,
+        //            function (index, country) {
+        //                var line = `<option value="${country.id}"> ${country.text} </option>`;
+                        
+        //                control.append(line);
+        //            });
+        //    });
+
+
+
 
         //$("#country").select2({
         //    placeholder: 'Select country',
