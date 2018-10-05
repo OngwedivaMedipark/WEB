@@ -41,23 +41,18 @@ $lastname = $_POST['lastName'];
       die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
   }                           
  
-  $sql = "UPDATE omeyah.Person SET FirstName ='$name',
-   LastName='$lastname', IdNumber='$IdNumber',ResAddress1 = '$ResAddress1',  ResPostCode = '$ResPostCode', 
-   Title = '$Title', Occupation = '$Occupation', Religion = '$Religion', Email = '$Email', BusAddress = '$BusAddress',  HomeTel = '$HomeTel', WorkTel = '$WorkTel', 
-   ResSurbub = '$ResSurbub', Country ='$Country',   IdentityType =' $IdentityType', MaritalStatus = '$MaritalStatus'   WHERE PersonId = '$personId'";
+  $sql = "UPDATE omeyah.Person SET FirstName ='$name', LastName='$lastname', IdNumber='$IdNumber',ResAddress1 = '$ResAddress1',  ResPostCode = '$ResPostCode', Title = '$Title', Occupation = '$Occupation', Religion = '$Religion', Email = '$Email', BusAddress = '$BusAddress',  HomeTel = '$HomeTel', WorkTel = '$WorkTel', ResSurbub = '$ResSurbub', Country ='$Country',   IdentityType =' $IdentityType', MaritalStatus = '$MaritalStatus'   WHERE PersonId = '$personId'";
   
 
- if ($conn->query($sql) === TRUE) {
+  if ($conn->query($sql) === TRUE) {
   $message = "Record for " .$name. " "  .$suname. " updated successfully";
-  else if(isset(&_POST['']))
 } else {
     $message = "Error updating record: " . $conn->error;
 }
+
 $conn->close();
 
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -290,7 +285,7 @@ $conn->close();
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-user-md"></i><span> Doctors</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="add-doctor.html">Add Doctor</a></li>
-                                    <li><a href="doctors.php">Manage Doctor</a></li> 
+                                    <li><a href="add-doctor.html">Manage Doctor</a></li> 
                                 </ul>
                             </li>
 
@@ -299,7 +294,7 @@ $conn->close();
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-stethoscope"></i><span> Nurse</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="add-nurse.html">Add Nurse</a></li>
-                                    <li><a href="nurses.php">Manage Nurse</a></li>                                   
+                                    <li><a href="manage-nurse.htnl">Manage Nurse</a></li>                                   
                                 </ul>
                             </li>
 
