@@ -437,7 +437,7 @@ $sql = 'SELECT Person.PersonId, firstName, lastName, email, idNumber
                                         </td>-->
                                        
                                         <td>
-                                        <a href="edit-doctor.php?id=<?php echo $row["PersonId"]; ?>"   data-id="<?php echo $row["PersonId"]; ?>"  data-target="#edit-doctor" class="table-action-btn h3" >
+                                        <a href="edit-nurse.php?id=<?php echo $row["PersonId"]; ?>"   data-id="<?php echo $row["PersonId"]; ?>"  data-target="#edit-doctor" class="table-action-btn h3" >
                                         <i class="mdi mdi-pencil-box-outline text-success"></i> </a>
                                                                          
                                         </td>

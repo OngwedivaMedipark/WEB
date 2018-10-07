@@ -52,7 +52,6 @@ ini_set('display_errors', 0);
          $Ethnicity = $row['Ethnicity'];
          $IdentityType = $row['IdentityType'];
          $MaritalStatus = $row['MaritalStatus'];
-         
       }
         
  

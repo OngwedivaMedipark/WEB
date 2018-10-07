@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets",
+    "\\assets\\css"
   ],
-  "SelectedNode": "\\manage-patiants.html",
+  "SelectedNode": "\\assets\\css\\dashboard-table.css",
   "PreviewInSolutionExplorer": false
 }
