@@ -215,7 +215,7 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right"></span> <span> Dashboard </span> </a>
                                 <ul class="list-unstyled">                                    
-                                    <li><a href="dashboard.php">Dashboard </a></li>
+                                    <li><a href="dashboard.html">Dashboard </a></li>
                                 </ul>
                             </li>
 
@@ -223,7 +223,7 @@
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-user-md"></i><span> Doctors</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="add-doctor.html">Add Doctor</a></li>
-                                    <li><a href="doctors.php">Manage Doctor</a></li>  
+                                    <li><a href="add-doctor.html">Manage Doctor</a></li>  
                                 </ul>
                             </li>
 
@@ -232,7 +232,7 @@
                                 <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-stethoscope"></i><span> Nurse</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="add-nurse.html">Add Nurse</a></li>
-                                    <li><a href="nurses.php">Manage Nurse</a></li>                                   
+                                    <li><a href="manage-nurse.htnl">Manage Nurse</a></li>                                   
                                 </ul>
                             </li>
 
@@ -322,13 +322,14 @@
 
                                
 
+                            <!-- please fix  add-patient-container-->     
                             </div> <!-- end col -->
                             <div class="col-lg-12">
                                 <div class="add-patient-container">
                                     <h4 class="custom-modal-title">Add New Nurse</h4>
                                     <div class="custom-modal-text text-left">
         
-        
+                                         <!-- please fix add doctor,we are adding a nurse-->  
                                         <!-- Modal -info -->
                                         <form class="add-doctor" action="assets/php/add-nurse.php" method="post" novalidate="">
                                             <ul id="progressbar">
@@ -369,7 +370,7 @@
                                                         </span>
                                                     </div>
         
-        
+                                                <!-- this input need "name" so that the can talk to ajax-->  
                                                     <div class="form-group form-inline">
                                                         <label for="firstName">First Name <span>*</span></label>
                                                         <input type="text" class="form-control" id="firstName" placeholder="">
@@ -404,7 +405,7 @@
                                                         <label for="dateOfBirth">Date of Birth <span>*</span></label>
                                                         <input type="date" class="form-control" id="dateOfBirth" placeholder="">
                                                     </div>
-        
+                                                     <!--age will never be date of birth-->  
                                                     <div class="form-group form-inline">
                                                         <label for="dateOfBirth">Age</label>
                                                         <input type="text" class="form-control" id="age" placeholder="">
@@ -446,6 +447,7 @@
                                                             <option value="white">White</option>
                                                             <option value="coloured">Coloured</option>
                                                             <option value="indian">Indian</option>
+                                                            <option value="other">Other</option>
                                                         </select>
                                                     </div>
         
@@ -492,18 +494,19 @@
         
                                                     <div class="form-group form-inline">
                                                         <label for="occupation">Work Telephone</label>
-                                                        <input type="text" class="form-control" id="work_telephone" placeholder="">
+                                                        <input type="text" name="occupation"  class="form-control" id="work_telephone" placeholder="">
                                                     </div>
         
                                                     <div class="form-group form-inline">
                                                         <label for="cellNumber">Cell Number <span>*</span></label>
-                                                        <input type="text" class="form-control" id="cell-number" placeholder="">
+                                                        <input type="text" name="cellNumber" class="form-control" id="cell-number" placeholder="">
                                                     </div>
                                                     <div class="form-group form-inline">
                                                         <label for="email">Email <span>*</span></label>
-                                                        <input type="email" class="form-control" id="email" placeholder="">
+                                                        <input type="email" name="email" class="form-control" id="email" placeholder="">
                                                     </div>
-        
+                                                    
+                                                    <!-- prefer contactswill never be male and female-->  
                                                     <div class="form-group form-inline">
                                                         <label for="PreferredContact">Preffered Contact Method</label>
                                                         <select name="PreferredContact" class="form-control" id="contact-methods" placeholder="">
@@ -527,7 +530,7 @@
                                                     </div>
         
                                                     <div class="form-group form-inline">
-                                                        <label for="occupation">Residential Address:</label>
+                                                        <label for="residential">Residential Address:</label>
                                                     </div>
         
                                                     <div class="form-group form-inline">
@@ -559,7 +562,7 @@
                                                         <label for="Country">Country <span>*</span></label>
                                                         <input type="text" class="form-control" id="country" placeholder="">
                                                     </div>
-        
+                                                <!-- poastal address and occupation,I a have no idea where it joins-->  
                                                     <div class="form-group form-inline">
                                                         <label for="occupation">Postal Address:</label>
                                                     </div>
@@ -603,11 +606,7 @@
                                                 <h3 class="fs-subtitle"></h3>
         
                                                 <div class="col-lg-6">
-        
-                                                    <div class="form-group form-inline">
-                                                        <label for="hpcnaNum">HPCNA Registration Number <span>*</span></label>
-                                                        <input type="text" name="hpcnaNum" class="form-control" id="hpcnaNum" placeholder="">
-                                                    </div>
+    
         
                                                     <div class="form-group form-inline">
                                                         <label for="practiceNumber">Practice Number<span>*</span></label>
@@ -644,12 +643,12 @@
                                                         <label for="numOfYrs">Number of Years in Practice <span>*</span></label>
                                                         <input type="number" name="numOfYrs" class="form-control" id="numOfYrs" placeholder="">
                                                     </div>
-        
+                                                    <!-- phoned number can not be a number,it suppose to be text,you will never calculated it-->  
                                                     <div class="form-group form-inline">
                                                         <label for="emergencyNumber">Emergency Number<span>*</span></label>
                                                         <input type="number" name="emergencyNumber" class="form-control" id="emergencyNumber" placeholder="">
                                                     </div>
-        
+                                                     <!-- it suppose to be nokEmail-->
                                                     <div class="form-group form-inline">
                                                         <label for="nokemail">Email <span>*</span></label>
                                                         <input type="email" name="email" class="form-control" id="email" placeholder="">
@@ -672,7 +671,7 @@
         
                                                     <div class="form-group form-inline">
                                                         <label for="buildingHouse">Building/House <span>*</span></label>
-                                                        <input type="text" nam="buildingHouse" class="form-control" id="buildinghouse" placeholder="">
+                                                        <input type="text" name="buildingHouse" class="form-control" id="buildinghouse" placeholder="">
                                                     </div>
         
                                                     <div class="form-group form-inline">
@@ -1093,8 +1092,8 @@
     </div>
 
     <div class="form-group form-inline">
-        <label for="dateOfBirth">Contact number</label>
-        <input type="number" class="form-control" id="dateOfBirth" placeholder="Enter number">
+        <label for="contactNumber">Contact number</label>
+        <input type="text" class="form-control" id="contactNumber" name="contactNumber" placeholder="Enter number">
     </div>
     
     <div class="form-group form-inline">
