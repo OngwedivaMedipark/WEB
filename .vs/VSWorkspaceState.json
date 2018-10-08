@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\assets",
-    "\\assets\\css"
+    "\\assets\\css",
+    "\\assets\\js",
+    "\\assets\\php"
   ],
-  "SelectedNode": "\\assets\\css\\dashboard-table.css",
+  "SelectedNode": "\\assets\\js\\add-doctor.js",
   "PreviewInSolutionExplorer": false
 }

@@ -485,7 +485,8 @@ ini_set('display_errors', 0);
                                     <select name="religion" class="form-control" id="religion" placeholder="">
                                             <option>--Select option--</option>
                                             <option value="male">Christianity</option>
-                                            <option value="Islam">Islam</option>                                       <option value="female">Buddhism</option>
+                                            <option value="Islam">Islam</option>                                       
+											<option value="female">Buddhism</option>
                                             <option value="Judaism">Judaism</option>  
                                             <option value="Atheism">Atheism</option>  
                                             <option value="Other">Other</option>                             
