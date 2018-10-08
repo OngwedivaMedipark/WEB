@@ -335,14 +335,14 @@ $conn->close();
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Nurses </h4>
+                                    <h4 class="page-title">Doctors </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Medipark</a>
                                         </li>
                                        
                                         <li class="active">
-                                            Nurses
+                                            Doctors
                                         </li>                                        
                                     </ol>
                                     <div class="clearfix"></div>
@@ -368,7 +368,7 @@ $conn->close();
                                                 <a class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30"  onclick="advancedSearch()"><i class="md md-add"></i> Advanced Search</a>
                                            </div>
                                             <div class="col-sm-2">
-                                                 <a href="add-nurse.html" class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30" > Add New Burse</a>
+                                                 <a href="add-patient.html" class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30" > Add New Burse</a>
                                             </div>
 
                                         <div class="col-sm-8" id="advanced-search">

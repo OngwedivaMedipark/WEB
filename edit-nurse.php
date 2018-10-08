@@ -384,7 +384,7 @@ ini_set('display_errors', 0);
                             </div> <!-- end col -->
                             <div class="col-lg-12">
                                 <div class="add-patient-container">
-                                    <h4 class="custom-modal-title">Add New Doctor</h4>
+                                    <h4 class="custom-modal-title">Add New Nurse</h4>
                                     <div class="custom-modal-text text-left">
         
         
@@ -659,10 +659,7 @@ ini_set('display_errors', 0);
         
                                                 <div class="col-lg-6">
         
-                                                    <div class="form-group form-inline">
-                                                        <label for="hpcnaNum">HPCNA Registration Number <span>*</span></label>
-                                                        <input type="text" name="hpcnaNum" class="form-control" id="hpcnaNum" placeholder="">
-                                                    </div>
+                                                    
         
                                                     <div class="form-group form-inline">
                                                         <label for="practiceNumber">Practice Number<span>*</span></label>

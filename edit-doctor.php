@@ -389,7 +389,7 @@ ini_set('display_errors', 0);
         
         
                                         <!-- Modal -info -->
-                                        <form class="add-doctor" action="assets/php/add-doctor.php" method="post" novalidate="">
+                                        <form class="add-doctor" action="assets/php/update-doctor.php" method="post" novalidate="">
                                             <ul id="progressbar">
                                                 <li class="active">Personal Information</li>
                                                 <li>Contact Information</li>
