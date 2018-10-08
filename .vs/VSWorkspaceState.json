@@ -3,11 +3,8 @@
     "",
     "\\assets",
     "\\assets\\css",
-    "\\assets\\js",
-    "\\assets\\less",
-    "\\assets\\pages",
-    "\\assets\\php"
+    "\\assets\\js"
   ],
-  "SelectedNode": "\\edit-nurse.php",
+  "SelectedNode": "\\assets\\js\\add-patient.js",
   "PreviewInSolutionExplorer": false
 }
