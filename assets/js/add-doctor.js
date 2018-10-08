@@ -1,5 +1,5 @@
 
-/*add doctor */
+/*add doctor*/
 
 $(document).ready(function() {
     // process the form
@@ -7,6 +7,7 @@ $(document).ready(function() {
         e.preventDefault();
         var form = $(this);
         var action = form.attr("action");
+       // console.log( errorThrown );
         var data = form.serializeArray();      
         console.log(data);
         // send ajax
@@ -33,7 +34,7 @@ $(document).ready(function() {
             }
         });
         });
-    });
+    }); 
 
     //utility function
 function getFormData(data) {

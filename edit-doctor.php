@@ -3,7 +3,6 @@
 error_reporting(0);
 ini_set('display_errors', 0);
 
- 
   $output='';  
   $db_host = "35.229.89.118";
   $db_user = "admin";
@@ -23,7 +22,7 @@ ini_set('display_errors', 0);
   $query = mysqli_query($conn, $sql);
   while($row = mysqli_fetch_array($query))
       {
-         $name = $row['FirstName'];
+         $firstName = $row['FirstName'];
          $lastname = $row['LastName'];
          $dob = $row['DateOfBirth'];
          $IdNumber = $row['IdNumber'];
@@ -36,7 +35,6 @@ ini_set('display_errors', 0);
          $ResAddress1 = $row['ResAddress1'];
          $ResPostCode = $row['ResPostCode'];
          $Title = $row['Title'];
-         $Occupation = $row['Occupation'];
          $Religion = $row['Religion'];
          $Email = $row['Email'];
          $BusAddress = $row['BusAddress'];
@@ -340,14 +338,14 @@ ini_set('display_errors', 0);
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Doctors </h4>
+                                    <h4 class="page-title">Nurses </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Medipark</a>
                                         </li>
                                        
                                         <li class="active">
-                                            Add Doctor
+                                            Edit Nurses
                                         </li>                                        
                                     </ol>
                                     <div class="clearfix"></div>
@@ -384,20 +382,20 @@ ini_set('display_errors', 0);
                             </div> <!-- end col -->
                             <div class="col-lg-12">
                                 <div class="add-patient-container">
-                                    <h4 class="custom-modal-title">Add New Doctor</h4>
+                                    <h4 class="custom-modal-title">Add New Nurse</h4>
                                     <div class="custom-modal-text text-left">
         
         
                                         <!-- Modal -info -->
-                                        <form class="add-doctor" action="assets/php/update-doctor.php" method="post" novalidate="">
+                                        <form class="add-doctor" action="update-doctor.php" method="post" id="update-nurse">
                                             <ul id="progressbar">
                                                 <li class="active">Personal Information</li>
                                                 <li>Contact Information</li>
                                                 <li>Practice Information</li>
                                                 <li>Qualification Information</li>
                                                 <li>Declaration</li>
-        
                                             </ul>
+                                            <input type="hidden" value="<?php echo $personId;?>" name="PersonId" id="PersonId" />
         
         
         
@@ -431,17 +429,17 @@ ini_set('display_errors', 0);
         
                                                     <div class="form-group form-inline">
                                                         <label for="firstName">First Name <span>*</span></label>
-                                                        <input type="text" class="form-control" value="<?php echo $name;?>" id="firstName" placeholder="">
+                                                        <input type="text" class="form-control" name='firstName' value="<?php echo $firstName;?>" id="firstName" placeholder="">
                                                     </div>
         
                                                     <div class="form-group form-inline">
                                                         <label for="middleName">Middle Name</label>
-                                                        <input type="text" class="form-control" value="<?php echo $MiddleName;?>" id="middleName" placeholder="">
+                                                        <input type="text" class="form-control" name="middleName" value="<?php echo $MiddleName;?>" id="middleName" placeholder="">
                                                     </div>
         
                                                     <div class="form-group form-inline">
                                                         <label for="lastName">Last Name <span>*</span></label>
-                                                        <input type="text" class="form-control" value="<?php echo $lastname;?>" id="lastName" placeholder="">
+                                                        <input type="text" class="form-control" name="lastName" value="<?php echo $lastname;?>" id="lastName" placeholder="">
                                                     </div>
         
                                                     <div class="form-group form-inline">
@@ -461,7 +459,7 @@ ini_set('display_errors', 0);
         
                                                     <div class="form-group form-inline">
                                                         <label for="dateOfBirth">Date of Birth <span>*</span></label>
-                                                        <input type="date" class="form-control" id="dateOfBirth" placeholder="">
+                                                        <input type="date" name="dateOfBirth" class="form-control" id="dateOfBirth" placeholder="">
                                                     </div>
         
                                                     <div class="form-group form-inline">
@@ -472,7 +470,7 @@ ini_set('display_errors', 0);
                                                     <div class="form-group form-inline">
                                                         <label for="idType">Identity Type <span>*</span></label>
         
-                                                        <select name="idType" class="form-control" id="idType" placeholder="">
+                                                        <select name="identityType" class="form-control" id="idType" placeholder="">
                                                             <option>--Select option--</option>
                                                             <option value="ID">ID Document</option>
                                                             <option value="passport">Passport</option>
@@ -546,12 +544,12 @@ ini_set('display_errors', 0);
                                                 <div class="col-lg-6">
                                                     <div class="form-group form-inline">
                                                         <label for="occupation">Home Telephone</label>
-                                                        <input type="text" value="<?php echo $HomeTel;?>" class="form-control" id="home-telephone" placeholder="">
+                                                        <input type="text" name="homeTel" value="<?php echo $HomeTel;?>" class="form-control" id="home-telephone" placeholder="">
                                                     </div>
         
                                                     <div class="form-group form-inline">
                                                         <label for="occupation">Work Telephone</label>
-                                                        <input type="text" value="<?php echo $WorkTel;?>" class="form-control" id="work_telephone" placeholder="">
+                                                        <input type="text" name="workTel" value="<?php echo $WorkTel;?>" class="form-control" id="work_telephone" placeholder="">
                                                     </div>
         
                                                     <div class="form-group form-inline">
@@ -586,29 +584,28 @@ ini_set('display_errors', 0);
                                                     </div>
         
                                                     <div class="form-group form-inline">
-                                                        <label for="occupation">Residential Address:</label>
-                                                    </div>
-        
+                                                          <label for="busAddress">Building/House <span>*</span></label>
+                                                             <input type="text" class="form-control" id="building-house" name="busAddress"  value="<?php echo $BusAddress;?>"  placeholder="">
+                                                         </div>
+
                                                     <div class="form-group form-inline">
-                                                        <label for="buildingHome">Building/House <span>*</span></label>
-                                                        <input type="text" class="form-control" id="building-house" placeholder="">
-                                                    </div>
-        
+                                                        <label for="resAddress1">Street Name <span>*</span></label>
+                                                         <input type="text" class="form-control" name="resAddress1" id="street-name"  value="<?php echo $ResAddress1;?>"  placeholder="">
+                                                     </div>
+
+                                                      <div class="form-group form-inline">
+                                                           <label for="resSurbub">Suburb/Town <span>*</span></label>
+                                                               <input type="text" class="form-control"name="resSurbub" id="resSurbub"  value="<?php echo $ResSurbub;?>"  placeholder="">
+                                                        </div>
                                                     <div class="form-group form-inline">
-                                                        <label for="buildingHome">Street Name <span>*</span></label>
-                                                        <input type="text" class="form-control" value="<?php echo $ResAddress1;?>" id="street-name" placeholder="">
-                                                    </div>
-        
-        
+                                                         <label for="country">Country <span>*</span></label>
+                                                        <input type="text" class="form-control" name="country" id="country"  value="<?php echo $Country;?>"  placeholder="">
+                                                     </div>
                                                     <div class="form-group form-inline">
-                                                        <label for="buildingHome">Suburb/Town <span>*</span></label>
-                                                        <input type="text" class="form-control"  value="<?php echo $ResSurbub;?>" id="street-name" placeholder="">
-                                                    </div>
-                                                    <div class="form-group form-inline">
-                                                        <label for="postalCode">Postal Code <span>*</span></label>
-                                                        <input type="text" class="form-control"  value="<?php echo $ResPostCode;?>" id="postal-code" placeholder="">
-        
-                                                    </div>
+                                                        <label for="resPostCode">Postal Code <span>*</span></label>
+                                                       <input type="text" class="form-control" name="resPostCode" id="resPostCode"  value="<?php echo $ResPostCode;?>"  placeholder="">
+
+                                                   </div>
         
                                                     <div class="form-group form-inline">
                                                         <label for="Country">Country <span>*</span></label>
@@ -659,10 +656,7 @@ ini_set('display_errors', 0);
         
                                                 <div class="col-lg-6">
         
-                                                    <div class="form-group form-inline">
-                                                        <label for="hpcnaNum">HPCNA Registration Number <span>*</span></label>
-                                                        <input type="text" name="hpcnaNum" class="form-control" id="hpcnaNum" placeholder="">
-                                                    </div>
+                                                    
         
                                                     <div class="form-group form-inline">
                                                         <label for="practiceNumber">Practice Number<span>*</span></label>
@@ -867,11 +861,11 @@ ini_set('display_errors', 0);
                                                             <li>The signatory authorises the Hospital to submit its account to the Medical Aid Scheme of the patient or signatory, if the Hospital elects to do so.</li>
                                                             <li>Any account that is not paid when due, shall bear interest calculated at the rate of 2% per month; a part of a month to be regarded as a full month.</li>
                                                             <li>The legal relations between the debtor/s and the hospital, arising directly or indirectly from the admission of the patient to the hospital or In respect of any treatment administered to the patient in the hospital, shall be determined exclusively In accordance
-                       with the laws of the Republic of Namibia and furthermore any competent Magistrate’s court in the Republic of Namibia shall have jurisdiction in all matters so arising, notwithstanding the amount of the cause of action.
+                       with the laws of the Republic of Namibia and furthermore any competent Magistrateï¿½s court in the Republic of Namibia shall have jurisdiction in all matters so arising, notwithstanding the amount of the cause of action.
                        </li>
-                                                           <li>Any person who signs this Admission Form,w hether as a patient, or on behalf of the Being settled for any reason and being referred to attorneys for collection, to be jointly and severally liable for the payment of all the costs on an attorney and own client scale, all collection commission and all tracing costs. All outstanding amounts will be recovered in the following order: attorney’s fees, interest and capital.</li>
+                                                           <li>Any person who signs this Admission Form,w hether as a patient, or on behalf of the Being settled for any reason and being referred to attorneys for collection, to be jointly and severally liable for the payment of all the costs on an attorney and own client scale, all collection commission and all tracing costs. All outstanding amounts will be recovered in the following order: attorneyï¿½s fees, interest and capital.</li>
                        
-                                                           <li>The signatory undertakes to pay the Hospital’s legal costs and collection commission as per approved scales of Agreement.</li>
+                                                           <li>The signatory undertakes to pay the Hospitalï¿½s legal costs and collection commission as per approved scales of Agreement.</li>
                        
                                                            <li>The Hospital is hereby authorised to submit the patient for screening for diseases that are determined by the Hospital and to submit such patient for immunisation and treatment of such diseases.</li>
                                                         </ol>
@@ -942,7 +936,7 @@ ini_set('display_errors', 0);
                 </div> <!-- content -->
 
                 <footer class="footer text-right">
-                    2018 © Medipark
+                    2018 ï¿½ Medipark
                 </footer>
 
             </div>
@@ -1015,7 +1009,7 @@ ini_set('display_errors', 0);
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-            <h4 class="custom-modal-title">Add New Patient</h4>
+            <h4 class="custom-modal-title">Edit Patient</h4>
             <div class="custom-modal-text text-left">
            
 
@@ -1242,7 +1236,7 @@ ini_set('display_errors', 0);
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/add-doctor.js"></script>
+       <script src="assets/js/edit-staff.js"></script>
         <script src="assets/js/detect.js"></script>
         <script src="assets/js/fastclick.js"></script>
         <script src="assets/js/jquery.blockUI.js"></script>

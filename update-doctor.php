@@ -1,5 +1,5 @@
 <?php
-$name = $_POST['firstName'];
+$firstName = $_POST['firstName'];
 $lastname = $_POST['lastName'];
    $dob = $_POST['dateOfBirth'];
    $IdNumber = $_POST['idNumber'];
@@ -10,7 +10,6 @@ $lastname = $_POST['lastName'];
    $ResAddress1 = $_POST['resAddress1'];
    $ResPostCode = $_POST['resPostCode'];
    $Title = $_POST['title'];
-   $Occupation = $_POST['occupation'];
    $Religion = $_POST['religion'];
    $Email = $_POST['email'];
    $BusAddress = $_POST['busAddress'];
@@ -33,17 +32,19 @@ $lastname = $_POST['lastName'];
   $db_pass = "sp!cymacfe@st";
   $db_name = "omeyah";
   
-  $personId = $_POST["personId"]; 
+  $personId = $_POST["PersonId"]; 
   
   $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
   if (!$conn) {
       die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
   }                           
  
-  $sql = "UPDATE omeyah.Person SET FirstName ='$name', LastName='$lastname', IdNumber='$IdNumber',ResAddress1 = '$ResAddress1',  ResPostCode = '$ResPostCode', Title = '$Title', Occupation = '$Occupation', Religion = '$Religion', Email = '$Email', BusAddress = '$BusAddress',  HomeTel = '$HomeTel', WorkTel = '$WorkTel', ResSurbub = '$ResSurbub', Country ='$Country',   IdentityType =' $IdentityType', MaritalStatus = '$MaritalStatus', GenderId = '$GenderId'   WHERE PersonId = '$personId'";
+  $sql = "UPDATE omeyah.Person SET FirstName ='$firstName', LastName='$lastname', IdNumber='$IdNumber',ResAddress1 = '$ResAddress1',  ResPostCode = '$ResPostCode', 
+  Title = '$Title', Religion = '$Religion', Email = '$Email', BusAddress = '$BusAddress',  HomeTel = '$HomeTel', WorkTel = '$WorkTel', ResSurbub = '$ResSurbub', Country ='$Country',
+     IdentityType =' $IdentityType', MaritalStatus = '$MaritalStatus', GenderId = '$GenderId'   WHERE PersonId = '$personId'";
   
   if ($conn->query($sql) === TRUE) {
-  $message = "Record for " .$name. " "  .$suname. " updated successfully";
+  $message = "Record for " .$firstName. " "  .$suname. " updated successfully";
 } else {
     $message = "Error updating record: " . $conn->error;
 }
@@ -387,28 +388,27 @@ $conn->close();
 
 			                        </div>
  
-
-
+  <!-- 
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"  id="onload">
 
 <div class="modal-dialog">
 
-  <!-- Modal content-->
+
   <div class="modal-content">
     <div class="modal-header text-primary">
-      <a href="nurses.php" class="close" data-dismiss="modal">×</a>
+      <a href="doctors.php" class="close" data-dismiss="modal">ï¿½</a>
       <h4 class="modal-title"><i class="fa fa-exclamation-circle"></i> Nurse Edit Details</h4>
     </div>
     <div class="modal-body">
     <?php echo $message; ?>
     </div>
     <div class="modal-footer">
-	  <a href="nurses.php" class="btn btn-default">Finish</a>
+	  <a href="doctors.php" class="btn btn-default">Finish</a>
     </div>
   </div>
 
 </div>
-</div>
+</div>-->
   <script>
             var resizefunc = [];
         </script>
