@@ -620,6 +620,11 @@ $sql = 'SELECT Person.PersonId, firstName, lastName, email, idNumber
                 </div>
             </div>
         </div>
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"  id="onload">
+
+<div class="modal-dialog">
   <!-- Modal content-->
   <div class="modal-content">
     <div class="modal-header text-primary">
@@ -662,10 +667,6 @@ $sql = 'SELECT Person.PersonId, firstName, lastName, email, idNumber
 
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
 <script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
-<script type="text/javascript">
-  $(window).load(function(){
-                $('#onload').modal('show');
-            });
-</script>
+
     </body>
 </html>
