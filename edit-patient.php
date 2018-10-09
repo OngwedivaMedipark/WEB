@@ -554,7 +554,8 @@ ini_set('display_errors', 0);
                             </div>
                             <div class="form-group form-inline">
                                     <label for="country">Country <span>*</span></label>
-                                    <input type="text" class="form-control" name="country" id="country"  value="<?php echo $Country;?>"  placeholder="">
+                                    <!-- <input type="text" class="form-control" name="country" id="country"  value="<?php echo $Country;?>"  placeholder=""> -->
+									<select class="form-control countries" name="country" id="country"></select>
                             </div>
                             <div class="form-group form-inline">
                                     <label for="resPostCode">Postal Code <span>*</span></label>
@@ -657,7 +658,8 @@ ini_set('display_errors', 0);
                             </div>
                             <div class="form-group form-inline">
                                     <label for="nokCountry">Country <span>*</span></label>
-                                    <input type="text" class="form-control" id="nok-country" name="nokCountry" placeholder="">
+                                   <!-- <input type="text" class="form-control" id="nok-country" name="nokCountry" placeholder=""> -->
+								   <select class="form-control countries" id="nok-country" name="nokCountry" placeholder=""> </select>
                             </div>
                             <div class="form-group form-inline">
                                     <label for="nokPostalCode">Postal Code <span>*</span></label>
@@ -856,7 +858,8 @@ ini_set('display_errors', 0);
 
                     <div class="form-group form-inline">
                             <label for="accCountry">Country <span>*</span></label>
-                            <input type="text" class="form-control" id="acc-country" name="accCountry" placeholder="">
+                            <!-- <input type="text" class="form-control" id="acc-country" name="accCountry" placeholder=""> -->
+							 <select type="text" class="form-control countries" id="acc-country" name="accCountry" placeholder=""></select>
                     </div>
 
                     <div class="form-group form-inline">

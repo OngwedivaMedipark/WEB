@@ -419,12 +419,29 @@ $(function () {
         ];
 
         var countriesSelect = $("#country");
+		var countriesAccHolder = $("#acc-country");
+		var countriesNok = $("#nok-country");
+		
 
         $.each(countries,
             function (i, country) {
                 var line = `<option value="${country.id}"> ${country.text} </option>`;
 
                 countriesSelect.append(line);
+            });
+		
+		$.each(countries,
+            function (i, country) {
+                var line = `<option value="${country.id}"> ${country.text} </option>`;
+
+                countriesAccHolder.append(line);
+            });
+		
+		$.each(countries,
+            function (i, country) {
+                var line = `<option value="${country.id}"> ${country.text} </option>`;
+
+                countriesNok.append(line);
             });
 
         //$("#country").select2({
@@ -441,7 +458,7 @@ $(function () {
     $("input[name='dateOfBirth']").on('blur', function () {
         var dob = new Date(this.value);
 
-        $("input[name='age']").val(getAge(dob));
+         $("input[name='age']").val( isNaN(getAge(dob)) ? "" : getAge(dob));
     });
 
     //  Caters for postal address if it's the same as residential
