@@ -1090,7 +1090,7 @@ hospital shall not in any way be responsible or liable for any acts or omissions
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>       
-        <script src="assets/js/add-patient.js"></script>
+        <script src="assets/js/edit-patient.js"></script>
         <script src="assets/js/detect.js"></script>
         <script src="assets/js/fastclick.js"></script>
         <script src="assets/js/jquery.blockUI.js"></script>

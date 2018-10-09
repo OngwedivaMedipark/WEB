@@ -656,7 +656,10 @@ ini_set('display_errors', 0);
         
                                                 <div class="col-lg-6">
         
-                                                    
+                                                     <div class="form-group form-inline">
+                                                        <label for="hpcnaNum">HPCNA Registration Number <span>*</span></label>
+                                                        <input type="text" name="hpcnaRegistrationNumber" class="form-control" id="hpcnaNum" placeholder="">
+                                                    </div>
         
                                                     <div class="form-group form-inline">
                                                         <label for="practiceNumber">Practice Number<span>*</span></label>

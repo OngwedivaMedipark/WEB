@@ -486,117 +486,101 @@
                                             <!-- Contact Information -->
                                             <fieldset>
                                                 <h2 class="fs-title">Contact Information</h2>
-                                                <div class="col-lg-6">
+                                                <div class="col-sm-6">
                                                     <div class="form-group form-inline">
-                                                        <label for="occupation">Home Telephone</label>
-                                                        <input type="text" class="form-control" id="home-telephone" placeholder="">
-                                                    </div>
-        
-                                                    <div class="form-group form-inline">
-                                                        <label for="occupation">Work Telephone</label>
-                                                        <input type="text" name="worktel"  class="form-control" id="work_telephone" placeholder="">
-                                                    </div>
-        
-                                                    <div class="form-group form-inline">
-                                                        <label for="cellNumber">Cell Number <span>*</span></label>
-                                                        <input type="text" name="cellNumber" class="form-control" id="cell-number" placeholder="">
+                                                        <label for="homeTel">Home Telephone</label>
+                                                        <input type="text" class="form-control" id="homeTel" placeholder="">
                                                     </div>
                                                     <div class="form-group form-inline">
-                                                        <label for="email">Email <span>*</span></label>
-                                                        <input type="email" name="email" class="form-control" id="email" placeholder="">
+                                                        <label for="workTel">Work Telephone</label>
+                                                        <input type="text" class="form-control" id="workTel" placeholder="">
                                                     </div>
-                                                    
-                                                    <!-- prefer contactswill never be male and female-->  
                                                     <div class="form-group form-inline">
-                                                        <label for="PreferredContact">Preffered Contact Method</label>
-                                                        <select name="PreferredContact" class="form-control" id="contact-methods" placeholder="">
+                                                        <label for="prefferedContact">Preffered Contact Method</label>
+                                                        <select name="prefferedContact" class="form-control" id="prefferedContact"
+                                                                placeholder="">
                                                             <option>--Select option--</option>
                                                             <option value="male">Phone</option>
                                                             <option value="female">Email</option>
                                                             <option value="female">Post</option>
-        
                                                         </select>
                                                     </div>
-        
                                                     <div class="form-group form-inline">
-                                                        <label for="PreferredContactHours">Preferred Contact Hours</label>
-                                                        <select name="PreferredContactHours" class="form-control" id="contact-methods" placeholder="">
+                                                        <label for="occupation">Residential Address:</label>
+                                                    </div>
+                                                    <div class="form-group form-inline">
+                                                        <label for="busAddress">Building/House <span>*</span></label>
+                                                        <input type="text" class="form-control" id="building-house" name="busAddress"
+                                                               placeholder="">
+                                                    </div>
+                                                    <div class="form-group form-inline">
+                                                        <label for="resAddress1">Street Name <span>*</span></label>
+                                                        <input type="text" class="form-control" name="resAddress1" id="street-name"
+                                                               placeholder="">
+                                                    </div>
+
+                                                    <div class="form-group form-inline">
+                                                        <label for="resSurbub">Suburb/Town <span>*</span></label>
+                                                        <input type="text" class="form-control" name="resSurbub" id="resSurbub"
+                                                               placeholder="">
+                                                    </div>
+                                                    <div class="form-group form-inline">
+                                                        <label for="resPostCode">Postal Code <span>*</span></label>
+                                                        <input type="text" class="form-control" name="resPostCode" id="resPostCode"
+                                                               placeholder="">
+                                                    </div>
+                                                    <div class="form-group form-inline">
+                                                        <label for="country">Country <span>*</span></label>
+                                                        <select class="form-control countries" name="country" id="country"></select>
+                                                        <!--<input type="text" class="form-control" name="country" id="country" placeholder="">-->
+                                                    </div>
+                                                    <div class="form-group form-inline">
+                                                        <label for="occupation">Postal Address:</label>
+                                                    </div>
+                                                    <!---->
+                                                    <div class="form-group form-inline">
+                                                        <input type="radio" name="sameaddress" value="" id="same-address"> Same
+                                                        as Residential Address
+                                                    </div>
+                                                    <div class="form-group form-inline">
+                                                        <label for="postalBox">Postal Box <span>*</span></label>
+                                                        <input type="text" name="postalBox" class="form-control" id="postal-box"
+                                                               placeholder="">
+                                                    </div>
+                                                    <div class="form-group form-inline">
+                                                        <label for="busPostCode">Postal Code <span>*</span></label>
+                                                        <input type="text" class="form-control" id="postal-code" name="busPostCode"
+                                                               placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group form-inline">
+                                                        <label for="cellNumber">Cell Number <span>*</span></label>
+                                                        <input type="text" class="form-control" id="cell-number" name="cellNumber"
+                                                               placeholder="">
+                                                    </div>
+                                                    <div class="form-group form-inline">
+                                                        <label for="email">Email <span>*</span></label>
+                                                        <input type="email" class="form-control" id="email"
+                                                               placeholder="">
+                                                    </div>
+                                                    <div class="form-group form-inline">
+                                                        <label for="contactHours">Preferred Contact Hours</label>
+                                                        <select name="contactHours" class="form-control" id="contact-methods"
+                                                                placeholder="">
                                                             <option>--Select option--</option>
                                                             <option value="anytime">Anytime</option>
                                                             <option value="workinghours">Working Hours</option>
                                                             <option value="afterhours">After Hours</option>
-        
                                                         </select>
                                                     </div>
-        
-                                                    <div class="form-group form-inline">
-                                                        <label for="residential">Residential Address:</label>
-                                                    </div>
-        
-                                                    <div class="form-group form-inline">
-                                                        <label for="buildingHome">Building/House <span>*</span></label>
-                                                        <input type="text" class="form-control" id="building-house" placeholder="">
-                                                    </div>
-        
-                                                    <div class="form-group form-inline">
-                                                        <label for="buildingHome">Street Name <span>*</span></label>
-                                                        <input type="text" class="form-control" id="street-name" placeholder="">
-                                                    </div>
-        
-                                                    <div class="form-group form-inline">
-                                                        <label for="buildingHome">Country <span>*</span></label>
-                                                        <input type="text" class="form-control" id="street-name" placeholder="">
-                                                    </div>
-        
-                                                    <div class="form-group form-inline">
-                                                        <label for="buildingHome">Suburb/Town <span>*</span></label>
-                                                        <input type="text" class="form-control" id="street-name" placeholder="">
-                                                    </div>
-                                                    <div class="form-group form-inline">
-                                                        <label for="postalCode">Postal Code <span>*</span></label>
-                                                        <input type="text" class="form-control" id="postal-code" placeholder="">
-        
-                                                    </div>
-        
-                                                    <div class="form-group form-inline">
-                                                        <label for="Country">Country <span>*</span></label>
-                                                        <input type="text" class="form-control" id="country" placeholder="">
-                                                    </div>
-                                                <!-- poastal address and occupation,I a have no idea where it joins-->  
-                                                    <div class="form-group form-inline">
-                                                        <label for="occupation">Postal Address:</label>
-                                                    </div>
-        
-        
-                                                    <div class="form-group form-inline">
-                                                        <input type="radio" name="sameaddress" value="" id="same-address"> Same as
-                                                        Residential Address
-                                                    </div>
-        
-                                                    <div class="form-group form-inline">
-                                                        <label for="postalBox">Postal Box <span>*</span></label>
-                                                        <input type="text" class="form-control" id="postal-box" placeholder="">
-        
-                                                    </div>
-        
-                                                    <div class="form-group form-inline">
-                                                        <label for="postalCode">Postal Code <span>*</span></label>
-                                                        <input type="text" class="form-control" id="postal-code" placeholder="">
-        
-                                                    </div>
                                                 </div>
-        
-                                                <div class="col-lg-6">
-        
-        
-                                                </div>
-                                                <div class="col-lg-12">
-        
+                                                <div class="col-sm-12">
                                                 </div>
                                                 <!-- End Calc of Total Number of Donors Fields -->
-                                                <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+                                                <input type="button" data-page="2" name="previous" class="previous action-button"
+                                                       value="Previous" />
                                                 <input type="button" data-page="2" name="next" class="next action-button" value="Save & Continue" />
-        
                                             </fieldset>
         
         

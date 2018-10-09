@@ -388,7 +388,7 @@ $conn->close();
 
 			                        </div>
  
-  <!-- 
+  
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"  id="onload">
 
 <div class="modal-dialog">
@@ -408,7 +408,7 @@ $conn->close();
   </div>
 
 </div>
-</div>-->
+</div>
   <script>
             var resizefunc = [];
         </script>
