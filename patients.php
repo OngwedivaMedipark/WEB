@@ -473,7 +473,7 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
 				                                            </ul>
 				                                        </div>
                                                     </th>
-                                                    <th>Patient ID</th>
+                                                    <!-- <th>Patient ID</th> -->
                                                     <th>Name</th>
                                                     <th>Surname</th>
 													<th>Email</th>
@@ -504,9 +504,7 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
 
                                             <img src="assets/images/users/avatar-2.jpg" alt="contact-img" title="contact-img" class="img-circle thumb-sm" />
                                         </td>
-                                        <td>
-                                            <?php echo $row["PersonId"]; ?>
-                                        </td>
+                                        
 
                                         <td>
                                             <?php echo $row["firstName"]; ?>
