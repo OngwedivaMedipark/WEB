@@ -52,7 +52,7 @@ ini_set('display_errors', 0);
 		FROM omeyah.Person
 		INNER JOIN omeyah.Patient
 		ON Person.PersonId = Patient.PersonId
-		WHERE Patient.PersonId = 1
+		WHERE Patient.PersonId = $personId
 		LIMIT 1;
 		";
 		
@@ -1254,7 +1254,7 @@ ini_set('display_errors', 0);
                                                     hospital or In respect of any treatment administered to the patient
                                                     in the hospital, shall be determined exclusively In accordance
                                                     with the laws of the Republic of Namibia and furthermore any
-                                                    competent Magistrate’s court in the Republic of Namibia shall have
+                                                    competent Magistrateï¿½s court in the Republic of Namibia shall have
                                                     jurisdiction in all matters so arising, notwithstanding the amount
                                                     of the cause of action.
                                                 </li>
@@ -1264,12 +1264,12 @@ ini_set('display_errors', 0);
                                                     attorneys for collection, to be jointly and severally liable for
                                                     the payment of all the costs on an attorney and own client scale,
                                                     all collection commission and all tracing costs. All outstanding
-                                                    amounts will be recovered in the following order: attorney’s fees,
+                                                    amounts will be recovered in the following order: attorneyï¿½s fees,
                                                     interest and capital.
                                                 </li>
 
                                                 <li>
-                                                    The signatory undertakes to pay the Hospital’s legal costs and
+                                                    The signatory undertakes to pay the Hospitalï¿½s legal costs and
                                                     collection commission as per approved scales of Agreement.
                                                 </li>
 
@@ -1386,7 +1386,7 @@ ini_set('display_errors', 0);
         </div> <!-- content -->
 
         <footer class="footer text-right">
-            2018 © Medipark
+            2018 ï¿½ Medipark
         </footer>
 
     </div>
