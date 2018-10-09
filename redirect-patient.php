@@ -769,6 +769,10 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
 
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
 <script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
-
+<script type="text/javascript">
+  $(window).load(function(){
+                $('#onload').modal('show');
+            });
+</script>
     </body>
 </html>

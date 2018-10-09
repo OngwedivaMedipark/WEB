@@ -6,29 +6,32 @@ session_start();
  $db_user = "admin";
  $db_pass = "sp!cymacfe@st";
  $db_name = "omeyah";
- 
+
  $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
  if (!$conn) {
      die ('Fail to connect to MySQL: ' . mysqli_connect_error());   
  }
-
- if(isset($_GET['search'])){
+  
+ $sql = 'SELECT Person.PersonId, firstName, lastName, email, idNumber
+ FROM omeyah.Person inner join omeyah.Doctor on Person.PersonId = Doctor.PersonId;';
+    
+if(isset($_GET['search'])){
 $searchQuery = $_GET['searchQuery'];
-$sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person WHERE firstname LIKE '$searchQuery%'";
+$sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM 
+omeyah.Person inner join omeyah.Doctor on Person.PersonId = Doctor.PersonId WHERE firstname LIKE '$searchQuery%'";
 		
  }else{
 
- $sql = 'SELECT Person.PersonId, firstName, lastName, email, idNumber
- FROM omeyah.Person inner join omeyah.Patient on Person.PersonId = Patient.PersonId;';
- }
-
-
-
- 	
+$sql = 'SELECT Person.PersonId, firstName, lastName, email, idNumber
+ FROM omeyah.Person inner join omeyah.Doctor on Person.PersonId = Doctor.PersonId;';
+ }      
  $query = mysqli_query($conn, $sql);
-  if (!$query) {
+                             
+ if (!$query) {
      die ('SQL Error: ' . mysqli_error($conn));
  }
+                                 
+ 
 ?>
 
 <!DOCTYPE html>
@@ -66,94 +69,6 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
 
         <script src="js/modernizr.min.js"></script>
 
-
-<!--
-<script type="text/javascript">
-    $(function() {
-        // Do this before you initialize any of your modals
-        $.fn.modal.Constructor.prototype.enforceFocus = function() {};
-
-        var hospitals = [{"id": 1,"text": "Hospital #1"}, {"id": 2,"text": "Hospital #2"}, {"id": 3,"text": "Hospital #3"}];
-        var wards = [{"id": 1,"text": "Medical"}, {"id": 2,"text": "ICU"}, {"id": 3,"text": "Maternity"}];
-        var beds = [
-            {"id": 1,"text": "Bed #1"}, {"id": 2,"text": "Bed #2"}, {"id": 3,"text": "Bed #3"}, {"id": 4,"text": "Bed #4"}, {"id": 5,"text": "Bed #5"}, {"text": "Bed #6"},
-            {"id": 7,"text": "Bed #7"}, {"id": 8,"text": "Bed #8"}, {"id": 9,"text": "Bed #9"}, {"id": 10,"text": "Bed #10"}, {"id": 11,"text": "Bed #11"}, {"id": 12,"text": "Bed #12"}
-        ];
-        var doctors = [{"id": 1,"text": "Mustafa Masoud (ANAESTHESIOLOGY)"}, {"id": 2,"text": "Tikku O Arrey (ANAESTHESIOLOGY)"},
-                       {"id": 3,"text": "Shaaban M Kaikai (GENERAL SURGERY)"}, {"id": 4,"text": "Akutu Apollos Munyika (GENERAL SURGERY)"},
-                       {"id": 5,"text": "Tshali Iithete (GENERAL PRACTITIONER)"}, {"id": 6,"text": "Eduardo Juan Lopes-Morales (GENERAL PRACTITIONER)"}];
-
-
-       var hospitalsSelect = $("#hospitalSelect");
-
-        $.each(hospitals, function (i, hospital) {
-                var line = `<option value="${hospital.id}"> ${hospital.text} </option>`;
-                hospitalsSelect.append(line);
-        });
-       
-        var wardsSelect = $("#wardSelect");
-
-        $.each(wards, function (i, ward) {
-                var line = `<option value="${ward.id}"> ${ward.text} </option>`;
-                wardsSelect.append(line);
-        });
-
-        var bedsSelect = $("#bedSelect");
-
-        $.each(beds, function (i, bed) {
-                var line = `<option value="${bed.id}"> ${bed.text} </option>`;
-                bedsSelect.append(line);
-        });
-
-        var doctorsSelect = $("#doctorSelect");
-
-        $.each(doctors, function (i, doctor) {
-                var line = `<option value="${doctor.id}"> ${doctor.text} </option>`;
-                doctorsSelect.append(line);
-        });
-
-         $("#hospitalSelect").select2({
-             //data: hospitals,
-             dropdownParent: $('#admit-patient'),
-           placeholder: 'Select hospital',
-           allowClear: true,
-           maximumSelectionLength: 5,
-        });
-
-         $("#wardSelect").select2({
-            dropdownParent: $('#admit-patient'),
-           placeholder: 'Select ward',
-           allowClear: true,
-           maximumSelectionLength: 5
-        });
-
-         $("#bedSelect").select2({
-            dropdownParent: $('#admit-patient'),
-           placeholder: 'Select ward',
-           allowClear: true,
-           maximumSelectionLength: 5
-        });
-
-         $("#doctorSelect").select2({
-            dropdownParent: $('#admit-patient'),
-           placeholder: 'Select ward',
-           allowClear: true,
-           maximumSelectionLength: 5
-        });        
-
-		var table = $('.table');
-		$('.table tbody').on( 'click', 'tr', function () {
-            
-			var tableData = $(this).children("td").map(function() {
-				return $(this).text();
-			}).get();
-
-			console.log(tableData);
-    } );
-
-    });
-</script>
--->
     </head>
 
 
@@ -308,7 +223,7 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
 
                                 <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
                                     <li>
-                                        <h5>Hi, Shawn</h5>
+                                        <h5>Hi, Medipark</h5>
                                     </li>
                                     <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Profile</a></li>
                                     <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a></li>
@@ -351,7 +266,7 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
 
                             
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-stethoscope"></i><span> Nurse</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-stethoscope"></i><span> Nurses</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="add-nurse.html">Add Nurse</a></li>
                                     <li><a href="nurses.php">Manage Nurse</a></li>                                   
@@ -401,14 +316,14 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Patients </h4>
+                                    <h4 class="page-title">Doctors </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Medipark</a>
                                         </li>
                                        
                                         <li class="active">
-                                            Patients
+                                            Doctors
                                         </li>                                        
                                     </ol>
                                     <div class="clearfix"></div>
@@ -416,7 +331,7 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
 							</div>
 						</div>
                         <!-- end row -->
-                        
+
                         <div class="row">
                         	<div class="col-lg-12">
                         		<div class="card-box">
@@ -434,7 +349,7 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
                                                 <a class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30"  onclick="advancedSearch()"><i class="md md-add"></i> Advanced Search</a>
                                            </div>
                                             <div class="col-sm-2">
-                                                 <a href="add-patient.html" class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30" > Add New Patient</a>
+                                                 <a href="add-doctor.html" class="btn btn-success btn-rounded btn-md waves-effect waves-light m-b-30" > Add New Doctor</a>
                                             </div>
 
                                         <div class="col-sm-8" id="advanced-search">
@@ -473,25 +388,19 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
 				                                            </ul>
 				                                        </div>
                                                     </th>
-                                                    <th>Patient ID</th>
+                                                    <th>Doctor ID</th>
                                                     <th>Name</th>
                                                     <th>Surname</th>
 													<th>Email</th>
                                                     <th>ID Number</th> 
                                                     <!--<th>Patient Profile</th> -->                                                
-                                                    <th>Modify Patient</th>
-                                                    <th>Admit Patient</th>
+                                                    <th>Modify Doctor</th>
+                                                   
 												</tr>
 											</thead>
                                                                            
                                     <tbody>
-
-
-
                                     <?php 
-									
-									 $query = mysqli_query($conn, $sql);
-
                                     while($row = mysqli_fetch_array($query))
                                         {
                                     ?>
@@ -524,21 +433,13 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
                                             <?php echo $row["idNumber"]; ?>
                                         </td>
                                        <!-- <td>
-                                            <input type="button" name="view" value="view" id="<?php echo $row["personId"]; ?>"  class="btn btn-info btn-xs view_data"/> 
+                                            <input type="button" name="view" value="view" id="<?php echo $row["I I am"]; ?>"  class="btn btn-info btn-xs view_data"/> 
                                         </td>-->
                                        
                                         <td>
-                                        <a href="edit-patient.php?id=<?php echo $row["PersonId"]; ?>"   data-id="<?php echo $row["PersonId"]; ?>"  data-target="#edit-patient" class="table-action-btn h3" >
+                                        <a href="edit-doctor.php?id=<?php echo $row["PersonId"]; ?>"   data-id="<?php echo $row["PersonId"]; ?>"  data-target="#edit-doctor" class="table-action-btn h3" >
                                         <i class="mdi mdi-pencil-box-outline text-success"></i> </a>
                                                                          
-                                        </td>
-                                        <td>
-                                            <!-- <a href="#" data-target="#admit-patient" data-toggle="modal" class="table-action-btn h3" onclick="">
-                                                <i class="mdi mdi mdi-account text-primary"></i>
-                                            </a> --> 
-											<a href="patient-admission.php?id=<?php echo $row["PersonId"]; ?>"   data-id="<?php echo $row["PersonId"]; ?>"  data-target="#edit-patient" class="table-action-btn h3" >
-                                            <i class="mdi mdi mdi-account text-primary"></i>
-                                         </a>
                                         </td>
                                     </tr>
                                     <?php
@@ -668,14 +569,14 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
             <div class="modal-body" id="patient-data">
             <div class="col-lg-12">
                                     <div class="add-patient-container">
-                                           <h4 class="custom-modal-title">Add New Patient</h4>
+                                           <h4 class="custom-modal-title">Add New Doctor</h4>
                                           <div class="custom-modal-text text-left">
                                          
                              
 
               
                               <!-- Modal -info -->
-                            <form class="add-patient" action="assets/php/manage-patient.php" method="post" id="insert-form">
+                            <form class="add-patient" action="assets/php/manage-doctor.php" method="post" id="insert-form">
                                    
                             </form>
                                           </div>
@@ -704,7 +605,7 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Patient Details</h5>
+                    <h5 class="modal-title">Ddctor Details</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -719,11 +620,11 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
                 </div>
             </div>
         </div>
- 
+
+
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"  id="onload">
 
 <div class="modal-dialog">
-
   <!-- Modal content-->
   <div class="modal-content">
     <div class="modal-header text-primary">
@@ -731,7 +632,7 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
       <h4 class="modal-title"><i class="fa fa-exclamation-circle"></i> Patient Edit Details</h4>
     </div>
     <div class="modal-body">
-    You have sucessful added a patient
+    You have sucessful added a doctor
     </div>
     <div class="modal-footer">
 	  <a  class="btn btn-default" data-dismiss="modal">Finish</a>
@@ -760,15 +661,16 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-
     <!-- Modal-Effect -->
         <script src="../plugins/custombox/js/custombox.min.js"></script>
         <script src="../plugins/custombox/js/legacy.min.js"></script>
 
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
 <script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
-
+<script type="text/javascript">
+  $(window).load(function(){
+                $('#onload').modal('show');
+            });
+</script>
     </body>
 </html>
