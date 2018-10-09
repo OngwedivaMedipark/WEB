@@ -23,7 +23,8 @@
     <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
 
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -182,7 +183,7 @@
 
                         <li class="dropdown user-box">
                             <a href="" class="dropdown-toggle waves-effect user-link" data-toggle="dropdown"
-                               aria-expanded="true">
+                                aria-expanded="true">
                                 <img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
                             </a>
 
@@ -214,7 +215,8 @@
 
                         <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect">
-                                <i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right"></span> <span> Dashboard </span>
+                                <i class="mdi mdi-view-dashboard"></i><span class="label label-success pull-right"></span>
+                                <span> Dashboard </span>
                             </a>
                             <ul class="list-unstyled">
                                 <li><a href="dashboard.php">Dashboard </a></li>
@@ -236,7 +238,7 @@
                         <li class="has_sub">
                             <a href="javascript:void(0);" class="waves-effect">
                                 <i class="fa fa-stethoscope"></i><span>
-                                    Nurse
+                                    Nurses
                                 </span> <span class="menu-arrow"></span>
                             </a>
                             <ul class="list-unstyled">
@@ -305,15 +307,17 @@
                         </div>
                     </div>
                     <!-- end row -->
-
+                   
                     <div class="col-sm-12">
                         <div class="add-patient-container">
+
                             <h4 class="custom-modal-title">Add New Patient</h4>
                             <div class="custom-modal-text text-left">
 
 
                                 <!-- Modal -info -->
-                                <form class="add-patient"  method="post" id="add-patient">
+                                <form class="add-patient" method="post" action="patients.php" id="add-patient">
+
                                     <ul id="progressbar">
                                         <li class="active">Personal Information</li>
                                         <li>Contact Information</li>
@@ -354,19 +358,19 @@
                                             <div class="form-group form-inline">
                                                 <label for="firstName">First Name <span>*</span></label>
                                                 <input type="text" name="firstName" class="form-control" id="firstName"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="middleName">Middle Name</label>
                                                 <input type="text" name="middleName" class="form-control" id="middleName"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="lastName">Last Name <span>*</span></label>
                                                 <input type="text" name="lastName" class="form-control" id="lastName"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
@@ -381,19 +385,20 @@
                                             <div class="form-group form-inline">
                                                 <label for="dateOfBirth">Date of Birth <span>*</span></label>
                                                 <input type="date" name="dateOfBirth" class="form-control" id="dateOfBirth"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="age">Age</label>
-                                                <input type="text" name="age" class="form-control" id="age" placeholder="" readonly="readonly">
+                                                <input type="text" name="age" class="form-control" id="age" placeholder=""
+                                                    readonly="readonly">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="identityType">Identity Type <span>*</span></label>
 
                                                 <select name="identityType" class="form-control" id="identityType"
-                                                        placeholder="">
+                                                    placeholder="">
                                                     <option>--Select option--</option>
                                                     <option value="male">ID Document</option>
                                                     <option value="female">Passport</option>
@@ -403,7 +408,7 @@
                                             <div class="form-group form-inline">
                                                 <label for="idNumber">Identity Number <span>*</span></label>
                                                 <input type="text" name="idNumber" class="form-control" id="idNumber"
-                                                       placeholder="">
+                                                    placeholder="">
                                                 </select>
                                             </div>
 
@@ -411,7 +416,7 @@
                                                 <label for="maritialStatus">Maritial Status <span>*</span></label>
 
                                                 <select name="maritalStatus" class="form-control" id="maritalstatus"
-                                                        placeholder="">
+                                                    placeholder="">
                                                     <option>--Select option--</option>
                                                     <option value="single">Single</option>
                                                     <option value="married">Married</option>
@@ -424,7 +429,7 @@
                                                 <label for="ethnicity">Ethnicity <span>*</span></label>
 
                                                 <select name="ethnicity" class="form-control" id="ethnicity"
-                                                        placeholder="">
+                                                    placeholder="">
                                                     <option>--Select option--</option>
                                                     <option value="black">Black</option>
                                                     <option value="white">White</option>
@@ -452,12 +457,12 @@
                                         <!--=======================================================================================================-->
                                         <div class="col-sm-4">
                                             <button type="button" style="display:block;width:255px;" data-toggle="collapse"
-                                                    data-target="#takePhoto" onclick="hideSnap()" class="btn btn-default">
+                                                data-target="#takePhoto" onclick="hideSnap()" class="btn btn-default">
                                                 Take
                                                 Photo
                                             </button>
                                             <button type="button" style="display:block;width:255px;" data-toggle="collapse"
-                                                    data-target="#uploadPhoto" onclick="showSnap()" class="btn btn-light">
+                                                data-target="#uploadPhoto" onclick="showSnap()" class="btn btn-light">
                                                 Upload Documents
                                             </button>
                                         </div>
@@ -475,7 +480,8 @@
                                         <div id="takePhoto" class="collapse col-sm-4">
                                             <video width="255" autoplay="true" id="videoElement"></video>
                                             <br />
-                                            <button id="snap" data-target="#takePhoto" data-toggle="collapse">Capture </button>
+                                            <button id="snap" data-target="#takePhoto" data-toggle="collapse">Capture
+                                            </button>
                                         </div>
                                         <div id="snapCanvas" class=" col-sm-4">
                                             <canvas id="canvas" width="255" height="275"> </canvas>
@@ -504,7 +510,7 @@
                                             <div class="form-group form-inline">
                                                 <label for="prefferedContact">Preffered Contact Method</label>
                                                 <select name="prefferedContact" class="form-control" id="prefferedContact"
-                                                        placeholder="">
+                                                    placeholder="">
                                                     <option>--Select option--</option>
                                                     <option value="male">Phone</option>
                                                     <option value="female">Email</option>
@@ -520,25 +526,25 @@
                                             <div class="form-group form-inline">
                                                 <label for="busAddress">Building/House <span>*</span></label>
                                                 <input type="text" class="form-control" id="building-house" name="busAddress"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="resAddress1">Street Name <span>*</span></label>
                                                 <input type="text" class="form-control" name="resAddress1" id="street-name"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
 
                                             <div class="form-group form-inline">
                                                 <label for="resSurbub">Suburb/Town <span>*</span></label>
                                                 <input type="text" class="form-control" name="resSurbub" id="resSurbub"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
                                             <div class="form-group form-inline">
                                                 <label for="resPostCode">Postal Code <span>*</span></label>
                                                 <input type="text" class="form-control" name="resPostCode" id="resPostCode"
-                                                       placeholder="">
+                                                    placeholder="">
 
                                             </div>
 
@@ -562,14 +568,14 @@
                                             <div class="form-group form-inline">
                                                 <label for="postalBox">Postal Box <span>*</span></label>
                                                 <input type="text" name="postalBox" class="form-control" id="postal-box"
-                                                       placeholder="">
+                                                    placeholder="">
 
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="busPostCode">Postal Code <span>*</span></label>
                                                 <input type="text" class="form-control" id="postal-code" name="busPostCode"
-                                                       placeholder="">
+                                                    placeholder="">
 
                                             </div>
                                         </div>
@@ -578,17 +584,17 @@
                                             <div class="form-group form-inline">
                                                 <label for="cellNumber">Cell Number <span>*</span></label>
                                                 <input type="text" class="form-control" id="cell-number" name="cellNumber"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
                                             <div class="form-group form-inline">
                                                 <label for="email">Email <span>*</span></label>
                                                 <input type="email" class="form-control" name="email" id="email"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
                                             <div class="form-group form-inline">
                                                 <label for="contactHours">Preferred Contact Hours</label>
                                                 <select name="contactHours" class="form-control" id="contact-methods"
-                                                        placeholder="">
+                                                    placeholder="">
                                                     <option>--Select option--</option>
                                                     <option value="anytime">Anytime</option>
                                                     <option value="workinghours">Working Hours</option>
@@ -602,7 +608,7 @@
                                         </div>
                                         <!-- End Calc of Total Number of Donors Fields -->
                                         <input type="button" data-page="2" name="previous" class="previous action-button"
-                                               value="Previous" />
+                                            value="Previous" />
                                         <input type="button" data-page="2" name="next" class="next action-button" value="Save & Continue" />
 
                                     </fieldset>
@@ -617,19 +623,19 @@
                                             <div class="form-group form-inline">
                                                 <label for="nokName">Name <span>*</span></label>
                                                 <input type="text" class="form-control" id="nokName" name="nokName"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="nokSurname">Surname <span>*</span></label>
                                                 <input type="text" class="form-control" id="nokSurname" name="nokSurname"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="nokContact">Contact Number <span>*</span></label>
                                                 <input type="text" class="form-control" id="nokContact" name="nokContact"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
@@ -639,44 +645,46 @@
                                             <div class="form-group form-inline">
                                                 <label for="nokBuildingHome">Building/House <span>*</span></label>
                                                 <input type="text" class="form-control" id="nokbuilding-house" name="nokBuildingHome"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="nokStreetName">Street Name <span>*</span></label>
                                                 <input type="text" class="form-control" id="nok-street-name" name="nokStreetName"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
 
                                             <div class="form-group form-inline">
                                                 <label for="nokSurburbTown">Suburb/Town <span>*</span></label>
                                                 <input type="text" class="form-control" id="nok-surburb-town" name="nokSurburbTown"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
                                             <div class="form-group form-inline">
                                                 <label for="nokPostalCode">Postal Code <span>*</span></label>
                                                 <input type="text" class="form-control" id="nok-postal-code" name="nokPostalCode"
-                                                       placeholder="">
+                                                    placeholder="">
 
                                             </div>
                                             <div class="form-group form-inline">
                                                 <label for="nokCountry">Country <span>*</span></label>
                                                 <!--<input type="text" class="form-control countries" id="nok-country" name="nokCountry"
-                                                --><select class="form-control countries" id="nok-country" name="nokCountry" placeholder=""> </select>
+                                                --><select
+                                                    class="form-control countries" id="nok-country" name="nokCountry"
+                                                    placeholder=""> </select>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group form-inline">
                                                 <label for="nokEmail">Email <span>*</span></label>
                                                 <input type="email" class="form-control" id="nok-email" name="nokEmail"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="nokRelationship">Relationship</label>
                                                 <select name="nokRelationship" class="form-control" id="nok-ralationship"
-                                                        placeholder="">
+                                                    placeholder="">
                                                     <option>--Select option--</option>
                                                     <option value="mother">Mother</option>
                                                     <option value="father">Father</option>
@@ -698,7 +706,7 @@
                                         <div class=" col-sm-12 col-sm-12 col-sm-12"></div>
 
                                         <input type="button" data-page="3" name="previous" class="previous action-button"
-                                               value="Previous" />
+                                            value="Previous" />
                                         <input type="button" data-page="3" name="next" class="next action-button" value="Save & Continue" />
 
                                     </fieldset>
@@ -714,7 +722,7 @@
                                             <div class="form-group form-inline">
                                                 <label for="paymentOptions">Payment Option <span>*</span></label>
                                                 <select name="paymentOptions" class="form-control" id="medicalaidoption"
-                                                        placeholder="">
+                                                    placeholder="">
                                                     <option>--Select option--</option>
                                                     <option value="medicalaid">Medial Aid</option>
                                                     <option value="cash">Cash</option>
@@ -726,19 +734,19 @@
                                             <div class="form-group form-inline">
                                                 <label for="medicalAidScheme">Medical Aid Scheme <span>*</span></label>
                                                 <input type="text" class="form-control" name="medicalAidScheme" id="medical-aid-scheme"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="medicalAidSchemeOption">Medical Aid Scheme Option <span>*</span></label>
                                                 <input name="medicalAidSchemeOption" type="text" class="form-control"
-                                                       id="medical-aid-scheme-option" placeholder="">
+                                                    id="medical-aid-scheme-option" placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="medicalAidSchemeNumber">Medical Aid Scheme Number <span>*</span></label>
                                                 <input type="number" class="form-control" name="medicalAidSchemeNumber"
-                                                       id="medical-aid-scheme-number" placeholder="">
+                                                    id="medical-aid-scheme-number" placeholder="">
                                             </div>
 
                                             <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#iframeModal">
@@ -754,19 +762,19 @@
                                             <div class="form-group form-inline">
                                                 <label for="memberName">Member Name <span>*</span></label>
                                                 <input type="text" class="form-control" id="member-name" name="memberName"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="memberSurname">Member Surname <span>*</span></label>
                                                 <input type="text" class="form-control" id="member-surname" name="memberSurname"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="memberId">Member ID Number <span>*</span></label>
                                                 <input type="text" class="form-control" name="memberId" id="member-id-number"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
@@ -776,7 +784,7 @@
                                             <div class="form-group form-inline">
                                                 <label for="Patientcode">Patient Dependant Code <span>*</span></label>
                                                 <select name="patientCode" class="form-control" id="Patient-code"
-                                                        placeholder="">
+                                                    placeholder="">
                                                     <option>--Select option--</option>
                                                     <option value="00">00</option>
                                                     <option value="01">01</option>
@@ -800,16 +808,20 @@
 
 
                                         <input type="button" data-page="4" name="previous" class="previous action-button"
-                                               value="Previous" />
+                                            value="Previous" />
                                         <input type="button" data-page="4" name="next" class="next action-button" value="Save & Continue" />
 
                                         <!--===============================iFRAME MODAL=================================-->
-                                        <div class="modal fade" id="iframeModal" style="width:85%" tabindex="-1" role="dialog" aria-labelledby="iframeModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" style="display:grid;height: 800px;width:100%;" role="document">
+                                        <div class="modal fade" id="iframeModal" style="width:85%" tabindex="-1" role="dialog"
+                                            aria-labelledby="iframeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" style="display:grid;height: 800px;width:100%;"
+                                                role="document">
                                                 <div class="modal-content" style="width:100%">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="iframeModalLabel">Medical Aid Verification</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <h5 class="modal-title" id="iframeModalLabel">Medical Aid
+                                                            Verification</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
@@ -823,7 +835,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
 
 
                                     </fieldset>
@@ -860,19 +871,19 @@
                                             <div class="form-group form-inline">
                                                 <label for="accName">Name <span>*</span></label>
                                                 <input type="text" class="form-control" name="accName" id="accName"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="accSurname">Surname <span>*</span></label>
                                                 <input type="text" class="form-control" id="accSurname" name="accSurname"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="accIdnumber">ID Number <span>*</span></label>
                                                 <input type="text" class="form-control" id="accIdnumber" name="accIdnumber"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
@@ -882,13 +893,13 @@
                                             <div class="form-group form-inline">
                                                 <label for="accBuildingHome">Building/House <span>*</span></label>
                                                 <input type="text" class="form-control" id="acc-building-house" name="accBuildingHome"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="accStreetName">Street Name <span>*</span></label>
                                                 <input type="text" class="form-control" id="acc-street-name"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
 
@@ -896,19 +907,19 @@
                                             <div class="form-group form-inline">
                                                 <label for="accSuburb">Suburb/Town <span>*</span></label>
                                                 <input type="text" class="form-control" id="acc-street-name" name="accSuburb"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
                                             <div class="form-group form-inline">
                                                 <label for="accPostalCode">Postal Code <span>*</span></label>
                                                 <input type="text" name="accPostalCode" class="form-control" id="acc-postal-code"
-                                                       placeholder="">
+                                                    placeholder="">
 
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="accCountry">Country <span>*</span></label>
-                                                <select type="text" class="form-control countries" id="acc-country" name="accCountry"
-                                                       placeholder=""></select>
+                                                <select type="text" class="form-control countries" id="acc-country"
+                                                    name="accCountry" placeholder=""></select>
                                             </div>
 
                                             <div class="form-group form-inline">
@@ -924,7 +935,7 @@
                                             <div class="form-group form-inline">
                                                 <label for="accEmployerAdd">Employer Address <span>*</span></label>
                                                 <input type="text" class="form-control" id="employer-address"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
@@ -935,7 +946,7 @@
                                             <div class="form-group form-inline">
                                                 <label for="accEmployerContact">Employer Contact<span>*</span></label>
                                                 <input type="text" class="form-control" id="employer-contact"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                         </div>
@@ -959,13 +970,13 @@
                                             <div class="form-group form-inline">
                                                 <label for="accContactNum">Contact Number <span>*</span></label>
                                                 <input type="text" class="form-control" id="acc-contact-number"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
                                                 <label for="accEmail">Email Address <span>*</span></label>
                                                 <input type="text" name="accEmail" class="form-control" id="acc-email"
-                                                       placeholder="">
+                                                    placeholder="">
                                             </div>
 
                                             <div class="form-group form-inline">
@@ -989,11 +1000,13 @@
                                         </div>
                                         <div class="clearfix"></div>
                                         <input type="button" data-page="5" name="previous" class="previous action-button"
-                                               value="Previous" />
+                                            value="Previous" />
                                         <input type="button" data-page="5" name="next" class="next action-button" value="Save & Continue" />
 
 
                                     </fieldset>
+
+
 
                                     <fieldset>
                                         <h2 class="fs-title">Terms & Conditions</h2>
@@ -1115,52 +1128,38 @@
                                             </ol>
 
                                         </div>
-                                        <!--<div class="col-lg-6">
-                                        <div class="form-group form-inline">
-                                              <input type="radio" name="sameaddress" value="" id="same-address"> Yes, I accept the terms and conditions
-                                          </div>
-                                          <div class="form-group form-inline">
-                                                  <input type="radio" name="sameaddress" value="" id="same-address">No, I don t accept the terms and conditions
-                                              </div>
-                                              <div class="form-group form-inline">
-                                                      <label for="siganture">Signature </label>
-                                                      <input type="text" class="form-control" id="signature" placeholder="">
-                                                  </div>
 
-                                              <div class="form-group form-inline">
-                                                      <label for="date">Signature </label>
-                                                      <input type="date" class="form-control" id="date" placeholder="">
-                                                  </div>
-                                                  </div>-->
 
                                         <div class="col-sm-6 col-md-6 col-sm-12"></div>
                                         <div class="clearfix"></div>
-
+                                        <div class="container"></div>
                                         <input type="button" data-page="5" name="previous" class="previous action-button"
-                                               value="Previous" />
+                                            value="Previous" />
                                         <input id="submit" class="hs-button primary large action-button next" type="submit"
-                                               value="Submit">
+                                            value="Submit" onclick="location.href='patients.php'" data-toggle="modal" data-target="#myModal">
 
-                                    </fieldset>
-                                </form>
-                            </div>
+                                      
+                            </fieldset>
+
+                            </form>
                         </div>
-
-
                     </div>
 
 
                 </div>
-                <!-- end row -->
 
 
-            </div> <!-- container -->
+            </div>
+            <!-- end row -->
 
-        </div> <!-- content -->
 
-        <footer class="footer text-right">
-            2018 © Medipark
-        </footer>
+        </div> <!-- container -->
+
+    </div> <!-- content -->
+
+    <footer class="footer text-right">
+        2018 © Medipark
+    </footer>
 
     </div>
 
@@ -1244,6 +1243,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
     <script type="text/javascript">
+
+
+
+
+
+
 
     </script>
 
