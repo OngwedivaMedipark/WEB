@@ -266,7 +266,7 @@ $sql = 'SELECT Person.PersonId, firstName, lastName, email, idNumber
 
                             
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-stethoscope"></i><span> Nurse</span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-stethoscope"></i><span> Nurses</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="add-nurse.html">Add Nurse</a></li>
                                     <li><a href="nurses.php">Manage Nurse</a></li>                                   
@@ -620,7 +620,19 @@ $sql = 'SELECT Person.PersonId, firstName, lastName, email, idNumber
                 </div>
             </div>
         </div>
- 
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header text-primary">
+      <a href="patients.php" class="close" data-dismiss="modal">×</a>
+      <h4 class="modal-title"><i class="fa fa-exclamation-circle"></i> Patient Edit Details</h4>
+    </div>
+    <div class="modal-body">
+    You have sucessful added a Nurse
+    </div>
+    <div class="modal-footer">
+	  <a  class="btn btn-default" data-dismiss="modal">Finish</a>
+    </div>
+  </div>
 
         <script>
             var resizefunc = [];
@@ -650,6 +662,10 @@ $sql = 'SELECT Person.PersonId, firstName, lastName, email, idNumber
 
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
 <script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
-
+<script type="text/javascript">
+  $(window).load(function(){
+                $('#onload').modal('show');
+            });
+</script>
     </body>
 </html>

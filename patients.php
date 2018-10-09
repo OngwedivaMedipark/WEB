@@ -416,7 +416,7 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
 							</div>
 						</div>
                         <!-- end row -->
-
+                        
                         <div class="row">
                         	<div class="col-lg-12">
                         		<div class="card-box">
@@ -720,6 +720,23 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
             </div>
         </div>
  
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"  id="onload">
+
+<div class="modal-dialog">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header text-primary">
+      <a href="patients.php" class="close" data-dismiss="modal">×</a>
+      <h4 class="modal-title"><i class="fa fa-exclamation-circle"></i> Patient Edit Details</h4>
+    </div>
+    <div class="modal-body">
+    You have sucessful added a patient
+    </div>
+    <div class="modal-footer">
+	  <a  class="btn btn-default" data-dismiss="modal">Finish</a>
+    </div>
+  </div>
 
         <script>
             var resizefunc = [];
@@ -752,6 +769,10 @@ $sql = "SELECT Person.PersonId, firstName, lastName, email, idNumber FROM Person
 
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
 <script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
-
+<script type="text/javascript">
+  $(window).load(function(){
+                $('#onload').modal('show');
+            });
+</script>
     </body>
 </html>
